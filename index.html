@@ -34,6 +34,22 @@
       <section class="hero container reveal">
         <p class="eyebrow">Data Science + Economics</p>
         <h1>Haoyang (Howard) Hu</h1>
+        <p id="hero-blurb" class="hero-blurb">
+          I like building things that help teams see what matters faster:
+          experiments, dashboards, models, and systems that turn messy data
+          into action.
+        </p>
+        <div class="persona-switch" aria-label="Choose a perspective">
+          <button class="persona-pill is-active" data-persona="analyst" type="button">
+            Analyst
+          </button>
+          <button class="persona-pill" data-persona="builder" type="button">
+            Builder
+          </button>
+          <button class="persona-pill" data-persona="operator" type="button">
+            Operator
+          </button>
+        </div>
         <div class="marquee-wrap" aria-label="Scrolling skills">
           <div class="marquee-track">
             <span>SQL</span>
@@ -63,37 +79,168 @@
       </section>
 
       <section id="work" class="container section reveal">
-        <h2>Work</h2>
+        <div class="section-intro">
+          <h2>Selected Work</h2>
+          <p>
+            Click a card to open the thinking behind it. The goal here is less
+            “resume dump” and more how I approach problems.
+          </p>
+        </div>
         <div class="work-grid">
-          <article class="work-card wide">
+          <article class="work-card wide" data-persona-tags="analyst,builder">
             <p class="card-tag">Internship | PG&amp;E</p>
             <h3>Accounts Payable Data Analytics Intern</h3>
-            <p>Used SQL for data cleaning and forecasting on raw financial data, improving processing and downstream analysis efficiency by 200%.</p>
+            <p class="card-summary">
+              Used SQL for data cleaning and forecasting on raw financial data,
+              improving processing and downstream analysis efficiency by 200%.
+            </p>
+            <button
+              class="card-toggle"
+              type="button"
+              data-closed-label="Open case study"
+              data-open-label="Close case study"
+            >
+              Open case study
+            </button>
+            <div class="card-detail">
+              <p>
+                I focused on making reporting less fragile. That meant cleaning
+                inconsistent source data, designing KPI views in Power BI, and
+                automating the refresh path so the team could trust the numbers
+                without rebuilding the workflow every week.
+              </p>
+              <p class="detail-meta">SQL · Power BI · DAX · Power Automate</p>
+            </div>
           </article>
-          <article class="work-card tall">
+          <article class="work-card tall" data-persona-tags="analyst,builder">
             <p class="card-tag">Internship | Dick's Sporting Goods</p>
             <h3>Data Science Intern</h3>
-            <p>Processed browsing and transaction data in BigQuery, ran NLP sentiment analysis on 10K+ reviews, and supported TensorFlow/PyTorch sales prediction work in Google Cloud.</p>
+            <p class="card-summary">
+              Processed browsing and transaction data in BigQuery, ran NLP
+              sentiment analysis on 10K+ reviews, and supported
+              TensorFlow/PyTorch sales prediction work in Google Cloud.
+            </p>
+            <button
+              class="card-toggle"
+              type="button"
+              data-closed-label="Open case study"
+              data-open-label="Close case study"
+            >
+              Open case study
+            </button>
+            <div class="card-detail">
+              <p>
+                This project sat at the intersection of customer behavior and
+                forecasting. I enjoyed moving from raw events and review text to
+                something the product and marketing teams could actually use to
+                make decisions.
+              </p>
+              <p class="detail-meta">
+                BigQuery · Python · NLP · TensorFlow · PyTorch · GCP
+              </p>
+            </div>
           </article>
-          <article class="work-card">
+          <article class="work-card" data-persona-tags="operator,analyst">
             <p class="card-tag">Leadership | Cal Student Store</p>
             <h3>Business Intelligence Team Executive Member</h3>
-            <p>Analyzed product and campaign performance, contributing to 25% CTR growth and 150% sales lift through targeted social and in-store execution.</p>
+            <p class="card-summary">
+              Analyzed product and campaign performance, contributing to 25%
+              CTR growth and 150% sales lift through targeted social and
+              in-store execution.
+            </p>
+            <button
+              class="card-toggle"
+              type="button"
+              data-closed-label="Open case study"
+              data-open-label="Close case study"
+            >
+              Open case study
+            </button>
+            <div class="card-detail">
+              <p>
+                This is where analytics met real-world merchandising. I used
+                audience behavior, product performance, and campaign timing to
+                shape promotions that actually moved traffic and sales.
+              </p>
+              <p class="detail-meta">Marketing analytics · BI · Growth</p>
+            </div>
           </article>
-          <article class="work-card">
+          <article class="work-card" data-persona-tags="analyst">
             <p class="card-tag">Project</p>
             <h3>Two-sided Market A/B Test Analysis</h3>
-            <p>Designed Instacart funnel experiment metrics and used Z-score hypothesis testing to evaluate CVR and CPA impact across acquisition channels.</p>
+            <p class="card-summary">
+              Designed Instacart funnel experiment metrics and used Z-score
+              hypothesis testing to evaluate CVR and CPA impact across
+              acquisition channels.
+            </p>
+            <button
+              class="card-toggle"
+              type="button"
+              data-closed-label="Open case study"
+              data-open-label="Close case study"
+            >
+              Open case study
+            </button>
+            <div class="card-detail">
+              <p>
+                I like this project because it feels closest to product
+                decision-making: define the metric carefully, understand the
+                tradeoff, and make a recommendation that balances growth with
+                efficiency.
+              </p>
+              <p class="detail-meta">Experimentation · Python · Statistics</p>
+            </div>
           </article>
-          <article class="work-card wide">
+          <article class="work-card wide" data-persona-tags="builder,operator">
             <p class="card-tag">Project</p>
             <h3>AI-Powered Power BI Dashboard Agent</h3>
-            <p>Built an LLM-driven workflow that transforms raw business data into dashboard-ready models and automates deployment with Power Automate triggers.</p>
+            <p class="card-summary">
+              Built an LLM-driven workflow that transforms raw business data
+              into dashboard-ready models and automates deployment with Power
+              Automate triggers.
+            </p>
+            <button
+              class="card-toggle"
+              type="button"
+              data-closed-label="Open case study"
+              data-open-label="Close case study"
+            >
+              Open case study
+            </button>
+            <div class="card-detail">
+              <p>
+                The interesting part here was not just “use AI.” It was
+                designing a workflow that reduced setup time and made dashboard
+                creation feel more conversational without losing structure.
+              </p>
+              <p class="detail-meta">LLMs · Power BI · Automation</p>
+            </div>
           </article>
-          <article class="work-card">
+          <article class="work-card" data-persona-tags="operator">
             <p class="card-tag">Education</p>
             <h3>UC Berkeley (2022 - 2026)</h3>
-            <p>B.A. Data Science (Economics concentration) and B.A. Economics, with coursework across analytics, data mining, econometrics, and algorithms.</p>
+            <p class="card-summary">
+              B.A. Data Science (Economics concentration) and B.A. Economics,
+              with coursework across analytics, data mining, econometrics, and
+              algorithms.
+            </p>
+            <button
+              class="card-toggle"
+              type="button"
+              data-closed-label="Open snapshot"
+              data-open-label="Close snapshot"
+            >
+              Open snapshot
+            </button>
+            <div class="card-detail">
+              <p>
+                Berkeley gave me a mix I value a lot: technical depth, economic
+                reasoning, and enough exposure to systems work that I care about
+                how analysis gets operationalized, not just whether it is
+                correct on paper.
+              </p>
+              <p class="detail-meta">Data Science · Economics · Systems</p>
+            </div>
           </article>
         </div>
       </section>
@@ -114,9 +261,22 @@
               collaboration. I am currently open to internships and full-time
               opportunities in data and BI.
             </p>
+            <div class="about-notes">
+              <div class="note-card">
+                <span class="note-label">Currently into</span>
+                <strong>Experiment design, dashboard automation, and retail/customer analytics.</strong>
+              </div>
+              <div class="note-card">
+                <span class="note-label">What I optimize for</span>
+                <strong>Clarity, speed, and outputs teams can actually use.</strong>
+              </div>
+            </div>
           </div>
           <div class="headshot-mask" aria-label="Headshot placeholder">
-            <span>Howard Hu</span>
+            <div class="headshot-inner">
+              <span class="headshot-name">Howard Hu</span>
+              <p>Berkeley / Oakland / San Antonio</p>
+            </div>
           </div>
         </div>
       </section>

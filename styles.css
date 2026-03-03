@@ -90,6 +90,42 @@ h1 {
   font-weight: 900;
 }
 
+.hero-blurb {
+  width: min(720px, 100%);
+  margin: 1.4rem auto 0;
+  color: var(--muted);
+  line-height: 1.75;
+  font-size: 1.02rem;
+}
+
+.persona-switch {
+  margin-top: 1.6rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.persona-pill {
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--muted);
+  border-radius: 999px;
+  padding: 0.55rem 0.9rem;
+  font: inherit;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: border-color 180ms ease, color 180ms ease, background 180ms ease;
+}
+
+.persona-pill:hover,
+.persona-pill.is-active {
+  border-color: #d5ddff;
+  color: var(--text);
+  background: #f7f9ff;
+}
+
 .marquee-wrap {
   margin-top: 2.4rem;
   border-top: 1px solid var(--line);
@@ -122,6 +158,19 @@ h1 {
   font-weight: 900;
 }
 
+.section-intro {
+  display: grid;
+  gap: 0.45rem;
+  margin-bottom: 1.4rem;
+}
+
+.section-intro p {
+  margin: 0;
+  max-width: 60ch;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
 .work-grid {
   display: grid;
   grid-template-columns: repeat(1, minmax(0, 1fr));
@@ -134,13 +183,22 @@ h1 {
   border-radius: 14px;
   background: var(--surface);
   min-height: 180px;
-  transition: box-shadow 220ms ease, transform 220ms ease, border-color 220ms ease;
+  transition: box-shadow 220ms ease, transform 220ms ease, border-color 220ms ease, opacity 180ms ease;
 }
 
 .work-card:hover {
   border-color: #cfd8ff;
   box-shadow: 0 0 0 1px #dce4ff, 0 0 34px rgba(47, 107, 255, 0.13);
   transform: translateY(-2px);
+}
+
+.work-card.is-dimmed {
+  opacity: 0.42;
+}
+
+.work-card.is-open {
+  border-color: #cfd8ff;
+  box-shadow: 0 0 0 1px #dce4ff, 0 0 34px rgba(47, 107, 255, 0.13);
 }
 
 .card-tag {
@@ -165,6 +223,44 @@ h1 {
   line-height: 1.65;
 }
 
+.card-summary {
+  margin-top: 0.2rem;
+}
+
+.card-toggle {
+  margin-top: 1rem;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  color: var(--text);
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.card-detail {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 240ms ease, opacity 180ms ease, margin-top 180ms ease;
+}
+
+.work-card.is-open .card-detail {
+  max-height: 240px;
+  opacity: 1;
+  margin-top: 0.95rem;
+}
+
+.detail-meta {
+  margin-top: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+  color: #767680;
+  font-weight: 700;
+}
+
 .about-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -183,6 +279,34 @@ h1 {
   font-size: 1.02rem;
 }
 
+.about-notes {
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 1.4rem;
+}
+
+.note-card {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1rem;
+  background: #fbfbfc;
+}
+
+.note-label {
+  display: block;
+  margin-bottom: 0.45rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.72rem;
+  color: #7f7f86;
+  font-weight: 700;
+}
+
+.note-card strong {
+  font-size: 0.98rem;
+  line-height: 1.5;
+}
+
 .headshot-mask {
   border: 1px solid var(--line);
   border-radius: 28px;
@@ -198,6 +322,26 @@ h1 {
   font-size: 0.78rem;
   color: #8a8a90;
   font-weight: 700;
+}
+
+.headshot-inner {
+  text-align: center;
+  padding: 1.4rem;
+}
+
+.headshot-name {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.82rem;
+  color: #67676e;
+  font-weight: 800;
+}
+
+.headshot-inner p {
+  margin: 0.8rem 0 0;
+  color: #8a8a90;
+  font-size: 0.95rem;
 }
 
 .site-footer {
