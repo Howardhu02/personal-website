@@ -22,8 +22,10 @@
         <a href="#home" class="logo">HOWARD HU</a>
         <nav>
           <ul class="nav-links">
-            <li><a href="#work">Work</a></li>
+            <li><a href="#projects">Projects</a></li>
             <li><a href="#about">About</a></li>
+            <li><a href="#photography">Photography</a></li>
+            <li><a href="#hobbies">Hobbies</a></li>
             <li><a href="#footer">Connect</a></li>
           </ul>
         </nav>
@@ -31,24 +33,47 @@
     </header>
 
     <main id="home">
-      <section class="hero container reveal">
-        <p class="eyebrow">Data Science + Economics</p>
-        <h1>Haoyang (Howard) Hu</h1>
-        <p id="hero-blurb" class="hero-blurb">
-          I like building things that help teams see what matters faster:
-          experiments, dashboards, models, and systems that turn messy data
-          into action.
-        </p>
-        <div class="persona-switch" aria-label="Choose a perspective">
-          <button class="persona-pill is-active" data-persona="analyst" type="button">
-            Analyst
-          </button>
-          <button class="persona-pill" data-persona="builder" type="button">
-            Builder
-          </button>
-          <button class="persona-pill" data-persona="operator" type="button">
-            Operator
-          </button>
+      <section id="hero-section" class="hero container reveal">
+        <div class="hero-grid">
+          <div class="hero-copy-wrap">
+            <p class="eyebrow">Data Science + Economics</p>
+            <h1>Haoyang (Howard) Hu</h1>
+            <p id="hero-blurb" class="hero-blurb">
+              I like building things that help teams see what matters faster:
+              experiments, dashboards, models, and systems that turn messy data
+              into action.
+            </p>
+            <div class="persona-switch" aria-label="Choose a perspective">
+              <button class="persona-pill is-active" data-persona="analyst" type="button">
+                Analyst
+              </button>
+              <button class="persona-pill" data-persona="builder" type="button">
+                Builder
+              </button>
+              <button class="persona-pill" data-persona="operator" type="button">
+                Operator
+              </button>
+            </div>
+          </div>
+          <div class="hero-art">
+            <div
+              id="hero-avatar"
+              class="avatar-slot avatar-slot-hero"
+              data-avatar-mode="dynamic"
+              data-avatar-label="Now"
+              aria-label="Howard pixel avatar"
+            ></div>
+            <div class="hero-notes">
+              <div class="hero-note">
+                <span>Focus</span>
+                <strong>Analytics, BI, experimentation</strong>
+              </div>
+              <div class="hero-note">
+                <span>Open to</span>
+                <strong>Internships + full-time data roles</strong>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="marquee-wrap" aria-label="Scrolling skills">
           <div class="marquee-track">
@@ -76,11 +101,33 @@
             <span>Azure</span>
           </div>
         </div>
+        <div class="signal-strip">
+          <div class="signal-card">
+            <span>Recent work</span>
+            <strong>PG&amp;E, Dick's, Cal Student Store</strong>
+          </div>
+          <div class="signal-card">
+            <span>Favorite problems</span>
+            <strong>Experiments, dashboards, decision systems</strong>
+          </div>
+          <div class="signal-card">
+            <span>Outside of work</span>
+            <strong>Photography, poker, visual storytelling</strong>
+          </div>
+        </div>
       </section>
 
-      <section id="work" class="container section reveal">
+      <section id="projects" class="container section reveal">
         <div class="section-intro">
-          <h2>Selected Work</h2>
+          <div class="section-heading">
+            <h2>Projects + Work</h2>
+            <div
+              class="avatar-slot avatar-slot-inline"
+              data-avatar-pose="laptop"
+              data-avatar-label="Projects"
+              aria-label="Howard with laptop"
+            ></div>
+          </div>
           <p>
             Click a card to open the thinking behind it. The goal here is less
             “resume dump” and more how I approach problems.
@@ -90,6 +137,7 @@
           <article class="work-card wide" data-persona-tags="analyst,builder">
             <p class="card-tag">Internship | PG&amp;E</p>
             <h3>Accounts Payable Data Analytics Intern</h3>
+            <p class="card-metric">Impact: 200% efficiency improvement</p>
             <p class="card-summary">
               Used SQL for data cleaning and forecasting on raw financial data,
               improving processing and downstream analysis efficiency by 200%.
@@ -115,6 +163,7 @@
           <article class="work-card tall" data-persona-tags="analyst,builder">
             <p class="card-tag">Internship | Dick's Sporting Goods</p>
             <h3>Data Science Intern</h3>
+            <p class="card-metric">Scope: 10K+ reviews + sales forecasting</p>
             <p class="card-summary">
               Processed browsing and transaction data in BigQuery, ran NLP
               sentiment analysis on 10K+ reviews, and supported
@@ -143,6 +192,7 @@
           <article class="work-card" data-persona-tags="operator,analyst">
             <p class="card-tag">Leadership | Cal Student Store</p>
             <h3>Business Intelligence Team Executive Member</h3>
+            <p class="card-metric">Outcome: 25% CTR growth, 150% sales lift</p>
             <p class="card-summary">
               Analyzed product and campaign performance, contributing to 25%
               CTR growth and 150% sales lift through targeted social and
@@ -168,6 +218,7 @@
           <article class="work-card" data-persona-tags="analyst">
             <p class="card-tag">Project</p>
             <h3>Two-sided Market A/B Test Analysis</h3>
+            <p class="card-metric">Theme: experimentation and funnel design</p>
             <p class="card-summary">
               Designed Instacart funnel experiment metrics and used Z-score
               hypothesis testing to evaluate CVR and CPA impact across
@@ -194,6 +245,7 @@
           <article class="work-card wide" data-persona-tags="builder,operator">
             <p class="card-tag">Project</p>
             <h3>AI-Powered Power BI Dashboard Agent</h3>
+            <p class="card-metric">Theme: AI workflow + dashboard automation</p>
             <p class="card-summary">
               Built an LLM-driven workflow that transforms raw business data
               into dashboard-ready models and automates deployment with Power
@@ -219,6 +271,7 @@
           <article class="work-card" data-persona-tags="operator">
             <p class="card-tag">Education</p>
             <h3>UC Berkeley (2022 - 2026)</h3>
+            <p class="card-metric">Foundation: data science + economics</p>
             <p class="card-summary">
               B.A. Data Science (Economics concentration) and B.A. Economics,
               with coursework across analytics, data mining, econometrics, and
@@ -246,7 +299,15 @@
       </section>
 
       <section id="about" class="container section reveal">
-        <h2>About</h2>
+        <div class="section-heading">
+          <h2>About</h2>
+          <div
+            class="avatar-slot avatar-slot-inline"
+            data-avatar-pose="smile"
+            data-avatar-label="About"
+            aria-label="Howard smiling"
+          ></div>
+        </div>
         <div class="about-grid">
           <div class="about-copy">
             <p>
@@ -273,11 +334,88 @@
             </div>
           </div>
           <div class="headshot-mask" aria-label="Headshot placeholder">
-            <div class="headshot-inner">
-              <span class="headshot-name">Howard Hu</span>
-              <p>Berkeley / Oakland / San Antonio</p>
-            </div>
+            <div
+              class="avatar-slot avatar-slot-panel"
+              data-avatar-pose="smile"
+              data-avatar-label="Howard"
+              aria-label="Howard smiling portrait"
+            ></div>
           </div>
+        </div>
+      </section>
+
+      <section id="photography" class="container section reveal">
+        <div class="section-intro">
+          <div class="section-heading">
+            <h2>Photography</h2>
+            <div
+              class="avatar-slot avatar-slot-inline"
+              data-avatar-pose="camera"
+              data-avatar-label="Photo"
+              aria-label="Howard with camera"
+            ></div>
+          </div>
+          <p>
+            I like visual storytelling outside of analytics too. Photography
+            sharpens how I notice framing, detail, and atmosphere, which feeds
+            back into how I build dashboards and interfaces.
+          </p>
+        </div>
+        <div class="mini-grid">
+          <article class="mini-card">
+            <span class="mini-label">Photographers at Berkeley</span>
+            <h3>Visual practice beyond the spreadsheet</h3>
+            <p>
+              I care about composition, pacing, and how an image guides
+              attention, the same way a good product surface should.
+            </p>
+          </article>
+          <article class="mini-card">
+            <span class="mini-label">What I like shooting</span>
+            <h3>People, light, and urban detail</h3>
+            <p>
+              Street scenes and candid moments are usually the most interesting
+              to me because they reward observation over control.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="hobbies" class="container section reveal">
+        <div class="section-intro">
+          <div class="section-heading">
+            <h2>Hobbies</h2>
+            <div
+              class="avatar-slot avatar-slot-inline"
+              data-avatar-pose="poker"
+              data-avatar-label="Hobbies"
+              aria-label="Howard holding poker cards"
+            ></div>
+          </div>
+          <p>
+            I’m drawn to hobbies that mix instinct with strategy. That usually
+            means games, probability, reading patterns, and figuring out how
+            people make decisions under pressure.
+          </p>
+        </div>
+        <div class="mini-grid">
+          <article class="mini-card">
+            <span class="mini-label">Strategy</span>
+            <h3>Poker and decision-making</h3>
+            <p>
+              Poker is interesting to me for the same reason experimentation is:
+              incomplete information, calculated risk, and disciplined
+              thinking.
+            </p>
+          </article>
+          <article class="mini-card">
+            <span class="mini-label">Mindset</span>
+            <h3>Competitive but systems-minded</h3>
+            <p>
+              I like improving through pattern recognition, review, and small
+              process gains rather than relying on one-off intuition.
+            </p>
+          </article>
         </div>
       </section>
     </main>
@@ -295,5 +433,6 @@
     </footer>
 
     <script src="script.js"></script>
+    <script type="module" src="avatar.js"></script>
   </body>
 </html>
