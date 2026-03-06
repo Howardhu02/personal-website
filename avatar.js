@@ -4,19 +4,13 @@ import htm from 'https://esm.sh/htm@3.1.1';
 
 const html = htm.bind(React.createElement);
 
-const SPRITE_SRC = 'public/avatars/howard_sprite.png';
-const FRAME_WIDTH = 64;
-const FRAME_HEIGHT = 64;
-const COLUMNS = 3;
-const ROWS = 2;
-
-const poseToFrame = {
-  idle: 0,
-  smile: 1,
-  wave: 2,
-  laptop: 3,
-  camera: 4,
-  poker: 5,
+const spriteMap = {
+  idle: 'public/avatars/howard_idle.png',
+  smile: 'public/avatars/howard_smile.png',
+  wave: 'public/avatars/howard_wave.png',
+  laptop: 'public/avatars/howard_laptop.png',
+  camera: 'public/avatars/howard_camera.png',
+  poker: 'public/avatars/howard_poker.png',
 };
 
 const sectionPoseMap = [
@@ -28,22 +22,17 @@ const sectionPoseMap = [
 ];
 
 function SpriteFrame({ pose, visible }) {
-  const frameIndex = poseToFrame[pose] ?? 0;
-  const col = frameIndex % COLUMNS;
-  const row = Math.floor(frameIndex / COLUMNS);
-  const backgroundSize = `${COLUMNS * 100}% ${ROWS * 100}%`;
-  const backgroundPosition = `${(col / (COLUMNS - 1)) * 100}% ${(row / (ROWS - 1)) * 100}%`;
+  const src = spriteMap[pose] || spriteMap.idle;
 
   return html`
-    <div
+    <img
       className=${`avatar-sprite ${visible ? 'is-visible' : ''}`}
-      style=${{
-        backgroundImage: `url(${SPRITE_SRC})`,
-        backgroundSize,
-        backgroundPosition,
-      }}
+      src=${src}
+      alt=""
+      width="128"
+      height="128"
       aria-hidden="true"
-    ></div>
+    />
   `;
 }
 
