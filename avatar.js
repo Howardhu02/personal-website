@@ -15,6 +15,8 @@ const spriteMap = {
 
 const sectionPoseMap = [
   { id: 'hero-section', pose: 'idle' },
+  { id: 'work', pose: 'wave' },
+  { id: 'education', pose: 'smile' },
   { id: 'about', pose: 'smile' },
   { id: 'projects', pose: 'laptop' },
   { id: 'photography', pose: 'camera' },

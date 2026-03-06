@@ -14,7 +14,6 @@ const personaBlurbs = {
 
 const heroBlurb = document.getElementById("hero-blurb");
 const personaPills = document.querySelectorAll(".persona-pill");
-const workCards = document.querySelectorAll(".work-card");
 
 personaPills.forEach((pill) => {
   pill.addEventListener("click", () => {
@@ -27,29 +26,69 @@ personaPills.forEach((pill) => {
     if (heroBlurb && persona && personaBlurbs[persona]) {
       heroBlurb.textContent = personaBlurbs[persona];
     }
-
-    workCards.forEach((card) => {
-      const tags = (card.dataset.personaTags || "").split(",");
-      const matches = persona ? tags.includes(persona) : true;
-      card.classList.toggle("is-dimmed", !matches);
-    });
   });
 });
 
-const cardToggles = document.querySelectorAll(".card-toggle");
-cardToggles.forEach((toggle) => {
-  toggle.addEventListener("click", () => {
-    const card = toggle.closest(".work-card");
-    if (!card) {
+const timelineSection = document.getElementById("work");
+const timelineItems = document.querySelectorAll(".timeline-item");
+const timelineTriggers = document.querySelectorAll(".timeline-trigger");
+
+const setTimelineOpen = (targetItem) => {
+  timelineItems.forEach((item) => {
+    const isOpen = item === targetItem;
+    item.classList.toggle("is-open", isOpen);
+    const trigger = item.querySelector(".timeline-trigger");
+    if (trigger) {
+      trigger.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    }
+  });
+};
+
+timelineTriggers.forEach((trigger) => {
+  trigger.addEventListener("click", () => {
+    const item = trigger.closest(".timeline-item");
+    if (!item) {
       return;
     }
 
-    const isOpen = card.classList.toggle("is-open");
-    const closedLabel = toggle.dataset.closedLabel || "Open case study";
-    const openLabel = toggle.dataset.openLabel || "Close case study";
-    toggle.textContent = isOpen ? openLabel : closedLabel;
+    const isAlreadyOpen = item.classList.contains("is-open");
+    if (isAlreadyOpen) {
+      item.classList.remove("is-open");
+      trigger.setAttribute("aria-expanded", "false");
+      return;
+    }
+
+    setTimelineOpen(item);
+    const tone = item.dataset.tone;
+    if (timelineSection && tone) {
+      timelineSection.dataset.tone = tone;
+    }
   });
 });
+
+if (timelineSection && timelineItems.length) {
+  const timelineObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting || entry.intersectionRatio < 0.55) {
+          return;
+        }
+
+        const item = entry.target;
+        const tone = item.dataset.tone;
+        if (tone) {
+          timelineSection.dataset.tone = tone;
+        }
+      });
+    },
+    {
+      threshold: [0.55, 0.75],
+      rootMargin: "-18% 0px -30% 0px",
+    }
+  );
+
+  timelineItems.forEach((item) => timelineObserver.observe(item));
+}
 
 const reveals = document.querySelectorAll(".reveal");
 
