@@ -39,7 +39,8 @@
         <div class="hero-grid">
           <div class="hero-copy-wrap">
             <p class="eyebrow">Data Science + Economics</p>
-            <h1>Haoyang (Howard) Hu</h1>
+            <h1 id="typed-title" data-text="Hello world, my name is Howard.">Hello world, my name is Howard.</h1>
+            <p class="hero-name-tag">Haoyang (Howard) Hu</p>
             <p id="hero-blurb" class="hero-blurb">
               I like building things that help teams see what matters faster:
               experiments, dashboards, models, and systems that turn messy data
@@ -142,16 +143,17 @@
             <h3>JARVIS</h3>
             <p class="project-subtitle">A personal AI operating system</p>
             <p class="card-summary">
-              JARVIS is a modular agent system I’m building to automate how I
-              interact with information and the internet. Specialized agents
-              handle research, monitoring, and execution through a shared
-              orchestration layer.
+              JARVIS started with a simple Iron Man idea: what if I had a real
+              digital teammate I could talk to all day, not just another chat
+              window. I wanted to say things like, “Jarvis, what’s on my
+              agenda?” or “Research this topic and give me a program I can use”
+              and have the system actually execute.
             </p>
             <p class="card-summary">
-              It can browse sources, summarize updates, track topics I care
-              about, and deliver briefings through messaging interfaces like
-              Discord. Long-term, it’s becoming personal infrastructure for
-              autonomous workflows from research through production.
+              It uses voice input plus modular agents for research, monitoring,
+              synthesis, and action. Long term, the vision is a personal
+              infrastructure layer that can run full workflows from research to
+              production with minimal prompting.
             </p>
             <p class="detail-meta">
               Python · LLM APIs · Web scraping · Agent orchestration
@@ -162,10 +164,10 @@
             <h3>Brainrot Content Factory</h3>
             <p class="project-subtitle">An automated pipeline for short-form media</p>
             <p class="card-summary">
-              A fully automated system that turns internet trends into short
-              videos for platforms like YouTube Shorts and Instagram Reels.
-              It researches topics, drafts scripts, generates visuals, and
-              publishes content with minimal manual steps.
+              This project came from a simple question: how far can I push a
+              content pipeline before it needs human intervention? The system
+              tracks trend signals, drafts scripts, generates visuals, and
+              publishes short videos end-to-end.
             </p>
             <p class="detail-meta">Python · Sora · FFmpeg · Platform APIs</p>
           </article>
@@ -174,10 +176,10 @@
             <h3>Autonomous Research Agent</h3>
             <p class="project-subtitle">Continuous monitoring of the internet</p>
             <p class="card-summary">
-              A lightweight agent that continuously scans RSS feeds, forums, and
-              tech news to catch important updates. It produces concise
-              briefings and pushes them through messaging interfaces, so I stay
-              informed without manual searching loops.
+              I built this because I was wasting too much time checking 20 tabs
+              for updates. It continuously scans feeds, forums, and tech news,
+              then sends short briefings so I can stay informed without constant
+              manual searching.
             </p>
             <p class="detail-meta">Python · RSS ingestion · LLM summarization</p>
           </article>
@@ -201,22 +203,42 @@
           </p>
         </div>
         <div class="timeline">
-          <article class="timeline-item is-open" data-tone="pge">
+          <article class="timeline-item is-open" data-tone="ibm">
             <button class="timeline-trigger" type="button" aria-expanded="true">
+              <span class="timeline-role">Customer Success Manager Architect (AI) - Incoming</span>
+              <span class="timeline-company">IBM · Austin, TX</span>
+              <span class="timeline-date">Starting Jul 2026</span>
+            </button>
+            <div class="timeline-detail">
+              <p>
+                I’ll be helping enterprise teams translate AI strategy into
+                working architectures they can actually deploy and scale.
+              </p>
+              <p>
+                What excites me most is the blend of technical depth and people
+                work: building MVPs, guiding adoption, and being the bridge
+                between business goals and implementation reality.
+              </p>
+              <p class="detail-meta">Python · LLMs · Watsonx · Solution architecture</p>
+            </div>
+          </article>
+
+          <article class="timeline-item" data-tone="pge">
+            <button class="timeline-trigger" type="button" aria-expanded="false">
               <span class="timeline-role">Accounts Payable Data Analytics Intern</span>
-              <span class="timeline-company">Pacific Gas and Electric Company (PG&amp;E)</span>
+              <span class="timeline-company">Pacific Gas and Electric Company (PG&amp;E) · Oakland, CA</span>
               <span class="timeline-date">May 2025 - Aug 2025</span>
             </button>
             <div class="timeline-detail">
               <p>
-                Built SQL-based data cleaning and forecasting workflows on raw
-                financial data, which improved downstream processing efficiency
-                by 200%.
+                I rebuilt messy finance data workflows into clean SQL pipelines
+                and cut processing friction by 200%, so reporting became much
+                faster and more reliable.
               </p>
               <p>
-                Designed Power BI reporting with dynamic DAX metrics and
-                integrated SAP, SharePoint, and Excel sources into automated
-                refresh pipelines with Power Automate.
+                I learned how much good analytics depends on trust and
+                maintainability, not just smart queries, and focused on building
+                dashboards and automation the team could keep using.
               </p>
               <p class="detail-meta">SQL · Power BI · DAX · Power Automate</p>
             </div>
@@ -225,18 +247,18 @@
           <article class="timeline-item" data-tone="dicks">
             <button class="timeline-trigger" type="button" aria-expanded="false">
               <span class="timeline-role">Data Science Intern</span>
-              <span class="timeline-company">Dick's Sporting Goods</span>
+              <span class="timeline-company">Dick's Sporting Goods · San Antonio, TX</span>
               <span class="timeline-date">May 2024 - Aug 2024</span>
             </button>
             <div class="timeline-detail">
               <p>
-                Processed browsing and transaction events in BigQuery to improve
-                the quality and speed of marketing and product analysis.
+                I worked on behavior and review data to help connect customer
+                signals to better product and marketing decisions.
               </p>
               <p>
-                Ran NLP-based review analysis across 10K+ comments and
-                collaborated on category-level forecasting models using
-                TensorFlow and PyTorch in Google Cloud.
+                I left this role with stronger instincts for turning raw data
+                into decisions people can actually act on, not just charts that
+                look good in a deck.
               </p>
               <p class="detail-meta">BigQuery · Python · NLP · TensorFlow · PyTorch</p>
             </div>
@@ -245,18 +267,18 @@
           <article class="timeline-item" data-tone="store">
             <button class="timeline-trigger" type="button" aria-expanded="false">
               <span class="timeline-role">Business Intelligence Team Executive Member</span>
-              <span class="timeline-company">The Cal Student Store</span>
-              <span class="timeline-date">Aug 2022 - Present</span>
+              <span class="timeline-company">The Cal Student Store · Berkeley, CA</span>
+              <span class="timeline-date">Aug 2022 - May 2025</span>
             </button>
             <div class="timeline-detail">
               <p>
-                Combined campaign analytics with merchandising insights to guide
-                social content and promotion timing.
+                I blended campaign data with merchandising signals to shape
+                promotions that actually moved traffic and conversion.
               </p>
               <p>
-                Contributed to a 25% CTR increase and a 150% lift in
-                campaign-attributed sales by aligning channel strategy with
-                inventory and launch cycles.
+                We drove a 25% CTR increase and 150% sales lift, and I learned
+                how fast iteration plus clear metrics can outperform perfect
+                plans.
               </p>
               <p class="detail-meta">BI · Marketing analytics · Growth strategy</p>
             </div>

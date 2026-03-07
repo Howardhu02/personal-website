@@ -3,6 +3,25 @@ if (yearNode) {
   yearNode.textContent = new Date().getFullYear().toString();
 }
 
+const typedTitle = document.getElementById("typed-title");
+if (typedTitle) {
+  const fullText = typedTitle.dataset.text || typedTitle.textContent || "";
+  typedTitle.textContent = "";
+  typedTitle.classList.add("is-typing");
+
+  let index = 0;
+  const typeInterval = window.setInterval(() => {
+    index += 1;
+    typedTitle.textContent = fullText.slice(0, index);
+    if (index >= fullText.length) {
+      window.clearInterval(typeInterval);
+      window.setTimeout(() => {
+        typedTitle.classList.remove("is-typing");
+      }, 900);
+    }
+  }, 45);
+}
+
 const personaBlurbs = {
   analyst:
     "I like building things that help teams see what matters faster: experiments, dashboards, models, and systems that turn messy data into action.",
@@ -43,6 +62,14 @@ const setTimelineOpen = (targetItem) => {
     }
   });
 };
+
+const initialOpen = document.querySelector(".timeline-item.is-open");
+if (initialOpen && timelineSection) {
+  const initialTone = initialOpen.dataset.tone;
+  if (initialTone) {
+    timelineSection.dataset.tone = initialTone;
+  }
+}
 
 timelineTriggers.forEach((trigger) => {
   trigger.addEventListener("click", () => {
