@@ -402,6 +402,11 @@ h1.is-typing::after {
   --project-tone-soft: rgba(255, 106, 61, 0.14);
 }
 
+.project-section[data-tone="dashboard"] {
+  --project-tone: #8a57ff;
+  --project-tone-soft: rgba(138, 87, 255, 0.14);
+}
+
 .project-section[data-tone="research"] {
   --project-tone: #0f8f6f;
   --project-tone-soft: rgba(15, 143, 111, 0.14);
