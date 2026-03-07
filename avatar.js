@@ -19,7 +19,6 @@ const sectionPoseMap = [
   { id: 'about', pose: 'smile' },
   { id: 'projects', pose: 'laptop' },
   { id: 'photography', pose: 'camera' },
-  { id: 'hobbies', pose: 'poker' },
 ];
 
 function SpriteFrame({ pose, visible }) {

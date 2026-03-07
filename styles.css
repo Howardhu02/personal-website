@@ -656,32 +656,53 @@ h1.is-typing::after {
   font-size: 1.02rem;
 }
 
-.about-notes {
-  display: grid;
-  gap: 0.8rem;
-  margin-top: 1.4rem;
-}
-
-.note-card {
+.about-education {
+  margin-top: 1.3rem;
   border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 1rem;
-  background: #fbfbfc;
+  border-radius: 18px;
+  padding: 1.1rem;
+  background: rgba(255, 255, 255, 0.94);
 }
 
-.note-label {
+.education-label {
   display: block;
-  margin-bottom: 0.45rem;
+  margin-bottom: 0.5rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  font-size: 0.72rem;
-  color: #7f7f86;
+  font-size: 0.7rem;
+  color: #7b7b84;
   font-weight: 700;
 }
 
-.note-card strong {
-  font-size: 0.98rem;
-  line-height: 1.5;
+.about-education h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
+}
+
+.education-date {
+  margin: 0.45rem 0 0.75rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: #6f7584;
+}
+
+.education-majors {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.education-majors p {
+  margin: 0;
+  border: 1px solid #e6e8ef;
+  border-radius: 12px;
+  padding: 0.58rem 0.72rem;
+  background: #fafafe;
+  color: #4f535f;
+  font-size: 0.94rem;
+  line-height: 1.4;
 }
 
 .headshot-mask {
