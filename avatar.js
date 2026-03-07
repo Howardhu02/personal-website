@@ -16,7 +16,6 @@ const spriteMap = {
 const sectionPoseMap = [
   { id: 'hero-section', pose: 'idle' },
   { id: 'work', pose: 'wave' },
-  { id: 'education', pose: 'smile' },
   { id: 'about', pose: 'smile' },
   { id: 'projects', pose: 'laptop' },
   { id: 'photography', pose: 'camera' },
@@ -66,7 +65,6 @@ export function HowardAvatar({ pose = 'idle', label = 'Howard', hoverWave = fals
       role="img"
       aria-label=${`${label} avatar in ${displayPose} pose`}
     >
-      <span className="avatar-badge">${label}</span>
       <${SpriteFrame} pose=${displayPose} visible=${isVisible} />
     </div>
   `;

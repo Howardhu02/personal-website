@@ -24,7 +24,6 @@
           <ul class="nav-links">
             <li><a href="#projects">Projects</a></li>
             <li><a href="#work">Work</a></li>
-            <li><a href="#education">Education</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#photography">Photography</a></li>
             <li><a href="#hobbies">Hobbies</a></li>
@@ -40,7 +39,7 @@
           <div class="hero-copy-wrap">
             <p class="eyebrow">Data Science + Economics</p>
             <h1 id="typed-title" data-text="Hello world, my name is Howard.">Hello world, my name is Howard.</h1>
-            <p class="hero-name-tag">Haoyang (Howard) Hu</p>
+            <p class="hero-name-tag">胡昊阳</p>
             <p id="hero-blurb" class="hero-blurb">
               I like building things that help teams see what matters faster:
               experiments, dashboards, models, and systems that turn messy data
@@ -120,7 +119,7 @@
         </div>
       </section>
 
-      <section id="projects" class="container section reveal">
+      <section id="projects" class="container section reveal project-section" data-tone="jarvis">
         <div class="section-intro">
           <div class="section-heading">
             <h2>Projects</h2>
@@ -138,50 +137,71 @@
           </p>
         </div>
         <div class="project-grid">
-          <article class="project-card project-card-featured">
+          <article class="project-card project-card-featured" data-tone="jarvis">
             <p class="card-tag">Flagship System</p>
             <h3>JARVIS</h3>
             <p class="project-subtitle">A personal AI operating system</p>
-            <p class="card-summary">
-              JARVIS started with a simple Iron Man idea: what if I had a real
-              digital teammate I could talk to all day, not just another chat
-              window. I wanted to say things like, “Jarvis, what’s on my
-              agenda?” or “Research this topic and give me a program I can use”
-              and have the system actually execute.
-            </p>
-            <p class="card-summary">
-              It uses voice input plus modular agents for research, monitoring,
-              synthesis, and action. Long term, the vision is a personal
-              infrastructure layer that can run full workflows from research to
-              production with minimal prompting.
-            </p>
-            <p class="detail-meta">
-              Python · LLM APIs · Web scraping · Agent orchestration
-            </p>
+            <p class="project-hook">The “talk-to-my-computer” system I always wanted after watching Iron Man.</p>
+            <button class="project-trigger" type="button" aria-expanded="false">Open project</button>
+            <div class="project-detail">
+              <p class="card-summary">
+                JARVIS started with a simple Iron Man idea: what if I had a
+                real digital teammate I could talk to all day, not just another
+                chat window. I wanted to say “Jarvis, what’s on my agenda
+                today?” or “Research this topic and come up with a comprehensive
+                program I can use for a project” and have it actually execute.
+              </p>
+              <p class="card-summary">
+                It combines voice input with modular agents for research,
+                monitoring, synthesis, and action. Long-term, the vision is a
+                personal infrastructure layer that can run full workflows from
+                research to production with minimal prompting.
+              </p>
+              <p class="detail-meta">
+                Python · LLM APIs · Web scraping · Agent orchestration
+              </p>
+            </div>
           </article>
-          <article class="project-card">
+          <article class="project-card" data-tone="factory">
             <p class="card-tag">Automation</p>
             <h3>Brainrot Content Factory</h3>
             <p class="project-subtitle">An automated pipeline for short-form media</p>
-            <p class="card-summary">
-              This project came from a simple question: how far can I push a
-              content pipeline before it needs human intervention? The system
-              tracks trend signals, drafts scripts, generates visuals, and
-              publishes short videos end-to-end.
-            </p>
-            <p class="detail-meta">Python · Sora · FFmpeg · Platform APIs</p>
+            <p class="project-hook">Trend to published short in one automated flow.</p>
+            <button class="project-trigger" type="button" aria-expanded="false">Open project</button>
+            <div class="project-detail">
+              <p class="card-summary">
+                This started as an experiment in scale: how far can I push a
+                media pipeline before manual bottlenecks show up? The system
+                detects trend signals, builds scripts, generates visuals, and
+                assembles shorts with minimal intervention.
+              </p>
+              <p class="card-summary">
+                I also built in quality gates around timing, hook strength, and
+                visual continuity so it’s not just auto-generated noise. The end
+                goal is a repeatable engine for autonomous content channels.
+              </p>
+              <p class="detail-meta">Python · Sora · FFmpeg · Platform APIs</p>
+            </div>
           </article>
-          <article class="project-card">
+          <article class="project-card" data-tone="research">
             <p class="card-tag">Research Infrastructure</p>
             <h3>Autonomous Research Agent</h3>
             <p class="project-subtitle">Continuous monitoring of the internet</p>
-            <p class="card-summary">
-              I built this because I was wasting too much time checking 20 tabs
-              for updates. It continuously scans feeds, forums, and tech news,
-              then sends short briefings so I can stay informed without constant
-              manual searching.
-            </p>
-            <p class="detail-meta">Python · RSS ingestion · LLM summarization</p>
+            <p class="project-hook">My personal intel feed, minus the 20-tab chaos.</p>
+            <button class="project-trigger" type="button" aria-expanded="false">Open project</button>
+            <div class="project-detail">
+              <p class="card-summary">
+                I built this because I was spending too much time context
+                switching between feeds, forums, and tech news. The agent
+                continuously monitors sources and compiles concise briefings.
+              </p>
+              <p class="card-summary">
+                It prioritizes what matters, summarizes developments with clear
+                action points, and pushes updates through messaging so I can
+                react fast without manual hunting.
+              </p>
+              <p class="detail-meta">Python · RSS ingestion · LLM summarization</p>
+            </div>
           </article>
         </div>
       </section>
@@ -198,13 +218,12 @@
             ></div>
           </div>
           <p>
-            Clean timeline view. Click each role for details. As you scroll,
-            the timeline shifts visual tone to match each position.
+            Click a role to open details.
           </p>
         </div>
         <div class="timeline">
-          <article class="timeline-item is-open" data-tone="ibm">
-            <button class="timeline-trigger" type="button" aria-expanded="true">
+          <article class="timeline-item" data-tone="ibm">
+            <button class="timeline-trigger" type="button" aria-expanded="false">
               <span class="timeline-role">Customer Success Manager Architect (AI) - Incoming</span>
               <span class="timeline-company">IBM · Austin, TX</span>
               <span class="timeline-date">Starting Jul 2026</span>
@@ -286,29 +305,6 @@
         </div>
       </section>
 
-      <section id="education" class="container section reveal">
-        <div class="section-intro">
-          <div class="section-heading">
-            <h2>Education</h2>
-            <div
-              class="avatar-slot avatar-slot-inline"
-              data-avatar-pose="smile"
-              data-avatar-label="Edu"
-              aria-label="Howard smiling"
-            ></div>
-          </div>
-        </div>
-        <div class="education-card">
-          <h3>University of California, Berkeley</h3>
-          <p class="education-meta">Aug 2022 - May 2026</p>
-          <p>
-            B.A. Data Science (Economics concentration) and B.A. Economics.
-            Coursework includes data analytics, data mining, econometrics,
-            internet architecture, and algorithms.
-          </p>
-        </div>
-      </section>
-
       <section id="about" class="container section reveal">
         <div class="section-heading">
           <h2>About</h2>
@@ -334,6 +330,10 @@
               opportunities in data and BI.
             </p>
             <div class="about-notes">
+              <div class="note-card">
+                <span class="note-label">Education</span>
+                <strong>UC Berkeley (Aug 2022 - May 2026) · B.A. Data Science (Economics concentration) + B.A. Economics.</strong>
+              </div>
               <div class="note-card">
                 <span class="note-label">Currently into</span>
                 <strong>Experiment design, dashboard automation, and retail/customer analytics.</strong>

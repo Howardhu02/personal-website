@@ -15,11 +15,8 @@ if (typedTitle) {
     typedTitle.textContent = fullText.slice(0, index);
     if (index >= fullText.length) {
       window.clearInterval(typeInterval);
-      window.setTimeout(() => {
-        typedTitle.classList.remove("is-typing");
-      }, 900);
     }
-  }, 45);
+  }, 78);
 }
 
 const personaBlurbs = {
@@ -51,6 +48,9 @@ personaPills.forEach((pill) => {
 const timelineSection = document.getElementById("work");
 const timelineItems = document.querySelectorAll(".timeline-item");
 const timelineTriggers = document.querySelectorAll(".timeline-trigger");
+const projectsSection = document.getElementById("projects");
+const projectCards = document.querySelectorAll(".project-card");
+const projectTriggers = document.querySelectorAll(".project-trigger");
 
 const setTimelineOpen = (targetItem) => {
   timelineItems.forEach((item) => {
@@ -62,14 +62,6 @@ const setTimelineOpen = (targetItem) => {
     }
   });
 };
-
-const initialOpen = document.querySelector(".timeline-item.is-open");
-if (initialOpen && timelineSection) {
-  const initialTone = initialOpen.dataset.tone;
-  if (initialTone) {
-    timelineSection.dataset.tone = initialTone;
-  }
-}
 
 timelineTriggers.forEach((trigger) => {
   trigger.addEventListener("click", () => {
@@ -115,6 +107,63 @@ if (timelineSection && timelineItems.length) {
   );
 
   timelineItems.forEach((item) => timelineObserver.observe(item));
+}
+
+const setProjectOpen = (targetCard) => {
+  projectCards.forEach((card) => {
+    const isOpen = card === targetCard;
+    card.classList.toggle("is-open", isOpen);
+    const trigger = card.querySelector(".project-trigger");
+    if (trigger) {
+      trigger.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      trigger.textContent = isOpen ? "Close project" : "Open project";
+    }
+  });
+};
+
+projectTriggers.forEach((trigger) => {
+  trigger.addEventListener("click", () => {
+    const card = trigger.closest(".project-card");
+    if (!card) {
+      return;
+    }
+
+    const isOpen = card.classList.contains("is-open");
+    if (isOpen) {
+      card.classList.remove("is-open");
+      trigger.setAttribute("aria-expanded", "false");
+      trigger.textContent = "Open project";
+      return;
+    }
+
+    setProjectOpen(card);
+    const tone = card.dataset.tone;
+    if (projectsSection && tone) {
+      projectsSection.dataset.tone = tone;
+    }
+  });
+});
+
+if (projectsSection && projectCards.length) {
+  const projectObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting || entry.intersectionRatio < 0.55) {
+          return;
+        }
+        const tone = entry.target.dataset.tone;
+        if (tone) {
+          projectsSection.dataset.tone = tone;
+        }
+      });
+    },
+    {
+      threshold: [0.55, 0.75],
+      rootMargin: "-20% 0px -30% 0px",
+    }
+  );
+
+  projectCards.forEach((card) => projectObserver.observe(card));
 }
 
 const reveals = document.querySelectorAll(".reveal");
