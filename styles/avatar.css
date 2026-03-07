@@ -1,0 +1,122 @@
+.avatar-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 128px;
+  height: 128px;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background-color: #f7f7fa;
+  opacity: 0;
+  transition: transform 180ms ease, filter 180ms ease, opacity 180ms ease;
+}
+
+.avatar:hover {
+  transform: translateY(-1px);
+  filter: drop-shadow(0 10px 20px rgba(7, 7, 7, 0.1));
+}
+
+.avatar.is-visible {
+  opacity: 1;
+}
+
+.avatar-idle {
+  background-image: url("/public/avatar/idle.png");
+  animation: idleAnim 1.2s steps(5) infinite;
+}
+
+.avatar-coding {
+  background-image: url("/public/avatar/coding.png");
+  animation: codingAnim 1.2s steps(6) infinite;
+}
+
+.avatar-coffee {
+  background-image: url("/public/avatar/coffee.png");
+  animation: coffeeAnim 1.2s steps(5) infinite;
+}
+
+.avatar-gym {
+  background-image: url("/public/avatar/gym.png");
+  animation: gymAnim 1.2s steps(5) infinite;
+}
+
+@keyframes idleAnim {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -640px 0;
+  }
+}
+
+@keyframes codingAnim {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -768px 0;
+  }
+}
+
+@keyframes coffeeAnim {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -640px 0;
+  }
+}
+
+@keyframes gymAnim {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -640px 0;
+  }
+}
+
+.avatar-controls {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.avatar-controls button {
+  border: 1px solid var(--line);
+  background: #f3f3f3;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--text);
+}
+
+.avatar-controls button:hover {
+  background: #e6e6e6;
+}
+
+.avatar-controls button.is-active {
+  border-color: #d5ddff;
+  background: #edf1ff;
+}
+
+@media (max-width: 960px) {
+  .avatar-controls {
+    gap: 8px;
+  }
+
+  .avatar-controls button {
+    font-size: 13px;
+  }
+}
