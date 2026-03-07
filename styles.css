@@ -83,20 +83,6 @@ body {
   height: 240px;
 }
 
-.avatar-slot-panel .avatar-shell {
-  width: 220px;
-  height: 220px;
-  border-radius: 28px;
-  background:
-    radial-gradient(circle at 50% 18%, rgba(47, 107, 255, 0.08), transparent 42%),
-    linear-gradient(180deg, #fafafd 0%, #f0f1f4 100%);
-}
-
-.avatar-slot-panel .avatar-sprite {
-  width: 220px;
-  height: 220px;
-}
-
 .avatar-slot-inline .avatar-shell {
   width: 112px;
   height: 112px;
@@ -638,13 +624,6 @@ h1.is-typing::after {
   font-weight: 700;
 }
 
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.4rem;
-  align-items: stretch;
-}
-
 .about-copy {
   max-width: 60ch;
 }
@@ -703,24 +682,6 @@ h1.is-typing::after {
   color: #4f535f;
   font-size: 0.94rem;
   line-height: 1.4;
-}
-
-.headshot-mask {
-  border: 1px solid var(--line);
-  border-radius: 28px;
-  min-height: 340px;
-  background: linear-gradient(160deg, #f8f8fb 0%, #efeff3 100%);
-  display: grid;
-  place-items: center;
-  padding: 1rem;
-}
-
-.headshot-mask span {
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-size: 0.78rem;
-  color: #8a8a90;
-  font-weight: 700;
 }
 
 .mini-grid {
@@ -838,11 +799,6 @@ h1.is-typing::after {
     grid-column: span 2;
   }
 
-  .about-grid {
-    grid-template-columns: 1.15fr 0.85fr;
-    gap: 2rem;
-  }
-
   .mini-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -854,9 +810,7 @@ h1.is-typing::after {
 
 @media (max-width: 640px) {
   .avatar-slot-hero .avatar-shell,
-  .avatar-slot-hero .avatar-sprite,
-  .avatar-slot-panel .avatar-shell,
-  .avatar-slot-panel .avatar-sprite {
+  .avatar-slot-hero .avatar-sprite {
     width: 176px;
     height: 176px;
   }
