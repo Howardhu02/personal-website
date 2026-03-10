@@ -218,6 +218,12 @@ let lockedScrollY = 0;
 const imageCache = new Map();
 const extensions = ["jpg", "jpeg", "png", "webp"];
 
+const setActivePhotoCard = (categoryKey) => {
+  photoCards.forEach((card) => {
+    card.classList.toggle("is-active", card.dataset.photoCategory === categoryKey);
+  });
+};
+
 const lockScroll = () => {
   lockedScrollY = window.scrollY || document.documentElement.scrollTop || 0;
   document.body.style.position = "fixed";
@@ -237,12 +243,11 @@ const setModalImage = (index) => {
     return;
   }
   activeIndex = (index + activePhotos.length) % activePhotos.length;
-  photoModalImage.classList.remove("is-visible", "is-zooming");
+  photoModalImage.classList.remove("is-visible");
   window.setTimeout(() => {
     photoModalImage.src = activePhotos[activeIndex];
     photoModalImage.onload = () => {
       photoModalImage.classList.add("is-visible");
-      window.setTimeout(() => photoModalImage.classList.add("is-zooming"), 40);
     };
   }, 110);
   if (photoModalCounter) {
@@ -264,7 +269,7 @@ const startSlideshow = () => {
   }
   slideshowTimer = window.setInterval(() => {
     setModalImage(activeIndex + 1);
-  }, 1700);
+  }, 1250);
 };
 
 const closeGallery = () => {
@@ -274,6 +279,7 @@ const closeGallery = () => {
   stopSlideshow();
   photoModal.classList.remove("is-open");
   photoModal.setAttribute("aria-hidden", "true");
+  setActivePhotoCard(null);
   unlockScroll();
 };
 
@@ -287,6 +293,7 @@ const openGallery = (categoryKey) => {
   }
   activePhotos = photos;
   activeIndex = 0;
+  setActivePhotoCard(categoryKey);
   lockScroll();
   photoModal.classList.add("is-open");
   photoModal.setAttribute("aria-hidden", "false");
