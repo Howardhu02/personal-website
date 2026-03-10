@@ -335,31 +335,78 @@
             ></div>
           </div>
           <p>
-            I like visual storytelling outside of analytics too. Photography
-            sharpens how I notice framing, detail, and atmosphere, which feeds
-            back into how I build dashboards and interfaces.
+            Capturing moments, documenting stories, and experimenting with
+            light.
           </p>
         </div>
-        <div class="mini-grid">
-          <article class="mini-card">
-            <span class="mini-label">Photographers at Berkeley</span>
-            <h3>Visual practice beyond the spreadsheet</h3>
-            <p>
-              I care about composition, pacing, and how an image guides
-              attention, the same way a good product surface should.
-            </p>
-          </article>
-          <article class="mini-card">
-            <span class="mini-label">What I like shooting</span>
-            <h3>People, light, and urban detail</h3>
-            <p>
-              Street scenes and candid moments are usually the most interesting
-              to me because they reward observation over control.
-            </p>
-          </article>
+        <div class="photo-categories">
+          <button class="photo-card" type="button" data-photo-category="film" data-photo-folder="film">
+            <span class="mini-label">Film</span>
+            <h3>Film</h3>
+            <p>Analog moments captured on 35mm.</p>
+            <div class="photo-card-preview" aria-hidden="true">
+              <img alt="" loading="lazy" />
+            </div>
+          </button>
+          <button class="photo-card" type="button" data-photo-category="graduation" data-photo-folder="graduation">
+            <span class="mini-label">Graduation</span>
+            <h3>Graduation</h3>
+            <p>Celebrating milestones and memories.</p>
+            <div class="photo-card-preview" aria-hidden="true">
+              <img alt="" loading="lazy" />
+            </div>
+          </button>
+          <button class="photo-card" type="button" data-photo-category="gig" data-photo-folder="gig">
+            <span class="mini-label">Gig Works</span>
+            <h3>Gig Works</h3>
+            <p>Events, concerts, and commissioned work.</p>
+            <div class="photo-card-preview" aria-hidden="true">
+              <img alt="" loading="lazy" />
+            </div>
+          </button>
+          <button class="photo-card" type="button" data-photo-category="creative" data-photo-folder="creative">
+            <span class="mini-label">Shenanigans</span>
+            <h3>Shenanigans</h3>
+            <p>Creative experiments and fun visual ideas.</p>
+            <div class="photo-card-preview" aria-hidden="true">
+              <img alt="" loading="lazy" />
+            </div>
+          </button>
+        </div>
+        <div class="photo-cta">
+          <h3>Interested in working together?</h3>
+          <a href="#" class="photo-cta-link">Book a shoot &rarr;</a>
+          <p class="photo-cta-subtitle">Follow my photography</p>
+          <a
+            href="https://instagram.com/howiesflicks"
+            class="photo-cta-link secondary"
+            target="_blank"
+            rel="noreferrer"
+          >
+            @howiesflicks &rarr;
+          </a>
         </div>
       </section>
     </main>
+
+    <div id="photo-modal" class="photo-modal" aria-hidden="true">
+      <div class="photo-modal-backdrop" data-photo-close></div>
+      <div class="photo-modal-content" role="dialog" aria-modal="true" aria-label="Photography gallery">
+        <button class="photo-modal-close" type="button" data-photo-close aria-label="Close gallery">
+          &times;
+        </button>
+        <button class="photo-modal-nav prev" type="button" data-photo-prev aria-label="Previous photo">
+          &larr;
+        </button>
+        <div class="photo-modal-stage">
+          <img id="photo-modal-image" alt="Photography showcase" />
+        </div>
+        <button class="photo-modal-nav next" type="button" data-photo-next aria-label="Next photo">
+          &rarr;
+        </button>
+        <p id="photo-modal-counter" class="photo-modal-counter">1 / 1</p>
+      </div>
+    </div>
 
     <footer id="footer" class="site-footer">
       <div class="container">
@@ -373,7 +420,7 @@
       </div>
     </footer>
 
-    <script src="script.js?v=20260310-2"></script>
+    <script src="script.js?v=20260310-3"></script>
     <script type="module" src="avatar.js?v=20260310-1"></script>
     <script type="module" src="avatar-controller.js?v=20260310-1"></script>
   </body>

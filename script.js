@@ -194,3 +194,223 @@ const observer = new IntersectionObserver(
 );
 
 reveals.forEach((element) => observer.observe(element));
+
+const PHOTO_CATEGORIES = {
+  film: { folder: "film", title: "Film" },
+  graduation: { folder: "graduation", title: "Graduation" },
+  gig: { folder: "gig", title: "Gig Works" },
+  creative: { folder: "creative", title: "Shenanigans" },
+};
+
+const photoCards = document.querySelectorAll(".photo-card");
+const photoModal = document.getElementById("photo-modal");
+const photoModalImage = document.getElementById("photo-modal-image");
+const photoModalCounter = document.getElementById("photo-modal-counter");
+const photoPrevButton = document.querySelector("[data-photo-prev]");
+const photoNextButton = document.querySelector("[data-photo-next]");
+const photoCloseButtons = document.querySelectorAll("[data-photo-close]");
+
+let activePhotos = [];
+let activeIndex = 0;
+let slideshowTimer = null;
+let lockedScrollY = 0;
+
+const imageCache = new Map();
+const extensions = ["jpg", "jpeg", "png", "webp"];
+
+const lockScroll = () => {
+  lockedScrollY = window.scrollY || document.documentElement.scrollTop || 0;
+  document.body.style.position = "fixed";
+  document.body.style.width = "100%";
+  document.body.style.top = `-${lockedScrollY}px`;
+};
+
+const unlockScroll = () => {
+  document.body.style.position = "";
+  document.body.style.width = "";
+  document.body.style.top = "";
+  window.scrollTo(0, lockedScrollY);
+};
+
+const setModalImage = (index) => {
+  if (!photoModalImage || !activePhotos.length) {
+    return;
+  }
+  activeIndex = (index + activePhotos.length) % activePhotos.length;
+  photoModalImage.classList.remove("is-visible", "is-zooming");
+  window.setTimeout(() => {
+    photoModalImage.src = activePhotos[activeIndex];
+    photoModalImage.onload = () => {
+      photoModalImage.classList.add("is-visible");
+      window.setTimeout(() => photoModalImage.classList.add("is-zooming"), 40);
+    };
+  }, 110);
+  if (photoModalCounter) {
+    photoModalCounter.textContent = `${activeIndex + 1} / ${activePhotos.length}`;
+  }
+};
+
+const stopSlideshow = () => {
+  if (slideshowTimer) {
+    window.clearInterval(slideshowTimer);
+    slideshowTimer = null;
+  }
+};
+
+const startSlideshow = () => {
+  stopSlideshow();
+  if (activePhotos.length < 2) {
+    return;
+  }
+  slideshowTimer = window.setInterval(() => {
+    setModalImage(activeIndex + 1);
+  }, 1700);
+};
+
+const closeGallery = () => {
+  if (!photoModal) {
+    return;
+  }
+  stopSlideshow();
+  photoModal.classList.remove("is-open");
+  photoModal.setAttribute("aria-hidden", "true");
+  unlockScroll();
+};
+
+const openGallery = (categoryKey) => {
+  if (!photoModal || !photoModalImage) {
+    return;
+  }
+  const photos = imageCache.get(categoryKey) || [];
+  if (!photos.length) {
+    return;
+  }
+  activePhotos = photos;
+  activeIndex = 0;
+  lockScroll();
+  photoModal.classList.add("is-open");
+  photoModal.setAttribute("aria-hidden", "false");
+  setModalImage(0);
+  startSlideshow();
+};
+
+const probeSequentialPhotos = async (folder) => {
+  const found = [];
+  let misses = 0;
+  for (let i = 1; i <= 80; i += 1) {
+    let matched = false;
+    for (const extension of extensions) {
+      const path = `public/photos/${folder}/${i}.${extension}`;
+      const ok = await new Promise((resolve) => {
+        const img = new Image();
+        img.onload = () => resolve(true);
+        img.onerror = () => resolve(false);
+        img.src = path;
+      });
+      if (ok) {
+        found.push(path);
+        matched = true;
+        break;
+      }
+    }
+    if (!matched) {
+      misses += 1;
+      if (misses >= 10) {
+        break;
+      }
+    } else {
+      misses = 0;
+    }
+  }
+  return found;
+};
+
+const loadCategoryPhotos = async (categoryKey) => {
+  const meta = PHOTO_CATEGORIES[categoryKey];
+  if (!meta) {
+    return [];
+  }
+  if (imageCache.has(categoryKey)) {
+    return imageCache.get(categoryKey);
+  }
+
+  let photoList = [];
+  try {
+    const response = await fetch(`public/photos/${meta.folder}/manifest.json`, {
+      cache: "no-store",
+    });
+    if (response.ok) {
+      const filenames = await response.json();
+      if (Array.isArray(filenames)) {
+        photoList = filenames.map((name) => `public/photos/${meta.folder}/${name}`);
+      }
+    }
+  } catch (_error) {
+    photoList = [];
+  }
+
+  if (!photoList.length) {
+    photoList = await probeSequentialPhotos(meta.folder);
+  }
+
+  imageCache.set(categoryKey, photoList);
+  return photoList;
+};
+
+photoCards.forEach((card) => {
+  const category = card.dataset.photoCategory;
+  const previewImage = card.querySelector(".photo-card-preview img");
+  if (!category || !previewImage) {
+    return;
+  }
+
+  loadCategoryPhotos(category).then((photos) => {
+    if (photos.length) {
+      previewImage.src = photos[0];
+    }
+  });
+
+  card.addEventListener("click", async () => {
+    await loadCategoryPhotos(category);
+    openGallery(category);
+  });
+});
+
+if (photoPrevButton) {
+  photoPrevButton.addEventListener("click", () => {
+    if (!activePhotos.length) {
+      return;
+    }
+    setModalImage(activeIndex - 1);
+    startSlideshow();
+  });
+}
+
+if (photoNextButton) {
+  photoNextButton.addEventListener("click", () => {
+    if (!activePhotos.length) {
+      return;
+    }
+    setModalImage(activeIndex + 1);
+    startSlideshow();
+  });
+}
+
+photoCloseButtons.forEach((button) => {
+  button.addEventListener("click", closeGallery);
+});
+
+window.addEventListener("keydown", (event) => {
+  if (!photoModal || !photoModal.classList.contains("is-open")) {
+    return;
+  }
+  if (event.key === "Escape") {
+    closeGallery();
+  } else if (event.key === "ArrowLeft") {
+    setModalImage(activeIndex - 1);
+    startSlideshow();
+  } else if (event.key === "ArrowRight") {
+    setModalImage(activeIndex + 1);
+    startSlideshow();
+  }
+});
