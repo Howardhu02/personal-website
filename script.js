@@ -4,11 +4,15 @@ if (yearNode) {
 }
 
 const typedTitle = document.getElementById("typed-title");
+const typedAltName = document.getElementById("typed-alt-name");
 const typedBio = document.getElementById("typed-bio");
 if (typedTitle) {
   const fullText = typedTitle.dataset.text || typedTitle.textContent || "";
   typedTitle.textContent = "";
   typedTitle.classList.add("is-typing");
+  if (typedAltName) {
+    typedAltName.textContent = "";
+  }
   if (typedBio) {
     typedBio.textContent = "";
   }
@@ -19,7 +23,10 @@ if (typedTitle) {
     typedTitle.textContent = fullText.slice(0, index);
     if (index >= fullText.length) {
       window.clearInterval(typeInterval);
-      if (typedBio) {
+      const startBioTyping = () => {
+        if (!typedBio) {
+          return;
+        }
         const bioText = typedBio.dataset.text || "";
         let bioIndex = 0;
         const bioInterval = window.setInterval(() => {
@@ -29,6 +36,21 @@ if (typedTitle) {
             window.clearInterval(bioInterval);
           }
         }, 90);
+      };
+
+      if (typedAltName) {
+        const altNameText = typedAltName.dataset.text || "";
+        let altNameIndex = 0;
+        const altNameInterval = window.setInterval(() => {
+          altNameIndex += 1;
+          typedAltName.textContent = altNameText.slice(0, altNameIndex);
+          if (altNameIndex >= altNameText.length) {
+            window.clearInterval(altNameInterval);
+            startBioTyping();
+          }
+        }, 90);
+      } else {
+        startBioTyping();
       }
     }
   }, 112);
