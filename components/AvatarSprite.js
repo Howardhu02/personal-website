@@ -1,16 +1,9 @@
 import React, { useEffect, useMemo, useState } from "https://esm.sh/react@18.3.1";
 
 const ALLOWED_ACTIONS = new Set(["idle", "coding", "coffee", "gym"]);
-const BASE = "/public/avatar";
+const BASE = "public/avatar";
 const FRAME_GROUPS = {
-  idle: [
-    `${BASE}/idle/1.png`,
-    `${BASE}/idle/2.png`,
-    `${BASE}/idle/3.png`,
-    `${BASE}/idle/4.png`,
-    `${BASE}/idle/5.png`,
-    `${BASE}/idle/idle.png`,
-  ],
+  idle: [`${BASE}/idle/idle.png`],
   coding: [
     `${BASE}/coding/1.png`,
     `${BASE}/coding/2.png`,
@@ -33,7 +26,6 @@ const FRAME_GROUPS = {
     `${BASE}/gym/5.png`,
   ],
 };
-const FALLBACK_FRAME = `${BASE}/idle/idle.png`;
 const FRAME_MS = 180;
 
 export default function AvatarSprite({ action, onMouseEnter, onMouseLeave }) {
@@ -41,13 +33,10 @@ export default function AvatarSprite({ action, onMouseEnter, onMouseLeave }) {
   const [displayAction, setDisplayAction] = useState(safeAction);
   const [isVisible, setIsVisible] = useState(true);
   const [frameIndex, setFrameIndex] = useState(0);
-  const [failedFrames, setFailedFrames] = useState(() => new Set());
 
   const availableFrames = useMemo(() => {
-    const candidates = FRAME_GROUPS[displayAction] || FRAME_GROUPS.idle;
-    const filtered = candidates.filter((src) => !failedFrames.has(src));
-    return filtered.length ? filtered : [FALLBACK_FRAME];
-  }, [displayAction, failedFrames]);
+    return FRAME_GROUPS[displayAction] || FRAME_GROUPS.idle;
+  }, [displayAction]);
 
   const currentFrame = availableFrames[frameIndex % availableFrames.length];
 
@@ -97,9 +86,6 @@ export default function AvatarSprite({ action, onMouseEnter, onMouseLeave }) {
       width: 128,
       height: 128,
       draggable: false,
-      onError: () => {
-        setFailedFrames((previous) => new Set(previous).add(currentFrame));
-      },
     })
   );
 }
