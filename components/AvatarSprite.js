@@ -26,7 +26,7 @@ const FRAME_GROUPS = {
     `${BASE}/gym/5.png`,
   ],
 };
-const FRAME_MS = 180;
+const FRAME_MS = 280;
 
 export default function AvatarSprite({ action, onMouseEnter, onMouseLeave }) {
   const safeAction = ALLOWED_ACTIONS.has(action) ? action : "idle";

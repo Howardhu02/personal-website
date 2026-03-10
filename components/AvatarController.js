@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "https://esm.sh/react@18.3.1";
-import AvatarSprite from "./AvatarSprite.js";
+import AvatarSprite from "./AvatarSprite.js?v=20260310-1";
 
 const RANDOM_ACTIONS = ["coffee", "gym", "coding"];
 

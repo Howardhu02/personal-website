@@ -4,10 +4,14 @@ if (yearNode) {
 }
 
 const typedTitle = document.getElementById("typed-title");
+const typedBio = document.getElementById("typed-bio");
 if (typedTitle) {
   const fullText = typedTitle.dataset.text || typedTitle.textContent || "";
   typedTitle.textContent = "";
   typedTitle.classList.add("is-typing");
+  if (typedBio) {
+    typedBio.textContent = "";
+  }
 
   let index = 0;
   const typeInterval = window.setInterval(() => {
@@ -15,35 +19,20 @@ if (typedTitle) {
     typedTitle.textContent = fullText.slice(0, index);
     if (index >= fullText.length) {
       window.clearInterval(typeInterval);
+      if (typedBio) {
+        const bioText = typedBio.dataset.text || "";
+        let bioIndex = 0;
+        const bioInterval = window.setInterval(() => {
+          bioIndex += 1;
+          typedBio.textContent = bioText.slice(0, bioIndex);
+          if (bioIndex >= bioText.length) {
+            window.clearInterval(bioInterval);
+          }
+        }, 90);
+      }
     }
-  }, 78);
+  }, 112);
 }
-
-const personaBlurbs = {
-  analyst:
-    "I like building things that help teams see what matters faster: experiments, dashboards, models, and systems that turn messy data into action.",
-  builder:
-    "I enjoy turning rough ideas into usable workflows, especially when analytics, automation, and product thinking need to work together.",
-  operator:
-    "I care about outputs that survive real teams: reporting that refreshes cleanly, insights that are explainable, and systems people actually adopt.",
-};
-
-const heroBlurb = document.getElementById("hero-blurb");
-const personaPills = document.querySelectorAll(".persona-pill");
-
-personaPills.forEach((pill) => {
-  pill.addEventListener("click", () => {
-    const persona = pill.dataset.persona;
-
-    personaPills.forEach((button) => {
-      button.classList.toggle("is-active", button === pill);
-    });
-
-    if (heroBlurb && persona && personaBlurbs[persona]) {
-      heroBlurb.textContent = personaBlurbs[persona];
-    }
-  });
-});
 
 const timelineSection = document.getElementById("work");
 const timelineItems = document.querySelectorAll(".timeline-item");
