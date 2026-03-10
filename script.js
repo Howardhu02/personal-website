@@ -199,7 +199,7 @@ const PHOTO_CATEGORIES = {
   film: { folder: "film", title: "Film" },
   graduation: { folder: "graduation", title: "Graduation" },
   gig: { folder: "gig", title: "Gig Works" },
-  creative: { folder: "creative", title: "Shenanigans" },
+  shenanigans: { folder: "shenanigans", title: "Shenanigans" },
 };
 
 const photoCards = document.querySelectorAll(".photo-card");
