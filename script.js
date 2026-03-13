@@ -2,7 +2,7 @@ const STORAGE_LANG = "portfolio_lang";
 
 const translations = {
   en: {
-    title: "Haoyang (Howard) Hu | Portfolio",
+    title: "howard's studio",
     nav: ["Projects", "Work", "About", "Photography", "Connect"],
     hero: {
       eyebrow: "Data Science + Economics",
@@ -153,7 +153,7 @@ const translations = {
     },
   },
   zh: {
-    title: "胡昊阳（Howard Hu）| 个人网站",
+    title: "howard's studio",
     nav: ["项目", "经历", "关于", "摄影", "联系"],
     hero: {
       eyebrow: "数据科学 + 经济学",
