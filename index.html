@@ -14,22 +14,28 @@
       href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800;900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=20260310-1" />
+    <link rel="stylesheet" href="styles.css?v=20260311-1" />
     <link rel="stylesheet" href="styles/avatar.css?v=20260310-1" />
   </head>
   <body>
     <header class="site-header">
       <div class="container nav-wrap">
         <a href="#home" class="logo">HOWARD HU</a>
-        <nav>
-          <ul class="nav-links">
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#work">Work</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#photography">Photography</a></li>
-            <li><a href="#footer">Connect</a></li>
-          </ul>
-        </nav>
+        <div class="nav-right">
+          <nav>
+            <ul class="nav-links">
+              <li><a href="#projects">Projects</a></li>
+              <li><a href="#work">Work</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#photography">Photography</a></li>
+              <li><a href="#footer">Connect</a></li>
+            </ul>
+          </nav>
+          <div class="header-controls">
+            <button id="theme-toggle" class="mode-toggle" type="button">Dark</button>
+            <button id="lang-toggle" class="mode-toggle" type="button">中/Eng</button>
+          </div>
+        </div>
       </div>
     </header>
 
@@ -434,11 +440,11 @@
           <a href="tel:+12105053806">+1 (210) 505-3806</a>
           <a href="#home">Top</a>
         </div>
-        <p>&copy; <span id="year"></span> Haoyang (Howard) Hu.</p>
+        <p id="footer-copy">&copy; <span id="year"></span> Haoyang (Howard) Hu.</p>
       </div>
     </footer>
 
-    <script src="script.js?v=20260310-4"></script>
+    <script src="script.js?v=20260311-1"></script>
     <script type="module" src="avatar.js?v=20260310-1"></script>
     <script type="module" src="avatar-controller.js?v=20260310-1"></script>
   </body>
