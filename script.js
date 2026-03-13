@@ -300,6 +300,154 @@ const translations = {
       language: "中/Eng",
     },
   },
+  ko: {
+    title: "howard's studio",
+    nav: ["프로젝트", "경험", "소개", "사진", "연락"],
+    hero: {
+      eyebrow: "데이터 사이언스 + 경제학",
+      title: "안녕하세요, 제 이름은 Howard입니다.",
+      altName: "또는 胡昊阳",
+      bio: "미래가 당연해지기 전에 먼저 만들어보고 있습니다.",
+    },
+    projects: {
+      heading: "프로젝트",
+      intro:
+        "제가 가장 중요하게 보는 파트입니다. 스스로 실행되고, 필요한 정보를 모아주며, 실제로 쓸 수 있는 결과로 바꾸는 시스템을 만듭니다.",
+      open: "프로젝트 열기",
+      close: "프로젝트 닫기",
+      cards: [
+        {
+          tag: "플래그십 시스템",
+          title: "JARVIS",
+          subtitle: "개인용 AI 운영 시스템",
+          hook: "Stark Industries는 허구였지만, 아이디어는 아니었습니다.",
+          summaries: [
+            "JARVIS는 단순한 질문에서 시작됐습니다. 채팅창 하나 더 만드는 게 아니라, 하루 종일 대화할 수 있는 진짜 디지털 팀원이 있다면 어떨까?",
+            "프롬프트를 타이핑하는 대신, 'Jarvis, 오늘 일정이 뭐야?' 또는 '이 주제 조사해서 실행 계획까지 만들어줘'라고 말하고 싶었습니다.",
+            "JARVIS는 그 아이디어를 실제 시스템으로 만든 시도입니다.",
+            "음성 인터랙션과 모듈형 에이전트 아키텍처를 결합해 리서치, 요약, 모니터링, 실행까지 처리합니다. 내부적으로는 전문 에이전트들이 웹 리서치, 정보 추출, 요약, 자동 실행을 분담합니다.",
+            "JARVIS는 단일 챗봇이 아니라 개인 AI 운영 레이어에 가깝습니다. 정보 수집부터 결과 산출까지 워크플로 전체를 끝단까지 수행합니다.",
+            "장기적으로는 맥락을 이해하고 복잡한 업무를 관리하며 항상 함께 일할 수 있는 지속형 AI 파트너를 목표로 합니다.",
+            "현재 프로토타입은 OpenClaw 스타일 자율 브라우징, LLM 오케스트레이션, 실시간 음성 인터랙션 구조를 중심으로 검증하고 있습니다.",
+          ],
+          meta: "PYTHON · LLM APIs · AGENT ORCHESTRATION · WEB AUTOMATION · VOICE INTERFACES · OPENCLAW-STYLE SYSTEMS",
+        },
+        {
+          tag: "자동화",
+          title: "Brainrot Content Factory",
+          subtitle: "숏폼 미디어 자동화 파이프라인",
+          hook: "숏폼 제작을 자동화에 맡겨 도파민 효율을 극대화.",
+          summaries: [
+            "이 프로젝트는 확장성 실험에서 시작했습니다. 수작업 병목이 생기기 전까지 콘텐츠 제작 파이프라인을 어디까지 자동화할 수 있는지를 검증했습니다.",
+            "트렌드 탐지, 스크립트 생성, 비주얼 생성, 편집까지 최소 개입으로 연결했고, 품질 기준도 넣어 결과물의 일관성을 유지했습니다.",
+          ],
+          meta: "Python · Sora · FFmpeg · Platform APIs",
+        },
+        {
+          tag: "데이터 시각화",
+          title: "Analytic Dashboard Maker",
+          subtitle: "원본 테이블에서 의사결정 대시보드까지",
+          hook: "매주 대시보드를 수작업으로 다시 만드는 성장통은 이제 졸업했습니다.",
+          summaries: [
+            "분석가 시간이 데이터 정리와 반복 시각화에 소모되는 걸 보고, 지저분한 비즈니스 데이터를 자동 정리하고 핵심 지표를 추출해 대시보드 친화 구조로 만드는 파이프라인을 구축했습니다.",
+            "KPI 정의, 재사용 가능한 변환 로직, BI 도구 연계를 통해 팀이 데이터 정리보다 의사결정에 집중할 수 있도록 설계했습니다.",
+          ],
+          meta: "Python · Power BI · SQL · Workflow automation",
+        },
+        {
+          tag: "리서치 인프라",
+          title: "Curiosity X",
+          subtitle: "지속형 인터넷 모니터링",
+          hook: "탭 20개 없이도 돌아가는 개인 인텔 피드.",
+          summaries: [
+            "피드, 포럼, 테크 뉴스 사이를 계속 오가며 생기는 컨텍스트 전환 비용을 줄이기 위해 만든 에이전트입니다. 주요 소스를 계속 스캔하고 핵심 업데이트를 요약합니다.",
+            "중요도를 정렬해 실행 가능한 포인트를 빠르게 전달하고, 메시징 기반 알림으로 수동 검색 없이도 흐름을 유지할 수 있게 했습니다.",
+          ],
+          meta: "Python · RSS ingestion · LLM summarization",
+        },
+      ],
+    },
+    work: {
+      heading: "경력",
+      intro: "직무를 클릭하면 상세 내용을 볼 수 있습니다.",
+      jobs: [
+        {
+          role: "Customer Success Manager Architect (AI) - 입사 예정",
+          company: "IBM · Austin, TX",
+          date: "2026년 7월 시작",
+          details: [
+            "엔터프라이즈 고객이 AI 전략을 실제 배포 가능한 아키텍처로 전환할 수 있도록 지원할 예정입니다.",
+            "기술 구현과 커뮤니케이션을 연결하며 MVP 구축, 도입 확장, 비즈니스-기술 정렬을 동시에 수행하는 역할에 집중하고 있습니다.",
+          ],
+          meta: "Python · LLMs · Watsonx · Solution architecture",
+        },
+        {
+          role: "Accounts Payable Data Analytics Intern",
+          company: "Pacific Gas and Electric Company (PG&E) · Oakland, CA",
+          date: "2025년 5월 - 2025년 8월",
+          details: [
+            "복잡한 재무 데이터 흐름을 SQL 파이프라인으로 재구성해 처리 마찰을 크게 줄이고 리포팅 속도와 안정성을 높였습니다.",
+            "좋은 분석은 영리한 쿼리보다 신뢰성과 유지보수성에 달려 있다는 점을 배웠고, 팀이 지속 활용할 수 있는 자동화와 대시보드에 집중했습니다.",
+          ],
+          meta: "SQL · Power BI · DAX · Power Automate",
+        },
+        {
+          role: "Data Science Intern",
+          company: "Dick's Sporting Goods · San Antonio, TX",
+          date: "2024년 5월 - 2024년 8월",
+          details: [
+            "행동/리뷰 데이터를 통해 고객 신호를 분석하고 제품 및 마케팅 의사결정을 지원했습니다.",
+            "원시 데이터를 실제 액션으로 연결하는 분석 사고를 강화한 경험이었습니다.",
+          ],
+          meta: "BigQuery · Python · NLP · TensorFlow · PyTorch",
+        },
+        {
+          role: "Business Intelligence Team Executive Member",
+          company: "The Cal Student Store · Berkeley, CA",
+          date: "2022년 8월 - 2025년 5월",
+          details: [
+            "캠페인 데이터와 상품 데이터를 결합해 실제 전환으로 이어지는 프로모션 전략을 운영했습니다.",
+            "CTR 25% 상승, 매출 150% 상승을 만들며 빠른 반복과 명확한 지표의 힘을 체감했습니다.",
+          ],
+          meta: "BI · Marketing analytics · Growth strategy",
+        },
+      ],
+    },
+    about: {
+      heading: "소개",
+      paragraphs: [
+        "저는 UC Berkeley에서 데이터 사이언스와 경제학을 복수전공하고 있으며, 분석·BI·실험 설계를 통해 복잡한 데이터를 명확한 의사결정으로 바꾸는 데 집중하고 있습니다.",
+        "SQL 파이프라인, Power BI/Tableau 대시보드, 예측, NLP 감성 분석, ML 협업까지 폭넓게 다루고 있으며 데이터/BI 관련 인턴 및 풀타임 기회를 찾고 있습니다.",
+        "최근에는 실험 설계, 대시보드 자동화, 아이디어의 시스템화에 특히 집중하고 있고, 빠르고 명확하며 팀이 바로 쓸 수 있는 결과를 지향합니다.",
+      ],
+      educationLabel: "학력",
+      school: "University of California, Berkeley",
+      date: "2022년 8월 - 2026년 5월 · 데이터 사이언스 & 경제학",
+    },
+    photography: {
+      heading: "사진",
+      intro: "순간을 기록하고, 이야기를 담고, 빛을 실험합니다. 각 항목을 클릭해 샘플을 확인하세요.",
+      cards: [
+        { label: "필름", title: "필름", desc: "35mm 필름으로 담은 아날로그 순간." },
+        { label: "졸업", title: "졸업", desc: "소중한 마일스톤과 추억을 기록." },
+        { label: "기가 작업", title: "기가 작업", desc: "행사, 공연, 커미션 촬영." },
+        { label: "쉐너니건스", title: "쉐너니건스", desc: "실험적인 창작과 재미있는 비주얼." },
+      ],
+      ctaBook: "세션 예약하기",
+      ctaInsta: "@howiesflicks",
+      modalAlt: "사진 갤러리",
+      modalCloseAria: "갤러리 닫기",
+      modalPrevAria: "이전 사진",
+      modalNextAria: "다음 사진",
+    },
+    footer: {
+      links: ["LinkedIn", "Email", "맨 위로"],
+      copy: "胡昊阳 (Howard Hu)",
+    },
+    toggles: {
+      language: "🌐",
+    },
+  },
 };
 
 const yearNode = document.getElementById("year");
@@ -307,7 +455,8 @@ if (yearNode) {
   yearNode.textContent = new Date().getFullYear().toString();
 }
 
-const langToggle = document.getElementById("lang-toggle");
+const langOptions = document.querySelectorAll("[data-lang-option]");
+const langDropdown = document.querySelector(".lang-dropdown");
 const footerCopy = document.getElementById("footer-copy");
 const typedTitle = document.getElementById("typed-title");
 const typedAltName = document.getElementById("typed-alt-name");
@@ -329,6 +478,9 @@ const photoNextButton = document.querySelector("[data-photo-next]");
 const photoCloseButtons = document.querySelectorAll("[data-photo-close]");
 
 let currentLanguage = window.localStorage.getItem(STORAGE_LANG) || "en";
+if (!["en", "zh", "ko"].includes(currentLanguage)) {
+  currentLanguage = "en";
+}
 let typingTimers = [];
 
 const setText = (selector, value) => {
@@ -412,12 +564,24 @@ const getProjectTriggerLabel = (isOpen) => {
   return isOpen ? langSet.close : langSet.open;
 };
 
+const setActiveLanguageOption = () => {
+  langOptions.forEach((option) => {
+    option.classList.toggle("is-active", option.dataset.langOption === currentLanguage);
+  });
+};
+
 const applyLanguage = (lang, animateHero = true) => {
-  currentLanguage = lang === "zh" ? "zh" : "en";
+  currentLanguage = ["en", "zh", "ko"].includes(lang) ? lang : "en";
   window.localStorage.setItem(STORAGE_LANG, currentLanguage);
   const t = translations[currentLanguage];
 
-  document.documentElement.lang = currentLanguage === "zh" ? "zh-Hans" : "en";
+  if (currentLanguage === "zh") {
+    document.documentElement.lang = "zh-Hans";
+  } else if (currentLanguage === "ko") {
+    document.documentElement.lang = "ko";
+  } else {
+    document.documentElement.lang = "en";
+  }
   document.title = t.title;
 
   const metaDesc = document.querySelector('meta[name="description"]');
@@ -426,7 +590,9 @@ const applyLanguage = (lang, animateHero = true) => {
       "content",
       currentLanguage === "zh"
         ? "胡昊阳（Howard Hu）- 伯克利数据科学与经济学学生，聚焦分析、实验与商业智能。"
-        : "Haoyang (Howard) Hu - UC Berkeley Data Science and Economics student focused on analytics, experimentation, and BI."
+        : currentLanguage === "ko"
+          ? "Howard Hu - UC Berkeley 데이터사이언스·경제학 전공, 분석·실험·BI 중심."
+          : "Haoyang (Howard) Hu - UC Berkeley Data Science and Economics student focused on analytics, experimentation, and BI."
     );
   }
 
@@ -537,9 +703,7 @@ const applyLanguage = (lang, animateHero = true) => {
     footerCopy.innerHTML = `&copy; <span id="year">${yearNode.textContent}</span> ${t.footer.copy}`;
   }
 
-  if (langToggle) {
-    langToggle.textContent = t.toggles.language;
-  }
+  setActiveLanguageOption();
 
   projectTriggers.forEach((trigger) => {
     const isOpen = trigger.getAttribute("aria-expanded") === "true";
@@ -557,11 +721,15 @@ const applyLanguage = (lang, animateHero = true) => {
 
 applyLanguage(currentLanguage, true);
 
-if (langToggle) {
-  langToggle.addEventListener("click", () => {
-    applyLanguage(currentLanguage === "en" ? "zh" : "en", true);
+langOptions.forEach((option) => {
+  option.addEventListener("click", () => {
+    const nextLang = option.dataset.langOption || "en";
+    applyLanguage(nextLang, true);
+    if (langDropdown) {
+      langDropdown.removeAttribute("open");
+    }
   });
-}
+});
 
 const setTimelineOpen = (targetItem) => {
   timelineItems.forEach((item) => {

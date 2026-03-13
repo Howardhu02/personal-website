@@ -166,6 +166,55 @@ body {
   border-color: color-mix(in srgb, var(--accent) 40%, var(--line));
 }
 
+.lang-dropdown {
+  position: relative;
+}
+
+.lang-dropdown > summary {
+  list-style: none;
+}
+
+.lang-dropdown > summary::-webkit-details-marker {
+  display: none;
+}
+
+.lang-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 0.4rem);
+  right: 0;
+  min-width: 130px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 0.35rem;
+  display: none;
+  box-shadow: 0 14px 28px rgba(7, 7, 7, 0.12);
+  z-index: 20;
+}
+
+.lang-dropdown[open] .lang-dropdown-menu {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.lang-option {
+  border: 0;
+  border-radius: 8px;
+  text-align: left;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 0.45rem 0.55rem;
+  cursor: pointer;
+}
+
+.lang-option:hover,
+.lang-option.is-active {
+  background: color-mix(in srgb, var(--accent) 12%, #ffffff 88%);
+}
+
 .hero {
   padding: 8rem 0 5.5rem;
 }

@@ -16,7 +16,7 @@
     />
     <link rel="icon" type="image/png" href="public/avatars/howard_idle.png" />
     <link rel="apple-touch-icon" href="public/avatars/howard_idle.png" />
-    <link rel="stylesheet" href="styles.css?v=20260311-2" />
+    <link rel="stylesheet" href="styles.css?v=20260311-3" />
     <link rel="stylesheet" href="styles/avatar.css?v=20260310-1" />
   </head>
   <body>
@@ -34,7 +34,14 @@
             </ul>
           </nav>
           <div class="header-controls">
-            <button id="lang-toggle" class="mode-toggle" type="button">中/Eng</button>
+            <details class="lang-dropdown">
+              <summary class="mode-toggle" aria-label="Language">🌐</summary>
+              <div class="lang-dropdown-menu" role="menu" aria-label="Language menu">
+                <button type="button" class="lang-option" data-lang-option="en">English</button>
+                <button type="button" class="lang-option" data-lang-option="zh">中文</button>
+                <button type="button" class="lang-option" data-lang-option="ko">한국인</button>
+              </div>
+            </details>
           </div>
         </div>
       </div>
@@ -444,7 +451,7 @@
       </div>
     </footer>
 
-    <script src="script.js?v=20260311-2"></script>
+    <script src="script.js?v=20260311-3"></script>
     <script type="module" src="avatar.js?v=20260310-1"></script>
     <script type="module" src="avatar-controller.js?v=20260310-1"></script>
   </body>
