@@ -144,7 +144,7 @@ const translations = {
       modalNextAria: "Next photo",
     },
     footer: {
-      links: ["LinkedIn", "Email", "+1 (210) 505-3806", "Top"],
+      links: ["LinkedIn", "Email", "Top"],
       copy: "Haoyang (Howard) Hu.",
     },
     toggles: {
@@ -292,7 +292,7 @@ const translations = {
       modalNextAria: "下一张",
     },
     footer: {
-      links: ["领英", "邮箱", "+1 (210) 505-3806", "回到顶部"],
+      links: ["领英", "邮箱", "回到顶部"],
       copy: "胡昊阳（Howard Hu）",
     },
     toggles: {
