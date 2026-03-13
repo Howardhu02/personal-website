@@ -7,15 +7,6 @@
   --accent: #2f6bff;
 }
 
-body.theme-dark {
-  --bg: #0d0f14;
-  --surface: #121520;
-  --text: #f2f4f8;
-  --muted: #a5acbc;
-  --line: #2b3243;
-  --accent: #8cadff;
-}
-
 * {
   box-sizing: border-box;
 }
@@ -32,14 +23,6 @@ body {
   background-size: 32px 32px, 32px 32px, auto;
   color: var(--text);
   scroll-behavior: smooth;
-}
-
-body.theme-dark {
-  background:
-    linear-gradient(to right, rgba(61, 68, 88, 0.26) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(61, 68, 88, 0.26) 1px, transparent 1px),
-    var(--bg);
-  background-size: 32px 32px, 32px 32px, auto;
 }
 
 .container {
@@ -998,19 +981,6 @@ h1.is-typing::after {
 .site-footer {
   border-top: 1px solid var(--line);
   padding: 3.2rem 0 2.2rem;
-}
-
-body.theme-dark .site-header {
-  background: rgba(10, 12, 18, 0.9);
-}
-
-body.theme-dark .project-card:hover {
-  border-color: #5975c2;
-  box-shadow: 0 0 0 1px rgba(117, 147, 232, 0.36), 0 0 34px rgba(95, 130, 226, 0.26);
-}
-
-body.theme-dark .photo-modal-backdrop {
-  background: rgba(3, 5, 10, 0.9);
 }
 
 .social-links {

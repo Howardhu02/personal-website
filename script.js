@@ -1,4 +1,3 @@
-const STORAGE_THEME = "portfolio_theme";
 const STORAGE_LANG = "portfolio_lang";
 
 const translations = {
@@ -308,7 +307,6 @@ if (yearNode) {
   yearNode.textContent = new Date().getFullYear().toString();
 }
 
-const themeToggle = document.getElementById("theme-toggle");
 const langToggle = document.getElementById("lang-toggle");
 const footerCopy = document.getElementById("footer-copy");
 const typedTitle = document.getElementById("typed-title");
@@ -330,7 +328,6 @@ const photoPrevButton = document.querySelector("[data-photo-prev]");
 const photoNextButton = document.querySelector("[data-photo-next]");
 const photoCloseButtons = document.querySelectorAll("[data-photo-close]");
 
-let currentTheme = window.localStorage.getItem(STORAGE_THEME) || "light";
 let currentLanguage = window.localStorage.getItem(STORAGE_LANG) || "en";
 let typingTimers = [];
 
@@ -408,15 +405,6 @@ const startHeroTyping = () => {
   }, 112);
 
   typingTimers.push(titleInterval);
-};
-
-const setTheme = (theme) => {
-  currentTheme = theme === "dark" ? "dark" : "light";
-  document.body.classList.toggle("theme-dark", currentTheme === "dark");
-  window.localStorage.setItem(STORAGE_THEME, currentTheme);
-  if (themeToggle) {
-    themeToggle.textContent = currentTheme === "dark" ? "Bright" : translations[currentLanguage].toggles.theme;
-  }
 };
 
 const getProjectTriggerLabel = (isOpen) => {
@@ -549,9 +537,6 @@ const applyLanguage = (lang, animateHero = true) => {
     footerCopy.innerHTML = `&copy; <span id="year">${yearNode.textContent}</span> ${t.footer.copy}`;
   }
 
-  if (themeToggle && currentTheme !== "dark") {
-    themeToggle.textContent = t.toggles.theme;
-  }
   if (langToggle) {
     langToggle.textContent = t.toggles.language;
   }
@@ -570,21 +555,11 @@ const applyLanguage = (lang, animateHero = true) => {
   }
 };
 
-setTheme(currentTheme);
 applyLanguage(currentLanguage, true);
-
-if (themeToggle) {
-  themeToggle.addEventListener("click", () => {
-    setTheme(currentTheme === "dark" ? "light" : "dark");
-  });
-}
 
 if (langToggle) {
   langToggle.addEventListener("click", () => {
     applyLanguage(currentLanguage === "en" ? "zh" : "en", true);
-    if (currentTheme === "dark" && themeToggle) {
-      themeToggle.textContent = "Bright";
-    }
   });
 }
 
