@@ -1,3 +1,4 @@
+(function () {
 const STORAGE_LANG = "portfolio_lang";
 
 const translations = {
@@ -215,7 +216,23 @@ const closeNodes = document.querySelectorAll("[data-about-close]");
 const openNodes = document.querySelectorAll("[data-modal-kind][data-modal-id]");
 const wechatOpen = document.getElementById("wechat-open");
 
-let currentLanguage = window.localStorage.getItem(STORAGE_LANG) || "en";
+const readStoredLanguage = () => {
+  try {
+    return window.localStorage.getItem(STORAGE_LANG) || "en";
+  } catch (error) {
+    return "en";
+  }
+};
+
+const writeStoredLanguage = (lang) => {
+  try {
+    window.localStorage.setItem(STORAGE_LANG, lang);
+  } catch (error) {
+    // Ignore storage write errors.
+  }
+};
+
+let currentLanguage = readStoredLanguage();
 if (!translations[currentLanguage]) {
   currentLanguage = "en";
 }
@@ -334,7 +351,7 @@ const openWeChatModal = () => {
 
 const applyLanguage = (lang) => {
   currentLanguage = translations[lang] ? lang : "en";
-  window.localStorage.setItem(STORAGE_LANG, currentLanguage);
+  writeStoredLanguage(currentLanguage);
   const t = translations[currentLanguage];
 
   document.documentElement.lang = currentLanguage === "zh" ? "zh-Hans" : currentLanguage === "ko" ? "ko" : "en";
@@ -392,6 +409,16 @@ openNodes.forEach((node) => {
   });
 });
 
+document.addEventListener("click", (event) => {
+  const trigger = event.target.closest("[data-modal-kind][data-modal-id]");
+  if (!trigger) {
+    return;
+  }
+  const kind = trigger.dataset.modalKind;
+  const id = trigger.dataset.modalId;
+  renderDetailModal(kind, id);
+});
+
 if (wechatOpen) {
   wechatOpen.addEventListener("click", openWeChatModal);
 }
@@ -426,8 +453,14 @@ langOptions.forEach((option) => {
 });
 
 window.addEventListener("portfolio-language-change", (event) => {
-  const nextLang = event.detail && event.detail.language ? event.detail.language : window.localStorage.getItem(STORAGE_LANG) || "en";
+  const nextLang = event.detail && event.detail.language ? event.detail.language : readStoredLanguage();
   applyLanguage(nextLang);
 });
 
 applyLanguage(currentLanguage);
+window.setTimeout(() => {
+  if (isAboutViewActive()) {
+    startTyping();
+  }
+}, 0);
+})();
