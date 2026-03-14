@@ -637,8 +637,16 @@ const applyLanguage = (lang, animateHero = true) => {
       link.textContent = t.nav[index];
     }
   });
+  const navAbout = document.querySelector("[data-nav='about']");
+  const navProjects = document.querySelector("[data-nav='projects']");
+  const navEmail = document.querySelector("[data-nav='email']");
+  if (navAbout) navAbout.textContent = t.nav[0];
+  if (navProjects) navProjects.textContent = t.nav[1];
   if (emailOpenTrigger) {
     emailOpenTrigger.textContent = t.emailLabel;
+  }
+  if (navEmail) {
+    navEmail.textContent = t.emailLabel;
   }
 
   setText(".eyebrow", t.hero.eyebrow);
@@ -735,6 +743,7 @@ const applyLanguage = (lang, animateHero = true) => {
   if (photoNextButton) photoNextButton.setAttribute("aria-label", t.photography.modalNextAria);
 
   setActiveLanguageOption();
+  window.dispatchEvent(new CustomEvent("portfolio-language-change", { detail: { language: currentLanguage } }));
 
   projectTriggers.forEach((trigger) => {
     const isOpen = trigger.getAttribute("aria-expanded") === "true";

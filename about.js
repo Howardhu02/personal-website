@@ -359,6 +359,7 @@ const applyLanguage = (lang) => {
   }
 
   setActiveLanguageOption();
+  window.dispatchEvent(new CustomEvent("portfolio-language-change", { detail: { language: currentLanguage } }));
   startTyping();
 
   if (activeModal) {
