@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>howard's studio</title>
+    <meta
+      name="description"
+      content="Projects by Howard Hu — systems in analytics, AI workflows, and automation."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="public/avatars/howard_laptop.png" />
+    <link rel="apple-touch-icon" href="public/avatars/howard_laptop.png" />
+    <link rel="stylesheet" href="styles.css?v=20260314-2" />
+    <link rel="stylesheet" href="styles/email-panel.css?v=20260314-1" />
+    <link rel="stylesheet" href="styles/projects.css?v=20260314-1" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a href="index.html#home" class="logo">HOWARD HU</a>
+        <div class="nav-right">
+          <nav>
+            <ul class="nav-links">
+              <li><a href="about.html">About</a></li>
+              <li><a href="projects.html">Projects</a></li>
+              <li><button id="email-open-trigger" class="nav-email-btn" type="button">Email</button></li>
+            </ul>
+          </nav>
+          <div class="header-controls">
+            <details class="lang-dropdown">
+              <summary class="mode-toggle" aria-label="Language">🌐</summary>
+              <div class="lang-dropdown-menu" role="menu" aria-label="Language menu">
+                <button type="button" class="lang-option" data-lang-option="en">English</button>
+                <button type="button" class="lang-option" data-lang-option="zh">中文</button>
+                <button type="button" class="lang-option" data-lang-option="ko">한국인</button>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="projects-page">
+      <section class="projects-centered container">
+        <img
+          class="projects-avatar"
+          src="public/avatars/howard_laptop.png"
+          alt="Howard coding pixel avatar"
+          width="128"
+          height="128"
+        />
+        <p id="projects-typed-line" class="projects-typed-line" data-text="Here are some of the fun systems I’ve built or am currently building.">
+          Here are some of the fun systems I’ve built or am currently building.
+        </p>
+
+        <div class="projects-grid">
+          <article class="project-mini-card" data-project-id="jarvis">
+            <h2>JARVIS</h2>
+            <p class="project-mini-desc">A personal AI operating layer built for voice-first workflows and autonomous execution.</p>
+            <a class="project-mini-link" href="https://github.com/Howardhu02" target="_blank" rel="noopener noreferrer">Open project</a>
+          </article>
+
+          <article class="project-mini-card" data-project-id="brainrot">
+            <h2>Brainrot Content Factory</h2>
+            <p class="project-mini-desc">An automated media pipeline that turns trend signals into short-form outputs.</p>
+            <a class="project-mini-link" href="https://github.com/Howardhu02" target="_blank" rel="noopener noreferrer">Open project</a>
+          </article>
+
+          <article class="project-mini-card" data-project-id="dashboard">
+            <h2>Analytic Dashboard Maker</h2>
+            <p class="project-mini-desc">A repeatable data-to-dashboard pipeline for faster business decisions.</p>
+            <a class="project-mini-link" href="https://github.com/Howardhu02" target="_blank" rel="noopener noreferrer">Open project</a>
+          </article>
+
+          <article class="project-mini-card" data-project-id="curiosity">
+            <h2>Curiosity X</h2>
+            <p class="project-mini-desc">A continuous monitoring agent that compiles concise internet briefings.</p>
+            <a class="project-mini-link" href="https://github.com/Howardhu02" target="_blank" rel="noopener noreferrer">Open project</a>
+          </article>
+
+          <article class="project-mini-card" data-project-id="photo">
+            <h2>Photography Studio</h2>
+            <p class="project-mini-desc">Film, graduation, gig work, and experimental stories in a dedicated gallery module.</p>
+            <a class="project-mini-link" href="photography.html">Open project</a>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <div id="email-panel-root"></div>
+
+    <script>
+      window.EMAIL_PANEL_ENDPOINT = "https://formspree.io/f/mnjgzolo";
+    </script>
+    <script src="projects.js?v=20260314-1"></script>
+    <script type="module" src="email-panel.js?v=20260314-1"></script>
+  </body>
+</html>

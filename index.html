@@ -16,19 +16,19 @@
     />
     <link rel="icon" type="image/png" href="public/avatars/howard_idle.png" />
     <link rel="apple-touch-icon" href="public/avatars/howard_idle.png" />
-    <link rel="stylesheet" href="styles.css?v=20260314-1" />
+    <link rel="stylesheet" href="styles.css?v=20260314-2" />
     <link rel="stylesheet" href="styles/avatar.css?v=20260310-1" />
     <link rel="stylesheet" href="styles/email-panel.css?v=20260314-1" />
   </head>
   <body>
     <header class="site-header">
       <div class="container nav-wrap">
-        <a href="#home" class="logo">HOWARD HU</a>
+        <a href="index.html#home" class="logo">HOWARD HU</a>
         <div class="nav-right">
           <nav>
             <ul class="nav-links">
               <li><a href="about.html">About</a></li>
-              <li><a href="#projects">Projects</a></li>
+              <li><a href="projects.html">Projects</a></li>
               <li><button id="email-open-trigger" class="nav-email-btn" type="button">Email</button></li>
             </ul>
           </nav>
@@ -90,158 +90,14 @@
           </div>
         </div>
       </section>
-
-      <section id="projects" class="container section reveal project-section" data-tone="jarvis">
-        <div class="section-intro">
-          <div class="section-heading">
-            <h2>Projects</h2>
-            <div
-              class="avatar-slot avatar-slot-inline"
-              data-avatar-pose="laptop"
-              data-avatar-label="Projects"
-              aria-label="Howard with laptop"
-            ></div>
-          </div>
-          <p>
-            This is the part I care most about: building systems that can run
-            on their own, keep me informed, and turn information into useful
-            outputs.
-          </p>
-        </div>
-        <div class="project-grid">
-          <article class="project-card project-card-featured" data-tone="jarvis">
-            <p class="card-tag">Flagship System</p>
-            <h3>JARVIS</h3>
-            <p class="project-subtitle">A personal AI operating system</p>
-            <p class="project-hook">Stark Industries was fictional. The idea wasn’t.</p>
-            <button class="project-trigger" type="button" aria-expanded="false">Open project</button>
-            <div class="project-detail">
-              <p class="card-summary">
-                JARVIS began as a simple question: what if I had a real digital
-                teammate I could talk to all day, not just another chat window?
-              </p>
-              <p class="card-summary">
-                Instead of typing prompts, I wanted to say things like:
-                “Jarvis, what’s on my agenda today?” or “Research this topic
-                and build a full execution plan.”
-              </p>
-              <p class="card-summary">
-                JARVIS is my attempt to build that system.
-              </p>
-              <p class="card-summary">
-                It combines voice interaction with a modular agent architecture
-                capable of research, synthesis, monitoring, and action. Under
-                the hood, specialized agents coordinate tasks like web
-                research, information extraction, summarization, and automated
-                execution.
-              </p>
-              <p class="card-summary">
-                Rather than a single chatbot, JARVIS functions as a personal AI
-                operating layer, a system that can run workflows end-to-end,
-                from gathering information to producing usable outputs.
-              </p>
-              <p class="card-summary">
-                The long-term vision is a persistent AI partner that understands
-                context, manages complex tasks, and acts as an always-available
-                digital teammate.
-              </p>
-              <p class="card-summary">
-                This prototype explores that architecture through OpenClaw-style
-                autonomous browsing, LLM orchestration, and real-time voice
-                interaction.
-              </p>
-              <p class="detail-meta">
-                PYTHON · LLM APIs · AGENT ORCHESTRATION · WEB AUTOMATION ·
-                VOICE INTERFACES · OPENCLAW-STYLE SYSTEMS
-              </p>
-            </div>
-          </article>
-          <article class="project-card" data-tone="factory">
-            <p class="card-tag">Automation</p>
-            <h3>Brainrot Content Factory</h3>
-            <p class="project-subtitle">An automated pipeline for short-form media</p>
-            <p class="project-hook">Dopamine maxing by putting shorts content creation on autopilot.</p>
-            <button class="project-trigger" type="button" aria-expanded="false">Open project</button>
-            <div class="project-detail">
-              <p class="card-summary">
-                This started as an experiment in scale: how far can I push a
-                media pipeline before manual bottlenecks show up? The system
-                detects trend signals, builds scripts, generates visuals, and
-                assembles shorts with minimal intervention.
-              </p>
-              <p class="card-summary">
-                I also built in quality gates around timing, hook strength, and
-                visual continuity so it’s not just auto-generated noise. The end
-                goal is a repeatable engine for autonomous content channels.
-              </p>
-              <p class="detail-meta">Python · Sora · FFmpeg · Platform APIs</p>
-            </div>
-          </article>
-          <article class="project-card" data-tone="dashboard">
-            <p class="card-tag">Data Visualization</p>
-            <h3>Analytic Dashboard Maker</h3>
-            <p class="project-subtitle">From raw tables to decision-ready dashboards</p>
-            <p class="project-hook">Because manually rebuilding dashboards every week is character development I did not need.</p>
-            <button class="project-trigger" type="button" aria-expanded="false">Open project</button>
-            <div class="project-detail">
-              <p class="card-summary">
-                This project came from seeing how much analyst time gets burned
-                cleaning data and redoing the same visuals. I built a pipeline
-                that ingests messy business data, extracts key metrics, and
-                prepares dashboard-ready structures with much less manual work.
-              </p>
-              <p class="card-summary">
-                I focused on making outputs practical: clear KPI definitions,
-                reusable transformations, and automated handoff into BI tools so
-                teams can spend more time deciding and less time wrangling.
-              </p>
-              <p class="detail-meta">Python · Power BI · SQL · Workflow automation</p>
-            </div>
-          </article>
-          <article class="project-card" data-tone="research">
-            <p class="card-tag">Research Infrastructure</p>
-            <h3>Curiosity X</h3>
-            <p class="project-subtitle">Continuous monitoring of the internet</p>
-            <p class="project-hook">My personal intel feed, minus the 20-tab chaos.</p>
-            <button class="project-trigger" type="button" aria-expanded="false">Open project</button>
-            <div class="project-detail">
-              <p class="card-summary">
-                I built this because I was spending too much time context
-                switching between feeds, forums, and tech news. The agent
-                continuously monitors sources and compiles concise briefings.
-              </p>
-              <p class="card-summary">
-                It prioritizes what matters, summarizes developments with clear
-                action points, and pushes updates through messaging so I can
-                react fast without manual hunting.
-              </p>
-              <p class="detail-meta">Python · RSS ingestion · LLM summarization</p>
-            </div>
-          </article>
-          <article class="project-card" data-tone="photo">
-            <p class="card-tag">Visual Storytelling</p>
-            <h3>Photography Studio</h3>
-            <p class="project-subtitle">People, light, and memory-driven frames</p>
-            <p class="project-hook">A separate visual module for film, graduation, gigs, and experimental work.</p>
-            <p class="card-summary">
-              This project page is where I curate my photography work as a
-              clean gallery experience. It includes categorized collections,
-              fullscreen browsing, and fast navigation so the images stay the
-              main focus.
-            </p>
-            <p class="detail-meta">Film · Graduation · Gig Works · Shenanigans</p>
-            <a class="project-trigger" href="photography.html">Open project</a>
-          </article>
-        </div>
-      </section>
-
     </main>
+
     <div id="email-panel-root"></div>
 
     <script>
       window.EMAIL_PANEL_ENDPOINT = "https://formspree.io/f/mnjgzolo";
     </script>
-    <script src="script.js?v=20260314-1"></script>
+    <script src="script.js?v=20260314-2"></script>
     <script type="module" src="avatar.js?v=20260310-1"></script>
     <script type="module" src="avatar-controller.js?v=20260310-1"></script>
     <script type="module" src="email-panel.js?v=20260314-1"></script>

@@ -14,11 +14,11 @@
       href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800;900&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" type="image/png" href="public/avatars/howard_idle.png" />
-    <link rel="apple-touch-icon" href="public/avatars/howard_idle.png" />
-    <link rel="stylesheet" href="styles.css?v=20260314-1" />
+    <link rel="icon" type="image/png" href="public/avatars/howard_smile.png" />
+    <link rel="apple-touch-icon" href="public/avatars/howard_smile.png" />
+    <link rel="stylesheet" href="styles.css?v=20260314-2" />
     <link rel="stylesheet" href="styles/email-panel.css?v=20260314-1" />
-    <link rel="stylesheet" href="styles/about.css?v=20260314-1" />
+    <link rel="stylesheet" href="styles/about.css?v=20260314-2" />
   </head>
   <body>
     <header class="site-header">
@@ -27,9 +27,9 @@
         <div class="nav-right">
           <nav>
             <ul class="nav-links">
-              <li><a href="about.html">About</a></li>
-              <li><a href="index.html#projects">Projects</a></li>
-              <li><button id="email-open-trigger" class="nav-email-btn" type="button">Email</button></li>
+              <li><a href="about.html" data-nav="about">About</a></li>
+              <li><a href="projects.html" data-nav="projects">Projects</a></li>
+              <li><button id="email-open-trigger" class="nav-email-btn" type="button" data-nav="email">Email</button></li>
             </ul>
           </nav>
           <div class="header-controls">
@@ -55,25 +55,29 @@
           width="128"
           height="128"
         />
-        <h1 class="about-title">Hi there</h1>
-        <p class="about-intro">
+        <h1 id="about-typed-title" class="about-title" data-text="Hi there">Hi there</h1>
+        <p
+          id="about-typed-intro"
+          class="about-intro"
+          data-text="Talk to me about data, AI, analytics, and building useful systems."
+        >
           Talk to me about data, AI, analytics, and building useful systems.
         </p>
 
         <div class="about-block">
-          <h2>Work</h2>
+          <h2 data-i18n="workHeading">Work</h2>
           <div class="about-list" role="list">
-            <button class="about-link-item" type="button" data-modal-kind="work" data-modal-id="ibm">CSM Architect (AI) @ IBM</button>
-            <button class="about-link-item" type="button" data-modal-kind="work" data-modal-id="pge">Ex-AP Data Analyst @ PG&amp;E</button>
-            <button class="about-link-item" type="button" data-modal-kind="work" data-modal-id="dicks">Ex-Data Science Intern @ Dick's Sporting Goods</button>
-            <button class="about-link-item" type="button" data-modal-kind="work" data-modal-id="store">BI Executive @ Cal Student Store</button>
+            <button class="about-link-item" type="button" data-modal-kind="work" data-modal-id="ibm" data-i18n="work.ibm">CSM Architect (AI) @ IBM</button>
+            <button class="about-link-item" type="button" data-modal-kind="work" data-modal-id="pge" data-i18n="work.pge">Ex-AP Data Analyst @ PG&amp;E</button>
+            <button class="about-link-item" type="button" data-modal-kind="work" data-modal-id="dicks" data-i18n="work.dicks">Ex-Data Science Intern @ Dick's Sporting Goods</button>
+            <button class="about-link-item" type="button" data-modal-kind="work" data-modal-id="store" data-i18n="work.store">BI Executive @ Cal Student Store</button>
           </div>
         </div>
 
         <div class="about-block">
-          <h2>Education</h2>
+          <h2 data-i18n="educationHeading">Education</h2>
           <div class="about-list" role="list">
-            <button class="about-link-item" type="button" data-modal-kind="education" data-modal-id="berkeley">
+            <button class="about-link-item" type="button" data-modal-kind="education" data-modal-id="berkeley" data-i18n="education.entry">
               Data Science + Economics<br />
               University of California, Berkeley<br />
               2022–2026
@@ -115,8 +119,7 @@
     <script>
       window.EMAIL_PANEL_ENDPOINT = "https://formspree.io/f/mnjgzolo";
     </script>
-    <script src="script.js?v=20260314-1"></script>
-    <script src="about.js?v=20260314-1"></script>
+    <script src="about.js?v=20260314-2"></script>
     <script type="module" src="email-panel.js?v=20260314-1"></script>
   </body>
 </html>

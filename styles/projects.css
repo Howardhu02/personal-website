@@ -1,0 +1,102 @@
+.projects-page {
+  min-height: calc(100vh - 78px);
+  display: grid;
+  place-items: center;
+  padding: 5.4rem 0 4rem;
+}
+
+.projects-centered {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 1rem;
+}
+
+.projects-avatar {
+  width: 112px;
+  height: 112px;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, #ffffff 0%, #f7f7fa 100%);
+  image-rendering: pixelated;
+}
+
+.projects-typed-line {
+  margin: 0;
+  max-width: 58ch;
+  color: #3f4452;
+  line-height: 1.7;
+  font-size: 1.03rem;
+}
+
+.projects-typed-line.is-typing::after {
+  content: "";
+  display: inline-block;
+  width: 0.08em;
+  height: 0.96em;
+  margin-left: 0.12em;
+  vertical-align: -0.06em;
+  background: var(--text);
+  animation: blink-caret 850ms steps(1, end) infinite;
+}
+
+.projects-grid {
+  margin-top: 1.1rem;
+  width: min(940px, 100%);
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 0.95rem;
+}
+
+.project-mini-card {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1.15rem;
+  background: color-mix(in srgb, var(--surface) 94%, #fff 6%);
+  text-align: left;
+  transition: transform 190ms ease, border-color 190ms ease, box-shadow 190ms ease;
+}
+
+.project-mini-card:hover {
+  transform: translateY(-2px);
+  border-color: #cfd3df;
+  box-shadow: 0 10px 24px rgba(7, 7, 7, 0.06);
+}
+
+.project-mini-card h2 {
+  margin: 0;
+  font-size: 1.18rem;
+  letter-spacing: -0.01em;
+}
+
+.project-mini-desc {
+  margin: 0.55rem 0 1rem;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.project-mini-link {
+  color: var(--text);
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+  text-decoration-color: transparent;
+  transition: text-decoration-color 180ms ease;
+}
+
+.project-mini-link:hover {
+  text-decoration-color: currentColor;
+}
+
+@media (min-width: 840px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .projects-page {
+    min-height: calc(100vh - 72px);
+    padding-top: 5rem;
+  }
+}

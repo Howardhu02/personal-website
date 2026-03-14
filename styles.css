@@ -137,6 +137,7 @@ body {
   color: var(--muted);
   text-decoration: none;
   font-weight: 700;
+  font-size: 1.03rem;
   transition: color 160ms ease;
 }
 
@@ -146,6 +147,7 @@ body {
   color: var(--muted);
   font: inherit;
   font-weight: 700;
+  font-size: 1.03rem;
   padding: 0;
   cursor: pointer;
   transition: color 160ms ease;
@@ -170,10 +172,10 @@ body {
   background: var(--surface);
   color: var(--text);
   font: inherit;
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   font-weight: 700;
   border-radius: 999px;
-  padding: 0.38rem 0.72rem;
+  padding: 0.42rem 0.8rem;
   cursor: pointer;
   transition: border-color 160ms ease, background 160ms ease;
 }
@@ -1174,7 +1176,7 @@ h1.is-typing::after {
 
   .nav-links {
     gap: 0.62rem;
-    font-size: 0.84rem;
+    font-size: 0.92rem;
     white-space: nowrap;
     min-width: max-content;
   }
@@ -1200,8 +1202,8 @@ h1.is-typing::after {
   }
 
   .mode-toggle {
-    padding: 0.3rem 0.52rem;
-    font-size: 0.74rem;
+    padding: 0.33rem 0.56rem;
+    font-size: 0.84rem;
   }
 
   .marquee-track {
