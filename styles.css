@@ -402,9 +402,11 @@ h1.is-typing::after {
 
 .marquee-track {
   display: inline-flex;
+  width: max-content;
   gap: 2.2rem;
   padding: 0.95rem 0;
   animation: marquee-scroll 30s linear infinite;
+  will-change: transform;
 }
 
 .marquee-track span {
@@ -1304,8 +1306,8 @@ h1.is-typing::after {
   }
 
   .marquee-track {
-    animation: none;
-    transform: none;
+    animation: marquee-scroll 24s linear infinite;
+    transform: translateX(0);
   }
 
   .hero {
