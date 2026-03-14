@@ -4,13 +4,15 @@
   z-index: 80;
   display: flex;
   justify-content: flex-end;
-  background: rgba(7, 7, 10, 0);
+  background: rgba(255, 255, 255, 0);
   pointer-events: none;
-  transition: background 250ms ease;
+  backdrop-filter: blur(0px);
+  transition: background 250ms ease, backdrop-filter 250ms ease;
 }
 
 .email-panel-overlay.is-open {
-  background: rgba(7, 7, 10, 0.35);
+  background: rgba(255, 255, 255, 0.34);
+  backdrop-filter: blur(6px);
   pointer-events: auto;
 }
 
@@ -18,9 +20,9 @@
   width: min(40vw, 580px);
   min-width: 360px;
   height: 100%;
-  background: #0f1115;
-  color: #f7f8fb;
-  border-left: 1px solid rgba(255, 255, 255, 0.12);
+  background: #ffffff;
+  color: #111318;
+  border-left: 1px solid #dfe3eb;
   padding: 1.6rem;
   display: flex;
   flex-direction: column;
@@ -34,7 +36,7 @@
 }
 
 .email-panel-head {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid #e6e9f0;
   padding-bottom: 0.85rem;
 }
 
@@ -43,7 +45,7 @@
   text-transform: uppercase;
   letter-spacing: 0.1em;
   font-size: 0.7rem;
-  color: rgba(228, 233, 245, 0.75);
+  color: #717787;
   font-weight: 700;
 }
 
@@ -61,10 +63,10 @@
 .email-field input,
 .email-field textarea {
   width: 100%;
-  border: 1px solid rgba(255, 255, 255, 0.22);
+  border: 1px solid #d5dbe8;
   border-radius: 10px;
-  background: rgba(19, 23, 31, 0.9);
-  color: #f7f8fb;
+  background: #ffffff;
+  color: #1a1f2b;
   font: inherit;
   font-size: 0.98rem;
   padding: 0.72rem 0.8rem;
@@ -78,11 +80,11 @@
 
 .email-field input:focus,
 .email-field textarea:focus {
-  border-color: rgba(255, 255, 255, 0.5);
+  border-color: #9ca7c8;
 }
 
 .email-field input::placeholder {
-  color: rgba(228, 233, 245, 0.42);
+  color: #9ca2b2;
 }
 
 .email-actions {
@@ -93,10 +95,10 @@
 
 .email-send,
 .email-cancel {
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid #d1d7e4;
   border-radius: 10px;
-  background: transparent;
-  color: #f7f8fb;
+  background: #ffffff;
+  color: #111318;
   font: inherit;
   font-weight: 700;
   padding: 0.68rem 0.95rem;
@@ -104,9 +106,9 @@
 }
 
 .email-send {
-  background: #f7f8fb;
-  color: #0f1115;
-  border-color: #f7f8fb;
+  background: #111318;
+  color: #ffffff;
+  border-color: #111318;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -126,13 +128,14 @@
 .email-send.is-success {
   background: #d8ffea;
   border-color: #d8ffea;
+  color: #0f3a26;
 }
 
 .email-spinner {
   width: 0.95rem;
   height: 0.95rem;
-  border: 2px solid rgba(15, 17, 21, 0.28);
-  border-top-color: #0f1115;
+  border: 2px solid rgba(255, 255, 255, 0.34);
+  border-top-color: #ffffff;
   border-radius: 999px;
   animation: email-spin 650ms linear infinite;
 }
@@ -147,7 +150,7 @@
 .email-error {
   margin: 0.1rem 0 0;
   font-size: 0.88rem;
-  color: #ffb4b4;
+  color: #b42318;
 }
 
 .email-cancel:hover,
