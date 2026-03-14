@@ -24,7 +24,7 @@ const translations = {
       },
       photo: {
         title: "Photography Studio",
-        desc: "Film, graduation, gig work, and experimental stories in a dedicated gallery module.",
+        desc: "A clean visual storytelling space for my photography work.",
       },
     },
   },
@@ -51,7 +51,7 @@ const translations = {
       },
       photo: {
         title: "Photography Studio",
-        desc: "胶片、毕业、商拍与创意作品的独立视觉模块。",
+        desc: "一个专注于摄影作品呈现的简洁视觉叙事空间。",
       },
     },
   },
@@ -78,7 +78,7 @@ const translations = {
       },
       photo: {
         title: "Photography Studio",
-        desc: "필름, 졸업, 공연, 실험 작업을 모은 독립 사진 모듈입니다.",
+        desc: "사진 작업을 간결하게 보여주는 비주얼 스토리텔링 공간입니다.",
       },
     },
   },
