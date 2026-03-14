@@ -3,7 +3,7 @@ const STORAGE_LANG = "portfolio_lang";
 const translations = {
   en: {
     title: "howard's studio",
-    nav: ["Projects", "Work", "About", "Photography", "Connect"],
+    nav: ["Projects", "About", "Photography", "Connect"],
     hero: {
       eyebrow: "Data Science + Economics",
       title: "Hello world, my name is Howard.",
@@ -154,7 +154,7 @@ const translations = {
   },
   zh: {
     title: "howard's studio",
-    nav: ["项目", "经历", "关于", "摄影", "联系"],
+    nav: ["项目", "关于", "摄影", "联系"],
     hero: {
       eyebrow: "数据科学 + 经济学",
       title: "你好，世界，我叫 Howard。",
@@ -302,7 +302,7 @@ const translations = {
   },
   ko: {
     title: "howard's studio",
-    nav: ["프로젝트", "경험", "소개", "사진", "연락"],
+    nav: ["프로젝트", "소개", "사진", "연락"],
     hero: {
       eyebrow: "데이터 사이언스 + 경제학",
       title: "안녕하세요, 제 이름은 Howard입니다.",
