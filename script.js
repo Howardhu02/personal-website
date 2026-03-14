@@ -502,6 +502,7 @@ const typedTitle = document.getElementById("typed-title");
 const typedAltName = document.getElementById("typed-alt-name");
 const typedBio = document.getElementById("typed-bio");
 const projectsTypedLead = document.getElementById("projects-typed-lead");
+const photographyTypedLead = document.getElementById("photography-typed-lead");
 
 const timelineSection = document.getElementById("work");
 const timelineItems = document.querySelectorAll(".timeline-item");
@@ -524,6 +525,7 @@ if (!["en", "zh", "ko"].includes(currentLanguage)) {
 }
 let typingTimers = [];
 let projectsLeadTypingTimers = [];
+let photographyLeadTypingTimers = [];
 
 const setText = (selector, value) => {
   const node = document.querySelector(selector);
@@ -567,6 +569,35 @@ const startProjectsLeadTyping = () => {
   }, 52);
 
   projectsLeadTypingTimers.push(typingTimer);
+};
+
+const clearPhotographyLeadTyping = () => {
+  photographyLeadTypingTimers.forEach((timer) => {
+    window.clearInterval(timer);
+    window.clearTimeout(timer);
+  });
+  photographyLeadTypingTimers = [];
+};
+
+const startPhotographyLeadTyping = () => {
+  if (!photographyTypedLead) {
+    return;
+  }
+  clearPhotographyLeadTyping();
+  const text = photographyTypedLead.dataset.text || "";
+  photographyTypedLead.textContent = "";
+  photographyTypedLead.classList.add("is-typing");
+
+  let index = 0;
+  const typingTimer = window.setInterval(() => {
+    index += 1;
+    photographyTypedLead.textContent = text.slice(0, index);
+    if (index >= text.length) {
+      window.clearInterval(typingTimer);
+    }
+  }, 52);
+
+  photographyLeadTypingTimers.push(typingTimer);
 };
 
 const startHeroTyping = () => {
@@ -755,6 +786,9 @@ const applyLanguage = (lang, animateHero = true) => {
   setText("#photography h2", t.photography.heading);
   const photoIntro = document.querySelector("#photography .section-intro > p");
   if (photoIntro) photoIntro.textContent = t.photography.intro;
+  if (photographyTypedLead) {
+    photographyTypedLead.dataset.text = t.photography.intro;
+  }
 
   photoCards.forEach((card, index) => {
     const data = t.photography.cards[index];
@@ -798,6 +832,9 @@ const applyLanguage = (lang, animateHero = true) => {
 
   if (projectsTypedLead) {
     startProjectsLeadTyping();
+  }
+  if (photographyTypedLead) {
+    startPhotographyLeadTyping();
   }
 };
 
