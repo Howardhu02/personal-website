@@ -16,19 +16,20 @@
     />
     <link rel="icon" type="image/png" href="/public/avatars/howard_idle.png" />
     <link rel="apple-touch-icon" href="/public/avatars/howard_idle.png" />
-    <link rel="stylesheet" href="/styles.css?v=20260314-2" />
+    <link rel="stylesheet" href="/styles.css?v=20260314-3" />
     <link rel="stylesheet" href="/styles/avatar.css?v=20260310-1" />
+    <link rel="stylesheet" href="/styles/about.css?v=20260314-2" />
     <link rel="stylesheet" href="/styles/email-panel.css?v=20260314-1" />
   </head>
   <body>
     <header class="site-header">
       <div class="container nav-wrap">
-        <a href="/" class="logo">HOWARD HU</a>
+        <a href="/" class="logo" data-view-target="home">HOWARD HU</a>
         <div class="nav-right">
           <nav>
             <ul class="nav-links">
-              <li><a href="/about/" data-nav="about">About</a></li>
-              <li><a href="/projects/" data-nav="projects">Projects</a></li>
+              <li><a href="/" data-nav="about" data-view-target="about">About</a></li>
+              <li><a href="/" data-nav="projects" data-view-target="projects">Projects</a></li>
               <li><button id="email-open-trigger" class="nav-email-btn" type="button" data-nav="email">Email</button></li>
             </ul>
           </nav>
@@ -46,58 +47,200 @@
       </div>
     </header>
 
-    <main id="home">
-      <section id="hero-section" class="hero container reveal">
-        <div class="hero-grid">
-          <div class="hero-copy-wrap">
-            <p class="eyebrow">Data Science + Economics</p>
-            <h1 id="typed-title" data-text="Hello world, my name is Howard.">Hello world, my name is Howard.</h1>
-            <p id="typed-alt-name" class="hero-name-tag" data-text="or 胡昊阳">or 胡昊阳</p>
-            <p id="typed-bio" class="hero-bio" data-text="Trying to build the future before it becomes obvious.">
-              Trying to build the future before it becomes obvious.
+    <main id="spa-root">
+      <section id="view-home" class="spa-view is-active">
+        <section id="hero-section" class="hero container">
+          <div class="hero-grid">
+            <div class="hero-copy-wrap">
+              <p class="eyebrow">Data Science + Economics</p>
+              <h1 id="typed-title" data-text="Hello world, my name is Howard.">Hello world, my name is Howard.</h1>
+              <p id="typed-alt-name" class="hero-name-tag" data-text="or 胡昊阳">or 胡昊阳</p>
+              <p id="typed-bio" class="hero-bio" data-text="Trying to build the future before it becomes obvious.">
+                Trying to build the future before it becomes obvious.
+              </p>
+            </div>
+            <div class="hero-art">
+              <div id="hero-avatar-controller" aria-label="Howard interactive pixel avatar"></div>
+            </div>
+          </div>
+          <div class="marquee-wrap" aria-label="Scrolling skills">
+            <div class="marquee-track">
+              <span>SQL</span><span>Python</span><span>Power BI</span><span>Tableau</span><span>A/B Testing</span><span>Hypothesis Testing</span><span>TensorFlow</span><span>PyTorch</span><span>Google Cloud</span><span>AWS</span><span>OpenClaw</span><span>Azure</span>
+              <span>SQL</span><span>Python</span><span>Power BI</span><span>Tableau</span><span>A/B Testing</span><span>Hypothesis Testing</span><span>TensorFlow</span><span>PyTorch</span><span>Google Cloud</span><span>AWS</span><span>OpenClaw</span><span>Azure</span>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section id="view-projects" class="spa-view">
+        <section id="projects" class="container section project-section" data-tone="jarvis">
+          <div class="projects-top">
+            <img class="projects-top-avatar" src="/public/avatars/howard_laptop.png" alt="Howard coding pixel avatar" width="112" height="112" />
+            <p id="projects-typed-lead" class="projects-typed-lead is-typing" data-text="Here are some of the fun stuff and side quests I’ve built or am currently building.">
+              Here are some of the fun stuff and side quests I’ve built or am currently building.
             </p>
           </div>
-          <div class="hero-art">
-            <div id="hero-avatar-controller" aria-label="Howard interactive pixel avatar"></div>
+
+          <div class="project-grid">
+            <article class="project-card project-card-featured" data-tone="jarvis">
+              <p class="card-tag">Flagship System</p>
+              <h3>JARVIS</h3>
+              <p class="project-subtitle">A personal AI operating system</p>
+              <p class="project-hook">Stark Industries was fictional. The idea wasn’t.</p>
+              <button class="project-trigger" type="button" aria-expanded="false">Open project</button>
+              <div class="project-detail">
+                <p class="card-summary">JARVIS began as a simple question: what if I had a real digital teammate I could talk to all day, not just another chat window?</p>
+                <p class="card-summary">Instead of typing prompts, I wanted to say things like: “Jarvis, what’s on my agenda today?” or “Research this topic and build a full execution plan.”</p>
+                <p class="card-summary">JARVIS is my attempt to build that system.</p>
+                <p class="card-summary">It combines voice interaction with a modular agent architecture capable of research, synthesis, monitoring, and action. Under the hood, specialized agents coordinate tasks like web research, information extraction, summarization, and automated execution.</p>
+                <p class="card-summary">Rather than a single chatbot, JARVIS functions as a personal AI operating layer, a system that can run workflows end-to-end, from gathering information to producing usable outputs.</p>
+                <p class="card-summary">The long-term vision is a persistent AI partner that understands context, manages complex tasks, and acts as an always-available digital teammate.</p>
+                <p class="card-summary">This prototype explores that architecture through OpenClaw-style autonomous browsing, LLM orchestration, and real-time voice interaction.</p>
+                <p class="detail-meta">PYTHON · LLM APIs · AGENT ORCHESTRATION · WEB AUTOMATION · VOICE INTERFACES · OPENCLAW-STYLE SYSTEMS</p>
+              </div>
+            </article>
+
+            <article class="project-card" data-tone="factory">
+              <p class="card-tag">Automation</p>
+              <h3>Brainrot Content Factory</h3>
+              <p class="project-subtitle">An automated pipeline for short-form media</p>
+              <p class="project-hook">Dopamine maxing by putting shorts content creation on autopilot.</p>
+              <button class="project-trigger" type="button" aria-expanded="false">Open project</button>
+              <div class="project-detail">
+                <p class="card-summary">This started as an experiment in scale: how far can I push a media pipeline before manual bottlenecks show up? The system detects trend signals, builds scripts, generates visuals, and assembles shorts with minimal intervention.</p>
+                <p class="card-summary">I also built in quality gates around timing, hook strength, and visual continuity so it’s not just auto-generated noise. The end goal is a repeatable engine for autonomous content channels.</p>
+                <p class="detail-meta">Python · Sora · FFmpeg · Platform APIs</p>
+              </div>
+            </article>
+
+            <article class="project-card" data-tone="dashboard">
+              <p class="card-tag">Data Visualization</p>
+              <h3>Analytic Dashboard Maker</h3>
+              <p class="project-subtitle">From raw tables to decision-ready dashboards</p>
+              <p class="project-hook">Because manually rebuilding dashboards every week is character development I did not need.</p>
+              <button class="project-trigger" type="button" aria-expanded="false">Open project</button>
+              <div class="project-detail">
+                <p class="card-summary">This project came from seeing how much analyst time gets burned cleaning data and redoing the same visuals. I built a pipeline that ingests messy business data, extracts key metrics, and prepares dashboard-ready structures with much less manual work.</p>
+                <p class="card-summary">I focused on making outputs practical: clear KPI definitions, reusable transformations, and automated handoff into BI tools so teams can spend more time deciding and less time wrangling.</p>
+                <p class="detail-meta">Python · Power BI · SQL · Workflow automation</p>
+              </div>
+            </article>
+
+            <article class="project-card" data-tone="research">
+              <p class="card-tag">Research Infrastructure</p>
+              <h3>Curiosity X</h3>
+              <p class="project-subtitle">Continuous monitoring of the internet</p>
+              <p class="project-hook">My personal intel feed, minus the 20-tab chaos.</p>
+              <button class="project-trigger" type="button" aria-expanded="false">Open project</button>
+              <div class="project-detail">
+                <p class="card-summary">I built this because I was spending too much time context switching between feeds, forums, and tech news. The agent continuously monitors sources and compiles concise briefings.</p>
+                <p class="card-summary">It prioritizes what matters, summarizes developments with clear action points, and pushes updates through messaging so I can react fast without manual hunting.</p>
+                <p class="detail-meta">Python · RSS ingestion · LLM summarization</p>
+              </div>
+            </article>
+
+            <article class="project-card" data-tone="photo">
+              <p class="card-tag">Visual Storytelling</p>
+              <h3>Photography Studio</h3>
+              <p class="project-subtitle">People, light, and memory-driven frames</p>
+              <p class="project-hook">A clean visual storytelling space for my photography work.</p>
+              <a class="project-trigger" href="/" data-view-target="photography">Open project</a>
+            </article>
           </div>
-        </div>
-        <div class="marquee-wrap" aria-label="Scrolling skills">
-          <div class="marquee-track">
-            <span>SQL</span>
-            <span>Python</span>
-            <span>Power BI</span>
-            <span>Tableau</span>
-            <span>A/B Testing</span>
-            <span>Hypothesis Testing</span>
-            <span>TensorFlow</span>
-            <span>PyTorch</span>
-            <span>Google Cloud</span>
-            <span>AWS</span>
-            <span>OpenClaw</span>
-            <span>Azure</span>
-            <span>SQL</span>
-            <span>Python</span>
-            <span>Power BI</span>
-            <span>Tableau</span>
-            <span>A/B Testing</span>
-            <span>Hypothesis Testing</span>
-            <span>TensorFlow</span>
-            <span>PyTorch</span>
-            <span>Google Cloud</span>
-            <span>AWS</span>
-            <span>OpenClaw</span>
-            <span>Azure</span>
+        </section>
+      </section>
+
+      <section id="view-about" class="spa-view">
+        <section class="about-page">
+          <div class="about-centered container">
+            <img class="about-avatar" src="/public/avatars/howard_smile.png" alt="Howard Hu pixel avatar" width="128" height="128" />
+            <h1 id="about-typed-title" class="about-title" data-text="Hi there">Hi there</h1>
+            <p id="about-typed-intro" class="about-intro" data-text="Talk to me about data, AI, analytics, and building useful systems!">Talk to me about data, AI, analytics, and building useful systems!</p>
+
+            <div class="about-block">
+              <h2 data-i18n="workHeading">Work</h2>
+              <div class="about-list" role="list">
+                <button class="about-link-item" type="button" data-modal-kind="work" data-modal-id="ibm" data-i18n="work.ibm">CSM Architect (AI) @ IBM</button>
+                <button class="about-link-item" type="button" data-modal-kind="work" data-modal-id="pge" data-i18n="work.pge">Ex-AP Data Analyst @ PG&amp;E</button>
+                <button class="about-link-item" type="button" data-modal-kind="work" data-modal-id="dicks" data-i18n="work.dicks">Ex-Data Science Intern @ Dick's Sporting Goods</button>
+                <button class="about-link-item" type="button" data-modal-kind="work" data-modal-id="store" data-i18n="work.store">BI Executive @ Cal Student Store</button>
+              </div>
+            </div>
+
+            <div class="about-block">
+              <h2 data-i18n="educationHeading">Education</h2>
+              <div class="about-list" role="list">
+                <button class="about-link-item" type="button" data-modal-kind="education" data-modal-id="berkeley" data-i18n="education.entry">Data Science + Economics<br />University of California, Berkeley<br />2022–2026</button>
+              </div>
+            </div>
+
+            <div class="about-social" aria-label="Social links">
+              <a href="https://www.linkedin.com/in/howard-hu-70660616a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V24h-4V8zm7 0h3.8v2.2h.1c.53-1 1.84-2.2 3.8-2.2 4.06 0 4.8 2.67 4.8 6.14V24h-4v-7.2c0-1.72-.03-3.94-2.4-3.94-2.4 0-2.77 1.87-2.77 3.8V24h-4V8z"/></svg></a>
+              <a href="https://instagram.com/howarddhu" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.25-2.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z"/></svg></a>
+              <a href="https://github.com/Howardhu02" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.91c.57.1.78-.25.78-.55v-2.1c-3.2.7-3.88-1.36-3.88-1.36-.52-1.31-1.27-1.66-1.27-1.66-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.67 1.24 3.32.95.1-.74.4-1.24.72-1.53-2.56-.29-5.25-1.28-5.25-5.69 0-1.26.45-2.29 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.88 10.88 0 0 1 5.74 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.76.11 3.05.73.8 1.18 1.83 1.18 3.09 0 4.42-2.69 5.39-5.26 5.68.41.35.78 1.05.78 2.12v3.14c0 .3.21.66.79.55A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg></a>
+              <button id="wechat-open" type="button" class="about-wechat-btn" aria-label="WeChat" title="WeChat"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 3C4.8 3 1 6.1 1 10c0 2.2 1.3 4.2 3.3 5.5L3.5 19l3.4-1.8c.8.2 1.7.3 2.6.3 4.7 0 8.5-3.1 8.5-7S14.2 3 9.5 3zm-3 6.2a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2zm6 0a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2zM17 9.5c-3.3 0-6 2.1-6 4.7s2.7 4.7 6 4.7c.7 0 1.3-.1 2-.3l2.5 1.4-.6-2.3c1.4-1 2.1-2.2 2.1-3.5 0-2.6-2.7-4.7-6-4.7zm-2 4a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8zm4 0a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8z"/></svg></button>
+            </div>
           </div>
-        </div>
+        </section>
+      </section>
+
+      <section id="view-photography" class="spa-view">
+        <section id="photography" class="container section">
+          <div class="photo-top">
+            <img class="photo-top-avatar" src="/public/avatars/howard_camera.png" alt="Howard camera pixel avatar" width="112" height="112" />
+            <p id="photography-typed-lead" class="photography-typed-lead is-typing" data-text="Capturing moments, documenting stories, and experimenting with light. Click each field to see samples.">
+              Capturing moments, documenting stories, and experimenting with light. Click each field to see samples.
+            </p>
+          </div>
+
+          <div class="photo-categories">
+            <button class="photo-card" type="button" data-photo-category="film"><h3>Film</h3><p>Analog moments captured on 35mm.</p><div class="photo-card-preview" aria-hidden="true"><img src="" alt="" loading="lazy" /></div></button>
+            <button class="photo-card" type="button" data-photo-category="graduation"><h3>Graduation</h3><p>Celebrating milestones and memories.</p><div class="photo-card-preview" aria-hidden="true"><img src="" alt="" loading="lazy" /></div></button>
+            <button class="photo-card" type="button" data-photo-category="gig"><h3>Gig Works</h3><p>Events, concerts, and commissioned work.</p><div class="photo-card-preview" aria-hidden="true"><img src="" alt="" loading="lazy" /></div></button>
+            <button class="photo-card" type="button" data-photo-category="shenanigans"><h3>Shenanigans</h3><p>Creative experiments and fun visual ideas.</p><div class="photo-card-preview" aria-hidden="true"><img src="" alt="" loading="lazy" /></div></button>
+          </div>
+
+          <div class="photo-cta">
+            <a class="photo-cta-link" href="https://calendar.app.google/9sr1MgK4GPP5MWou8" target="_blank" rel="noopener noreferrer">Book a session with me</a>
+            <a class="photo-cta-link secondary" href="https://instagram.com/howiesflicks" target="_blank" rel="noopener noreferrer">@howiesflicks</a>
+          </div>
+        </section>
       </section>
     </main>
+
+    <div id="about-modal" class="about-modal" aria-hidden="true">
+      <div class="about-modal-backdrop" data-about-close></div>
+      <div class="about-modal-card" role="dialog" aria-modal="true" aria-label="About details">
+        <button type="button" class="about-modal-close" data-about-close aria-label="Close details">×</button>
+        <p id="about-modal-role" class="about-modal-role"></p>
+        <h3 id="about-modal-title"></h3>
+        <p id="about-modal-meta" class="about-modal-meta"></p>
+        <p id="about-modal-desc" class="about-modal-desc"></p>
+        <img id="about-modal-image" class="about-modal-image" src="" alt="" />
+      </div>
+    </div>
+
+    <div id="photo-modal" class="photo-modal" aria-hidden="true">
+      <div class="photo-modal-backdrop" data-photo-close></div>
+      <div class="photo-modal-content" role="dialog" aria-modal="true" aria-label="Photography gallery">
+        <button type="button" class="photo-modal-close" data-photo-close aria-label="Close gallery">×</button>
+        <button type="button" class="photo-modal-nav prev" data-photo-prev aria-label="Previous photo">‹</button>
+        <div class="photo-modal-stage">
+          <img id="photo-modal-image" src="" alt="Photography showcase" />
+          <p id="photo-modal-counter" class="photo-modal-counter">1 / 1</p>
+        </div>
+        <button type="button" class="photo-modal-nav next" data-photo-next aria-label="Next photo">›</button>
+      </div>
+    </div>
 
     <div id="email-panel-root"></div>
 
     <script>
       window.EMAIL_PANEL_ENDPOINT = "https://formspree.io/f/mnjgzolo";
     </script>
-    <script src="/script.js?v=20260314-2"></script>
+    <script src="/script.js?v=20260314-3"></script>
+    <script src="/about.js?v=20260314-2"></script>
+    <script src="/spa.js?v=20260314-1"></script>
     <script type="module" src="/avatar.js?v=20260310-1"></script>
     <script type="module" src="/avatar-controller.js?v=20260310-1"></script>
     <script type="module" src="/email-panel.js?v=20260314-1"></script>

@@ -245,6 +245,19 @@ h6 {
   background: color-mix(in srgb, var(--accent) 12%, #ffffff 88%);
 }
 
+
+.spa-view {
+  display: none;
+}
+
+.spa-view.is-active {
+  display: block;
+}
+
+.nav-links a.is-active,
+.logo.is-active {
+  color: var(--text);
+}
 .hero {
   padding: 8rem 0 5.5rem;
 }
