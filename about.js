@@ -367,7 +367,6 @@ const applyLanguage = (lang) => {
   }
 
   setActiveLanguageOption();
-  window.dispatchEvent(new CustomEvent("portfolio-language-change", { detail: { language: currentLanguage } }));
   if (isAboutViewActive()) {
     startTyping();
   } else {
@@ -420,11 +419,15 @@ window.addEventListener("spa-view-change", (event) => {
 
 langOptions.forEach((option) => {
   option.addEventListener("click", () => {
-    applyLanguage(option.dataset.langOption || "en");
     if (langDropdown) {
       langDropdown.removeAttribute("open");
     }
   });
+});
+
+window.addEventListener("portfolio-language-change", (event) => {
+  const nextLang = event.detail && event.detail.language ? event.detail.language : window.localStorage.getItem(STORAGE_LANG) || "en";
+  applyLanguage(nextLang);
 });
 
 applyLanguage(currentLanguage);
