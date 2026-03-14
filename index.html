@@ -16,8 +16,9 @@
     />
     <link rel="icon" type="image/png" href="public/avatars/howard_idle.png" />
     <link rel="apple-touch-icon" href="public/avatars/howard_idle.png" />
-    <link rel="stylesheet" href="styles.css?v=20260311-5" />
+    <link rel="stylesheet" href="styles.css?v=20260314-1" />
     <link rel="stylesheet" href="styles/avatar.css?v=20260310-1" />
+    <link rel="stylesheet" href="styles/email-panel.css?v=20260314-1" />
   </head>
   <body>
     <header class="site-header">
@@ -26,10 +27,9 @@
         <div class="nav-right">
           <nav>
             <ul class="nav-links">
-              <li><a href="#projects">Projects</a></li>
               <li><a href="#about">About</a></li>
-              <li><a href="#photography">Photography</a></li>
-              <li><a href="#footer">Connect</a></li>
+              <li><a href="#projects">Projects</a></li>
+              <li><button id="email-open-trigger" class="nav-email-btn" type="button">Email</button></li>
             </ul>
           </nav>
           <div class="header-controls">
@@ -218,6 +218,20 @@
               <p class="detail-meta">Python · RSS ingestion · LLM summarization</p>
             </div>
           </article>
+          <article class="project-card" data-tone="photo">
+            <p class="card-tag">Visual Storytelling</p>
+            <h3>Photography Studio</h3>
+            <p class="project-subtitle">People, light, and memory-driven frames</p>
+            <p class="project-hook">A separate visual module for film, graduation, gigs, and experimental work.</p>
+            <p class="card-summary">
+              This project page is where I curate my photography work as a
+              clean gallery experience. It includes categorized collections,
+              fullscreen browsing, and fast navigation so the images stay the
+              main focus.
+            </p>
+            <p class="detail-meta">Film · Graduation · Gig Works · Shenanigans</p>
+            <a class="project-trigger" href="photography.html">Open project</a>
+          </article>
         </div>
       </section>
 
@@ -355,101 +369,12 @@
         </div>
       </section>
 
-      <section id="photography" class="container section reveal">
-        <div class="section-intro">
-          <div class="section-heading">
-            <h2>Photography</h2>
-            <div
-              class="avatar-slot avatar-slot-inline"
-              data-avatar-pose="camera"
-              data-avatar-label="Photo"
-              aria-label="Howard with camera"
-            ></div>
-          </div>
-          <p>
-            Capturing moments, documenting stories, and experimenting with
-            light. Click each field to see samples.
-          </p>
-        </div>
-        <div class="photo-categories">
-          <button class="photo-card" type="button" data-photo-category="film" data-photo-folder="film">
-            <h3>Film</h3>
-            <p>Analog moments captured on 35mm.</p>
-            <div class="photo-card-preview" aria-hidden="true">
-              <img alt="" loading="lazy" />
-            </div>
-          </button>
-          <button class="photo-card" type="button" data-photo-category="graduation" data-photo-folder="graduation">
-            <h3>Graduation</h3>
-            <p>Celebrating milestones and memories.</p>
-            <div class="photo-card-preview" aria-hidden="true">
-              <img alt="" loading="lazy" />
-            </div>
-          </button>
-          <button class="photo-card" type="button" data-photo-category="gig" data-photo-folder="gig">
-            <h3>Gig Works</h3>
-            <p>Events, concerts, and commissioned work.</p>
-            <div class="photo-card-preview" aria-hidden="true">
-              <img alt="" loading="lazy" />
-            </div>
-          </button>
-          <button class="photo-card" type="button" data-photo-category="shenanigans" data-photo-folder="shenanigans">
-            <h3>Shenanigans</h3>
-            <p>Creative experiments and fun visual ideas.</p>
-            <div class="photo-card-preview" aria-hidden="true">
-              <img alt="" loading="lazy" />
-            </div>
-          </button>
-        </div>
-        <div class="photo-cta">
-          <a href="https://calendar.app.google/9sr1MgK4GPP5MWou8" class="photo-cta-link" target="_blank" rel="noreferrer">Book a session with me</a>
-          <a
-            href="https://instagram.com/howiesflicks"
-            class="photo-cta-link secondary"
-            target="_blank"
-            rel="noreferrer"
-          >
-            @howiesflicks
-          </a>
-        </div>
-      </section>
     </main>
+    <div id="email-panel-root"></div>
 
-    <div id="photo-modal" class="photo-modal" aria-hidden="true">
-      <div class="photo-modal-backdrop" data-photo-close></div>
-      <div class="photo-modal-content" role="dialog" aria-modal="true" aria-label="Photography gallery">
-        <button class="photo-modal-close" type="button" data-photo-close aria-label="Close gallery">
-          &times;
-        </button>
-        <button class="photo-modal-nav prev" type="button" data-photo-prev aria-label="Previous photo">
-          &larr;
-        </button>
-        <div class="photo-modal-stage">
-          <img id="photo-modal-image" alt="Photography showcase" />
-        </div>
-        <button class="photo-modal-nav next" type="button" data-photo-next aria-label="Next photo">
-          &rarr;
-        </button>
-        <p id="photo-modal-counter" class="photo-modal-counter">1 / 1</p>
-      </div>
-    </div>
-
-    <footer id="footer" class="site-footer">
-      <div class="container">
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/howard-hu-70660616a/" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a href="mailto:howardhu@berkeley.edu" target="_blank" rel="noreferrer">Email</a>
-          <a href="#home">Top</a>
-        </div>
-        <p class="footer-note">
-          if you want to talk to me casually, catch me on instagram @howarddhu, i usually reply :)
-        </p>
-        <p id="footer-copy">&copy; <span id="year"></span> Haoyang (Howard) Hu.</p>
-      </div>
-    </footer>
-
-    <script src="script.js?v=20260311-3"></script>
+    <script src="script.js?v=20260314-1"></script>
     <script type="module" src="avatar.js?v=20260310-1"></script>
     <script type="module" src="avatar-controller.js?v=20260310-1"></script>
+    <script type="module" src="email-panel.js?v=20260314-1"></script>
   </body>
 </html>

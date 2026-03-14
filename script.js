@@ -3,7 +3,8 @@ const STORAGE_LANG = "portfolio_lang";
 const translations = {
   en: {
     title: "howard's studio",
-    nav: ["Projects", "About", "Photography", "Connect"],
+    nav: ["About", "Projects"],
+    emailLabel: "Email",
     hero: {
       eyebrow: "Data Science + Economics",
       title: "Hello world, my name is Howard.",
@@ -67,6 +68,17 @@ const translations = {
             "It prioritizes what matters, summarizes developments with clear action points, and pushes updates through messaging so I can react fast without manual hunting.",
           ],
           meta: "Python · RSS ingestion · LLM summarization",
+        },
+        {
+          tag: "Visual Storytelling",
+          title: "Photography Studio",
+          subtitle: "People, light, and memory-driven frames",
+          hook: "A separate visual module for film, graduation, gigs, and experimental work.",
+          summaries: [
+            "This project page is where I curate my photography work as a clean gallery experience.",
+            "It includes categorized collections, fullscreen browsing, and fast navigation so the images stay the main focus.",
+          ],
+          meta: "Film · Graduation · Gig Works · Shenanigans",
         },
       ],
     },
@@ -154,7 +166,8 @@ const translations = {
   },
   zh: {
     title: "howard's studio",
-    nav: ["项目", "关于", "摄影", "联系"],
+    nav: ["关于", "项目"],
+    emailLabel: "邮件",
     hero: {
       eyebrow: "数据科学 + 经济学",
       title: "你好，世界，我叫 Howard。",
@@ -215,6 +228,17 @@ const translations = {
             "它会优先排序真正重要的更新，输出可执行要点，并通过消息方式推送，帮我快速响应而不必手动到处检索。",
           ],
           meta: "Python · RSS ingestion · LLM summarization",
+        },
+        {
+          tag: "视觉叙事",
+          title: "摄影作品集",
+          subtitle: "关于人物、光线和记忆的画面",
+          hook: "独立摄影页面：胶片、毕业、商拍和创意实验。",
+          summaries: [
+            "这个模块专门用于展示我的摄影作品，保持干净沉浸的浏览体验。",
+            "包含分类浏览、全屏查看和快速切换，让画面本身成为主角。",
+          ],
+          meta: "胶片 · 毕业 · 商拍 · 创意",
         },
       ],
     },
@@ -302,7 +326,8 @@ const translations = {
   },
   ko: {
     title: "howard's studio",
-    nav: ["프로젝트", "소개", "사진", "연락"],
+    nav: ["소개", "프로젝트"],
+    emailLabel: "이메일",
     hero: {
       eyebrow: "데이터 사이언스 + 경제학",
       title: "안녕하세요, 제 이름은 Howard입니다.",
@@ -364,6 +389,17 @@ const translations = {
             "중요도를 정렬해 실행 가능한 포인트를 빠르게 전달하고, 메시징 기반 알림으로 수동 검색 없이도 흐름을 유지할 수 있게 했습니다.",
           ],
           meta: "Python · RSS ingestion · LLM summarization",
+        },
+        {
+          tag: "비주얼 스토리텔링",
+          title: "Photography Studio",
+          subtitle: "사람, 빛, 그리고 기억 중심의 프레임",
+          hook: "필름, 졸업, 공연, 실험 작업을 모은 별도 사진 모듈.",
+          summaries: [
+            "이 프로젝트 페이지는 사진 작업을 깔끔한 갤러리 경험으로 큐레이션한 공간입니다.",
+            "카테고리 분류, 풀스크린 보기, 빠른 탐색으로 이미지 자체에 집중하도록 설계했습니다.",
+          ],
+          meta: "필름 · 졸업 · Gig Works · Shenanigans",
         },
       ],
     },
@@ -457,7 +493,7 @@ if (yearNode) {
 
 const langOptions = document.querySelectorAll("[data-lang-option]");
 const langDropdown = document.querySelector(".lang-dropdown");
-const footerCopy = document.getElementById("footer-copy");
+const emailOpenTrigger = document.getElementById("email-open-trigger");
 const typedTitle = document.getElementById("typed-title");
 const typedAltName = document.getElementById("typed-alt-name");
 const typedBio = document.getElementById("typed-bio");
@@ -467,7 +503,7 @@ const timelineItems = document.querySelectorAll(".timeline-item");
 const timelineTriggers = document.querySelectorAll(".timeline-trigger");
 const projectsSection = document.getElementById("projects");
 const projectCards = document.querySelectorAll(".project-card");
-const projectTriggers = document.querySelectorAll(".project-trigger");
+const projectTriggers = document.querySelectorAll(".project-trigger[type='button']");
 
 const photoCards = document.querySelectorAll(".photo-card");
 const photoModal = document.getElementById("photo-modal");
@@ -601,6 +637,9 @@ const applyLanguage = (lang, animateHero = true) => {
       link.textContent = t.nav[index];
     }
   });
+  if (emailOpenTrigger) {
+    emailOpenTrigger.textContent = t.emailLabel;
+  }
 
   setText(".eyebrow", t.hero.eyebrow);
   if (typedTitle) typedTitle.dataset.text = t.hero.title;
@@ -631,6 +670,9 @@ const applyLanguage = (lang, animateHero = true) => {
       }
     });
     if (meta) meta.textContent = data.meta;
+  });
+  document.querySelectorAll(".project-card a.project-trigger").forEach((link) => {
+    link.textContent = t.projects.open;
   });
 
   setText("#work h2", t.work.heading);
@@ -691,17 +733,6 @@ const applyLanguage = (lang, animateHero = true) => {
   if (closeBtn) closeBtn.setAttribute("aria-label", t.photography.modalCloseAria);
   if (photoPrevButton) photoPrevButton.setAttribute("aria-label", t.photography.modalPrevAria);
   if (photoNextButton) photoNextButton.setAttribute("aria-label", t.photography.modalNextAria);
-
-  const footerLinks = document.querySelectorAll(".social-links a");
-  footerLinks.forEach((link, index) => {
-    if (t.footer.links[index]) {
-      link.textContent = t.footer.links[index];
-    }
-  });
-
-  if (footerCopy && yearNode) {
-    footerCopy.innerHTML = `&copy; <span id="year">${yearNode.textContent}</span> ${t.footer.copy}`;
-  }
 
   setActiveLanguageOption();
 
@@ -792,7 +823,7 @@ const setProjectOpen = (targetCard) => {
   projectCards.forEach((card) => {
     const isOpen = card === targetCard;
     card.classList.toggle("is-open", isOpen);
-    const trigger = card.querySelector(".project-trigger");
+    const trigger = card.querySelector(".project-trigger[type='button']");
     if (trigger) {
       trigger.setAttribute("aria-expanded", isOpen ? "true" : "false");
       trigger.textContent = getProjectTriggerLabel(isOpen);

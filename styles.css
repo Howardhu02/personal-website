@@ -140,7 +140,22 @@ body {
   transition: color 160ms ease;
 }
 
+.nav-email-btn {
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-weight: 700;
+  padding: 0;
+  cursor: pointer;
+  transition: color 160ms ease;
+}
+
 .nav-links a:hover {
+  color: var(--text);
+}
+
+.nav-email-btn:hover {
   color: var(--text);
 }
 
