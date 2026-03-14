@@ -31,7 +31,7 @@ const translations = {
           location: "Austin, TX",
           date: "Starting Jul 2026",
           description:
-            "I’ll be helping enterprise teams turn AI strategy into practical deployments. The focus is hands-on technical architecture, MVP builds, and guiding real adoption across customer teams.",
+            "I’ll be helping enterprise teams turn AI strategy into practical deployments they can actually ship. The role combines hands-on architecture design, MVP builds, and customer-facing technical guidance across data, GenAI, and LLM workflows. What I’m most excited about is being the bridge between business goals and working systems that deliver measurable value.",
         },
         pge: {
           title: "Accounts Payable Data Analyst Intern",
@@ -39,7 +39,7 @@ const translations = {
           location: "Oakland, CA",
           date: "May 2025 - Aug 2025",
           description:
-            "I rebuilt finance workflows into reliable SQL pipelines and automated reporting, which removed friction and made reporting cycles faster and easier to trust.",
+            "I rebuilt messy finance workflows into reliable SQL pipelines and automated reporting systems. That cut processing friction significantly and made reporting cycles faster, cleaner, and easier for stakeholders to trust. I also focused on maintainability so the team could keep using and extending the workflows after handoff.",
         },
         dicks: {
           title: "Data Science Intern",
@@ -47,7 +47,7 @@ const translations = {
           location: "San Antonio, TX",
           date: "May 2024 - Aug 2024",
           description:
-            "I worked with customer behavior and review data to support product and marketing decisions, and learned how to ship insights that teams could act on quickly.",
+            "I worked with customer behavior and review data to connect user signals with product and marketing decisions. The work involved translating raw datasets into practical analyses teams could use for planning and prioritization. This role sharpened my ability to move from exploratory analysis to clear, actionable recommendations.",
         },
         store: {
           title: "Business Intelligence Executive",
@@ -55,7 +55,7 @@ const translations = {
           location: "Berkeley, CA",
           date: "Aug 2022 - May 2025",
           description:
-            "I combined campaign and merchandising data to improve promotions and conversion outcomes, with a strong focus on clear metrics and fast iteration.",
+            "I combined campaign performance and merchandising data to optimize promotions and improve conversion outcomes. We iterated quickly on experiments, measured results through clear KPI tracking, and translated findings into concrete growth actions. The work strengthened my approach to balancing analytics rigor with fast execution.",
         },
       },
       education: {
@@ -99,28 +99,28 @@ const translations = {
           company: "IBM",
           location: "Austin, TX",
           date: "2026年7月入职",
-          description: "负责帮助企业把 AI 战略落地为可部署方案，重点在 MVP 构建、技术架构和真实业务采用。",
+          description: "我将帮助企业把 AI 战略落地为真正可部署、可扩展的方案。工作重点包括架构设计、MVP 构建以及推动客户侧的真实采用与价值实现。我最期待的是把业务目标和技术实现高质量连接起来。",
         },
         pge: {
           title: "应付账款数据分析实习生",
           company: "Pacific Gas and Electric Company (PG&E)",
           location: "Oakland, CA",
           date: "2025年5月 - 2025年8月",
-          description: "重构财务数据流程与自动化报表，减少流程摩擦，提高报表速度和稳定性。",
+          description: "我重构了财务数据流程并搭建自动化报表体系，显著降低了流程摩擦。报表产出更快、更稳定，也更容易被业务方信任和持续使用。同时我也强调可维护性，确保团队后续能够顺利接手和扩展。",
         },
         dicks: {
           title: "数据科学实习生",
           company: "Dick's Sporting Goods",
           location: "San Antonio, TX",
           date: "2024年5月 - 2024年8月",
-          description: "围绕用户行为和评论数据支持产品与营销决策，并沉淀可落地的分析输出。",
+          description: "我围绕用户行为与评论数据分析关键信号，支持产品和营销方向判断。工作重点是把原始数据转化为团队可执行的结论，而不只是做展示型图表。这段经历让我更擅长把分析结果快速落地到业务动作中。",
         },
         store: {
           title: "商业智能团队执行成员",
           company: "Cal Student Store",
           location: "Berkeley, CA",
           date: "2022年8月 - 2025年5月",
-          description: "结合营销与商品数据优化促销策略，以清晰指标和快速迭代推动增长。",
+          description: "我结合营销与商品数据持续优化促销策略与转化表现。团队通过快速实验、清晰指标和持续复盘，把分析结果直接转化为增长动作。这段经历也让我形成了“数据严谨 + 执行速度”并重的工作方式。",
         },
       },
       education: {
@@ -163,28 +163,28 @@ const translations = {
           company: "IBM",
           location: "Austin, TX",
           date: "2026년 7월 시작",
-          description: "엔터프라이즈 고객의 AI 전략을 실제 배포 가능한 구조로 연결하는 역할에 집중할 예정입니다.",
+          description: "엔터프라이즈 고객의 AI 전략을 실제로 배포 가능한 구조로 연결하는 역할을 맡게 됩니다. MVP 설계와 구현, 아키텍처 제안, 도입 확산까지 기술과 비즈니스를 함께 다루는 포지션입니다. 목표는 고객이 체감할 수 있는 실질적 가치로 연결하는 것입니다.",
         },
         pge: {
           title: "Accounts Payable Data Analyst Intern",
           company: "Pacific Gas and Electric Company (PG&E)",
           location: "Oakland, CA",
           date: "2025년 5월 - 2025년 8월",
-          description: "재무 데이터 워크플로를 SQL 파이프라인과 자동화 리포팅으로 개선해 속도와 신뢰성을 높였습니다.",
+          description: "복잡한 재무 데이터 워크플로를 SQL 파이프라인과 자동화 리포팅으로 재설계했습니다. 처리 마찰을 줄이고 보고 주기의 속도와 신뢰성을 함께 높였습니다. 또한 유지보수성을 고려해 팀이 이후에도 안정적으로 운영할 수 있게 만들었습니다.",
         },
         dicks: {
           title: "Data Science Intern",
           company: "Dick's Sporting Goods",
           location: "San Antonio, TX",
           date: "2024년 5월 - 2024년 8월",
-          description: "고객 행동/리뷰 데이터를 분석해 제품과 마케팅 의사결정을 지원하는 실무를 진행했습니다.",
+          description: "고객 행동 및 리뷰 데이터를 분석해 제품/마케팅 의사결정을 지원했습니다. 단순 리포트가 아니라 실제 실행 가능한 인사이트로 변환하는 데 집중했습니다. 이 경험을 통해 분석 결과를 빠르게 실무에 연결하는 역량을 강화했습니다.",
         },
         store: {
           title: "Business Intelligence Executive",
           company: "Cal Student Store",
           location: "Berkeley, CA",
           date: "2022년 8월 - 2025년 5월",
-          description: "마케팅과 상품 데이터를 결합해 프로모션 성과를 개선하고 실행 중심의 지표 문화를 만들었습니다.",
+          description: "마케팅 데이터와 상품 데이터를 결합해 프로모션 성과와 전환을 개선했습니다. 빠른 실험과 명확한 KPI 추적을 통해 분석 결과를 바로 실행으로 연결했습니다. 이 과정에서 데이터 기반 성장 운영의 실전 감각을 크게 키웠습니다.",
         },
       },
       education: {
