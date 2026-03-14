@@ -731,6 +731,10 @@ h1.is-typing::after {
   background: color-mix(in srgb, var(--surface) 94%, #fff 6%);
 }
 
+.about-work-block {
+  margin-top: 1.8rem;
+}
+
 .education-label {
   display: block;
   margin-bottom: 0.5rem;
