@@ -461,6 +461,42 @@ h1.is-typing::after {
   line-height: 1.7;
 }
 
+.projects-top {
+  margin-bottom: 1.3rem;
+  display: grid;
+  justify-items: center;
+  gap: 0.65rem;
+  text-align: center;
+}
+
+.projects-top-avatar {
+  width: 112px;
+  height: 112px;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, #ffffff 0%, #f7f7fa 100%);
+  image-rendering: pixelated;
+}
+
+.projects-typed-lead {
+  margin: 0;
+  max-width: 62ch;
+  color: #3f4452;
+  line-height: 1.7;
+  font-size: 1.02rem;
+}
+
+.projects-typed-lead.is-typing::after {
+  content: "";
+  display: inline-block;
+  width: 0.08em;
+  height: 0.9em;
+  margin-left: 0.12em;
+  vertical-align: -0.05em;
+  background: var(--text);
+  animation: blink-caret 850ms steps(1, end) infinite;
+}
+
 .project-grid {
   display: grid;
   grid-template-columns: repeat(1, minmax(0, 1fr));

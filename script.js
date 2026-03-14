@@ -15,6 +15,8 @@ const translations = {
       heading: "Projects",
       intro:
         "This is the part I care most about: building systems that can run on their own, keep me informed, and turn information into useful outputs.",
+      lead:
+        "Here are some of the fun stuff and side quests I’ve built or am currently building.",
       open: "Open project",
       close: "Close project",
       cards: [
@@ -177,6 +179,7 @@ const translations = {
     projects: {
       heading: "项目",
       intro: "这是我最在意的部分：构建能够自主运行、持续提供信息，并把信息转化为可用产出的系统。",
+      lead: "这里是我做过或正在构建的一些有趣系统和 side quests。",
       open: "查看项目",
       close: "收起项目",
       cards: [
@@ -338,6 +341,7 @@ const translations = {
       heading: "프로젝트",
       intro:
         "제가 가장 중요하게 보는 파트입니다. 스스로 실행되고, 필요한 정보를 모아주며, 실제로 쓸 수 있는 결과로 바꾸는 시스템을 만듭니다.",
+      lead: "제가 만들었거나 지금 만들고 있는 재미있는 시스템과 사이드 퀘스트입니다.",
       open: "프로젝트 열기",
       close: "프로젝트 닫기",
       cards: [
@@ -497,6 +501,7 @@ const emailOpenTrigger = document.getElementById("email-open-trigger");
 const typedTitle = document.getElementById("typed-title");
 const typedAltName = document.getElementById("typed-alt-name");
 const typedBio = document.getElementById("typed-bio");
+const projectsTypedLead = document.getElementById("projects-typed-lead");
 
 const timelineSection = document.getElementById("work");
 const timelineItems = document.querySelectorAll(".timeline-item");
@@ -518,6 +523,7 @@ if (!["en", "zh", "ko"].includes(currentLanguage)) {
   currentLanguage = "en";
 }
 let typingTimers = [];
+let projectsLeadTypingTimers = [];
 
 const setText = (selector, value) => {
   const node = document.querySelector(selector);
@@ -532,6 +538,35 @@ const clearTypingTimers = () => {
     window.clearTimeout(timer);
   });
   typingTimers = [];
+};
+
+const clearProjectsLeadTyping = () => {
+  projectsLeadTypingTimers.forEach((timer) => {
+    window.clearInterval(timer);
+    window.clearTimeout(timer);
+  });
+  projectsLeadTypingTimers = [];
+};
+
+const startProjectsLeadTyping = () => {
+  if (!projectsTypedLead) {
+    return;
+  }
+  clearProjectsLeadTyping();
+  const text = projectsTypedLead.dataset.text || "";
+  projectsTypedLead.textContent = "";
+  projectsTypedLead.classList.add("is-typing");
+
+  let index = 0;
+  const typingTimer = window.setInterval(() => {
+    index += 1;
+    projectsTypedLead.textContent = text.slice(0, index);
+    if (index >= text.length) {
+      window.clearInterval(typingTimer);
+    }
+  }, 52);
+
+  projectsLeadTypingTimers.push(typingTimer);
 };
 
 const startHeroTyping = () => {
@@ -657,6 +692,9 @@ const applyLanguage = (lang, animateHero = true) => {
   setText("#projects h2", t.projects.heading);
   const projectIntro = document.querySelector("#projects .section-intro > p");
   if (projectIntro) projectIntro.textContent = t.projects.intro;
+  if (projectsTypedLead) {
+    projectsTypedLead.dataset.text = t.projects.lead;
+  }
 
   projectCards.forEach((card, index) => {
     const data = t.projects.cards[index];
@@ -756,6 +794,10 @@ const applyLanguage = (lang, animateHero = true) => {
     if (typedTitle) typedTitle.textContent = typedTitle.dataset.text || "";
     if (typedAltName) typedAltName.textContent = typedAltName.dataset.text || "";
     if (typedBio) typedBio.textContent = typedBio.dataset.text || "";
+  }
+
+  if (projectsTypedLead) {
+    startProjectsLeadTyping();
   }
 };
 

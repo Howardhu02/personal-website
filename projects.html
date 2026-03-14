@@ -47,20 +47,20 @@
 
     <main>
       <section id="projects" class="container section reveal project-section" data-tone="jarvis">
-        <div class="section-intro">
-          <div class="section-heading">
-            <h2>Projects</h2>
-            <div
-              class="avatar-slot avatar-slot-inline"
-              data-avatar-pose="laptop"
-              data-avatar-label="Projects"
-              aria-label="Howard with laptop"
-            ></div>
-          </div>
-          <p>
-            This is the part I care most about: building systems that can run
-            on their own, keep me informed, and turn information into useful
-            outputs.
+        <div class="projects-top">
+          <img
+            class="projects-top-avatar"
+            src="public/avatars/howard_laptop.png"
+            alt="Howard coding pixel avatar"
+            width="112"
+            height="112"
+          />
+          <p
+            id="projects-typed-lead"
+            class="projects-typed-lead is-typing"
+            data-text="Here are some of the fun stuff and side quests I’ve built or am currently building."
+          >
+            Here are some of the fun stuff and side quests I’ve built or am currently building.
           </p>
         </div>
         <div class="project-grid">
@@ -194,7 +194,6 @@
       window.EMAIL_PANEL_ENDPOINT = "https://formspree.io/f/mnjgzolo";
     </script>
     <script src="script.js?v=20260314-2"></script>
-    <script type="module" src="avatar.js?v=20260310-1"></script>
     <script type="module" src="email-panel.js?v=20260314-1"></script>
   </body>
 </html>
