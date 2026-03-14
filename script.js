@@ -527,6 +527,20 @@ let typingTimers = [];
 let projectsLeadTypingTimers = [];
 let photographyLeadTypingTimers = [];
 
+const getActiveViewName = () => {
+  const activeSpaView = document.querySelector(".spa-view.is-active");
+  if (activeSpaView && activeSpaView.id) {
+    return activeSpaView.id.replace("view-", "");
+  }
+  if (projectsTypedLead && !typedTitle) {
+    return "projects";
+  }
+  if (photographyTypedLead && !typedTitle) {
+    return "photography";
+  }
+  return "home";
+};
+
 const setText = (selector, value) => {
   const node = document.querySelector(selector);
   if (node) {
@@ -822,19 +836,33 @@ const applyLanguage = (lang, animateHero = true) => {
     trigger.textContent = getProjectTriggerLabel(isOpen);
   });
 
-  if (animateHero) {
-    startHeroTyping();
-  } else {
-    if (typedTitle) typedTitle.textContent = typedTitle.dataset.text || "";
-    if (typedAltName) typedAltName.textContent = typedAltName.dataset.text || "";
-    if (typedBio) typedBio.textContent = typedBio.dataset.text || "";
+  const activeView = getActiveViewName();
+  if (typedTitle) {
+    if (animateHero && activeView === "home") {
+      startHeroTyping();
+    } else {
+      clearTypingTimers();
+      typedTitle.textContent = typedTitle.dataset.text || "";
+      if (typedAltName) typedAltName.textContent = typedAltName.dataset.text || "";
+      if (typedBio) typedBio.textContent = typedBio.dataset.text || "";
+    }
   }
 
   if (projectsTypedLead) {
-    startProjectsLeadTyping();
+    if (activeView === "projects") {
+      startProjectsLeadTyping();
+    } else {
+      clearProjectsLeadTyping();
+      projectsTypedLead.textContent = projectsTypedLead.dataset.text || "";
+    }
   }
   if (photographyTypedLead) {
-    startPhotographyLeadTyping();
+    if (activeView === "photography") {
+      startPhotographyLeadTyping();
+    } else {
+      clearPhotographyLeadTyping();
+      photographyTypedLead.textContent = photographyTypedLead.dataset.text || "";
+    }
   }
 };
 
@@ -848,6 +876,29 @@ langOptions.forEach((option) => {
       langDropdown.removeAttribute("open");
     }
   });
+});
+
+window.addEventListener("spa-view-change", (event) => {
+  const view = event.detail && event.detail.view ? event.detail.view : getActiveViewName();
+  if (view === "home") {
+    startHeroTyping();
+  } else {
+    clearTypingTimers();
+  }
+
+  if (view === "projects") {
+    startProjectsLeadTyping();
+  } else if (projectsTypedLead) {
+    clearProjectsLeadTyping();
+    projectsTypedLead.textContent = projectsTypedLead.dataset.text || "";
+  }
+
+  if (view === "photography") {
+    startPhotographyLeadTyping();
+  } else if (photographyTypedLead) {
+    clearPhotographyLeadTyping();
+    photographyTypedLead.textContent = photographyTypedLead.dataset.text || "";
+  }
 });
 
 const setTimelineOpen = (targetItem) => {

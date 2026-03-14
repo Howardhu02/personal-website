@@ -44,5 +44,14 @@
     });
   });
 
-  setView("home");
+  const path = window.location.pathname.replace(/\/+$/, "") || "/";
+  if (path === "/about" || path === "/about/index.html") {
+    setView("about");
+  } else if (path === "/projects" || path === "/projects/index.html") {
+    setView("projects");
+  } else if (path === "/photography" || path === "/photography/index.html") {
+    setView("photography");
+  } else {
+    setView("home");
+  }
 })();

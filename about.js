@@ -222,6 +222,14 @@ if (!translations[currentLanguage]) {
 let activeModal = null;
 let typingTimers = [];
 
+const isAboutViewActive = () => {
+  const aboutView = document.getElementById("view-about");
+  if (aboutView) {
+    return aboutView.classList.contains("is-active");
+  }
+  return true;
+};
+
 const clearTyping = () => {
   typingTimers.forEach((timer) => {
     window.clearInterval(timer);
@@ -360,7 +368,13 @@ const applyLanguage = (lang) => {
 
   setActiveLanguageOption();
   window.dispatchEvent(new CustomEvent("portfolio-language-change", { detail: { language: currentLanguage } }));
-  startTyping();
+  if (isAboutViewActive()) {
+    startTyping();
+  } else {
+    clearTyping();
+    if (titleNode) titleNode.textContent = titleNode.dataset.text || "";
+    if (introNode) introNode.textContent = introNode.dataset.text || "";
+  }
 
   if (activeModal) {
     if (activeModal.kind === "wechat") {
@@ -390,6 +404,17 @@ closeNodes.forEach((node) => {
 window.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
     closeModal();
+  }
+});
+
+window.addEventListener("spa-view-change", (event) => {
+  const view = event.detail && event.detail.view ? event.detail.view : "";
+  if (view === "about") {
+    startTyping();
+  } else {
+    clearTyping();
+    if (titleNode) titleNode.textContent = titleNode.dataset.text || "";
+    if (introNode) introNode.textContent = introNode.dataset.text || "";
   }
 });
 
