@@ -166,7 +166,7 @@ const clearTyping = () => {
   typingTimers = [];
 };
 
-const startLoopTyping = () => {
+const startTypingOnce = () => {
   if (!typingNode) {
     return;
   }
@@ -182,10 +182,6 @@ const startLoopTyping = () => {
     typingNode.textContent = text.slice(0, index);
     if (index >= text.length) {
       window.clearInterval(typingTimer);
-      const pauseTimer = window.setTimeout(() => {
-        startLoopTyping();
-      }, 1400);
-      typingTimers.push(pauseTimer);
     }
   }, 50);
 
@@ -241,7 +237,7 @@ const applyLanguage = (lang) => {
   });
 
   setActiveLanguageOption();
-  startLoopTyping();
+  startTypingOnce();
 };
 
 langOptions.forEach((option) => {

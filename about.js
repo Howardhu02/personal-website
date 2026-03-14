@@ -4,7 +4,7 @@ const translations = {
   en: {
     nav: { about: "About", projects: "Projects", email: "Email" },
     titleText: "Hi there",
-    introText: "Talk to me about data, AI, analytics, and building useful systems.",
+    introText: "Talk to me about data, AI, analytics, and building useful systems!",
     workHeading: "Work",
     educationHeading: "Education",
     work: {
