@@ -75,9 +75,47 @@
   line-height: 1.65;
 }
 
+.project-mini-trigger {
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-weight: 800;
+  font-size: 0.95rem;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+  text-decoration-color: transparent;
+  transition: text-decoration-color 180ms ease;
+}
+
+.project-mini-trigger:hover {
+  text-decoration-color: currentColor;
+}
+
+.project-mini-detail {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 220ms ease, opacity 160ms ease, margin-top 160ms ease;
+}
+
+.project-mini-card.is-open .project-mini-detail {
+  max-height: 220px;
+  opacity: 1;
+  margin-top: 0.7rem;
+}
+
+.project-mini-detail p {
+  margin: 0 0 0.5rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
 .project-mini-link {
   color: var(--text);
-  font-weight: 800;
+  font-weight: 700;
   text-decoration: underline;
   text-underline-offset: 0.16em;
   text-decoration-color: transparent;
