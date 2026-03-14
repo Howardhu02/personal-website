@@ -1,11 +1,13 @@
 import React, { useEffect, useMemo, useState } from "https://esm.sh/react@18.3.1";
 
 const TARGET_EMAIL = "howardhu@berkeley.edu";
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export default function EmailPanel({ open, onClose }) {
   const [fromEmail, setFromEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [isSending, setIsSending] = useState(false);
+  const [sendState, setSendState] = useState("idle"); // idle | loading | success | error
+  const [errorText, setErrorText] = useState("");
 
   useEffect(() => {
     if (!open) {
@@ -24,13 +26,21 @@ export default function EmailPanel({ open, onClose }) {
 
   useEffect(() => {
     if (!open) {
-      setIsSending(false);
+      setSendState("idle");
+      setErrorText("");
     }
   }, [open]);
 
+  useEffect(() => {
+    if (sendState === "error") {
+      setSendState("idle");
+      setErrorText("");
+    }
+  }, [fromEmail, message]);
+
   const canSend = useMemo(() => {
-    return fromEmail.trim().length > 3 && message.trim().length > 0 && !isSending;
-  }, [fromEmail, message, isSending]);
+    return EMAIL_REGEX.test(fromEmail.trim()) && message.trim().length > 0 && sendState !== "loading";
+  }, [fromEmail, message, sendState]);
 
   const handlePanelClick = (event) => {
     event.stopPropagation();
@@ -38,47 +48,76 @@ export default function EmailPanel({ open, onClose }) {
 
   const handleSend = async () => {
     if (!canSend) {
+      if (!EMAIL_REGEX.test(fromEmail.trim())) {
+        setSendState("error");
+        setErrorText("Please enter a valid email address.");
+      } else if (!message.trim()) {
+        setSendState("error");
+        setErrorText("Please enter a message.");
+      }
       return;
     }
 
-    setIsSending(true);
+    setSendState("loading");
+    setErrorText("");
 
-    const endpoint = window.EMAIL_PANEL_ENDPOINT;
-    if (endpoint) {
-      try {
-        const response = await fetch(endpoint, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            to: TARGET_EMAIL,
-            from: fromEmail.trim(),
-            message: message.trim(),
-            source: "portfolio-email-panel",
-          }),
-        });
-
-        if (response.ok) {
-          setFromEmail("");
-          setMessage("");
-          onClose();
-          return;
-        }
-      } catch (_error) {
-        // fall back to mailto if endpoint is unavailable
-      }
+    const endpoint = window.EMAIL_PANEL_ENDPOINT || "";
+    if (!endpoint) {
+      setSendState("error");
+      setErrorText("Email service is not configured yet.");
+      return;
     }
 
-    const subject = encodeURIComponent(`Portfolio message from ${fromEmail.trim()}`);
-    const body = encodeURIComponent(`From: ${fromEmail.trim()}\n\n${message.trim()}`);
-    window.open(`mailto:${TARGET_EMAIL}?subject=${subject}&body=${body}`, "_blank", "noopener,noreferrer");
+    try {
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          to: TARGET_EMAIL,
+          email: fromEmail.trim(),
+          from: fromEmail.trim(),
+          message: message.trim(),
+          _subject: `Portfolio message from ${fromEmail.trim()}`,
+          source: "portfolio-email-panel",
+        }),
+      });
 
-    setFromEmail("");
-    setMessage("");
-    setIsSending(false);
-    onClose();
+      if (!response.ok) {
+        throw new Error("Request failed");
+      }
+
+      setSendState("success");
+      window.setTimeout(() => {
+        setFromEmail("");
+        setMessage("");
+        setSendState("idle");
+        onClose();
+      }, 1000);
+    } catch (_error) {
+      setSendState("error");
+      setErrorText("Failed to send, try again.");
+    }
   };
+
+  const sendButtonContent =
+    sendState === "loading"
+      ? React.createElement(
+          React.Fragment,
+          null,
+          React.createElement("span", { className: "email-spinner", "aria-hidden": "true" }),
+          "Sending..."
+        )
+      : sendState === "success"
+        ? React.createElement(
+            React.Fragment,
+            null,
+            React.createElement("span", { className: "email-checkmark", "aria-hidden": "true" }, "✓"),
+            "Sent"
+          )
+        : "Send Email";
 
   return React.createElement(
     "div",
@@ -133,11 +172,11 @@ export default function EmailPanel({ open, onClose }) {
           "button",
           {
             type: "button",
-            className: "email-send",
-            disabled: !canSend,
+            className: `email-send is-${sendState}`,
+            disabled: sendState === "loading",
             onClick: handleSend,
           },
-          isSending ? "Sending..." : "Send Email"
+          sendButtonContent
         ),
         React.createElement(
           "button",
@@ -148,7 +187,10 @@ export default function EmailPanel({ open, onClose }) {
           },
           "Cancel"
         )
-      )
+      ),
+      sendState === "error" && errorText
+        ? React.createElement("p", { className: "email-error", role: "status" }, errorText)
+        : null
     )
   );
 }
