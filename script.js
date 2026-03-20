@@ -3,7 +3,7 @@ const STORAGE_LANG = "portfolio_lang";
 const translations = {
   en: {
     title: "howard's studio",
-    nav: ["About", "Projects"],
+    nav: ["About", "Projects", "Photos"],
     emailLabel: "Email",
     hero: {
       eyebrow: "Data Science + Economics",
@@ -142,20 +142,20 @@ const translations = {
       date: "Aug 2022 - May 2026 · Data Science and Economics",
     },
     photography: {
-      heading: "Photography",
-      intro: "Capturing moments, documenting stories, and experimenting with light. Click each field to see samples.",
+      heading: "Photos",
+      intro: "Capturing moments, documenting stories, and experimenting with light. Pick a category and step into the full set.",
       cards: [
-        { label: "Film", title: "Film", desc: "Analog moments captured on 35mm." },
-        { label: "Graduation", title: "Graduation", desc: "Celebrating milestones and memories." },
-        { label: "Gig Works", title: "Gig Works", desc: "Events, concerts, and commissioned work." },
-        { label: "Shenanigans", title: "Shenanigans", desc: "Creative experiments and fun visual ideas." },
+        { label: "Film", title: "Film", desc: "Analog frames, softer grain, slower timing." },
+        { label: "Graduation", title: "Graduation", desc: "Milestones, families, and the energy around them." },
+        { label: "Gig Works", title: "Gig Works", desc: "Live movement, events, and commissioned coverage." },
+        { label: "Shenanigans", title: "Shenanigans", desc: "Creative side quests and stranger visual ideas." },
       ],
+      setKicker: "Photo Set",
+      back: "Back to photos",
+      progress: "through set",
+      frames: "frames",
       ctaBook: "Book a session with me",
       ctaInsta: "@howiesflicks",
-      modalAlt: "Photography showcase",
-      modalCloseAria: "Close gallery",
-      modalPrevAria: "Previous photo",
-      modalNextAria: "Next photo",
     },
     footer: {
       links: ["LinkedIn", "Email", "Top"],
@@ -168,7 +168,7 @@ const translations = {
   },
   zh: {
     title: "howard's studio",
-    nav: ["关于", "项目"],
+    nav: ["关于", "项目", "照片"],
     emailLabel: "邮件",
     hero: {
       eyebrow: "数据科学 + 经济学",
@@ -303,20 +303,20 @@ const translations = {
       date: "2022年8月 - 2026年5月 · 数据科学与经济学",
     },
     photography: {
-      heading: "摄影",
-      intro: "记录瞬间、讲述故事、尝试光线。点击下方类别可查看样片。",
+      heading: "照片",
+      intro: "记录瞬间、讲述故事、尝试光线。选择一个类别，进入完整作品集。",
       cards: [
-        { label: "胶片", title: "胶片", desc: "用 35mm 胶片记录真实瞬间。" },
-        { label: "毕业", title: "毕业", desc: "记录重要时刻与纪念回忆。" },
-        { label: "商拍", title: "商拍", desc: "活动、演出与委托拍摄。" },
-        { label: "玩点有趣的", title: "玩点有趣的", desc: "创意实验与有趣视觉表达。" },
+        { label: "胶片", title: "胶片", desc: "更慢一点的节奏、更柔和的颗粒感。" },
+        { label: "毕业", title: "毕业", desc: "记录里程碑、家人与当下情绪。" },
+        { label: "商拍", title: "商拍", desc: "现场、活动与委托工作的动态感。" },
+        { label: "玩点有趣的", title: "玩点有趣的", desc: "创意副本、实验画面和有点怪的想法。" },
       ],
+      setKicker: "照片系列",
+      back: "返回照片",
+      progress: "浏览进度",
+      frames: "张",
       ctaBook: "预约拍摄",
       ctaInsta: "@howiesflicks",
-      modalAlt: "摄影作品展示",
-      modalCloseAria: "关闭画廊",
-      modalPrevAria: "上一张",
-      modalNextAria: "下一张",
     },
     footer: {
       links: ["领英", "邮箱", "回到顶部"],
@@ -329,7 +329,7 @@ const translations = {
   },
   ko: {
     title: "howard's studio",
-    nav: ["소개", "프로젝트"],
+    nav: ["소개", "프로젝트", "사진"],
     emailLabel: "이메일",
     hero: {
       eyebrow: "데이터 사이언스 + 경제학",
@@ -466,19 +466,19 @@ const translations = {
     },
     photography: {
       heading: "사진",
-      intro: "순간을 기록하고, 이야기를 담고, 빛을 실험합니다. 각 항목을 클릭해 샘플을 확인하세요.",
+      intro: "순간을 기록하고, 이야기를 담고, 빛을 실험합니다. 카테고리를 선택해 전체 세트를 보세요.",
       cards: [
-        { label: "필름", title: "필름", desc: "35mm 필름으로 담은 아날로그 순간." },
-        { label: "졸업", title: "졸업", desc: "소중한 마일스톤과 추억을 기록." },
-        { label: "기가 작업", title: "기가 작업", desc: "행사, 공연, 커미션 촬영." },
-        { label: "쉐너니건스", title: "쉐너니건스", desc: "실험적인 창작과 재미있는 비주얼." },
+        { label: "필름", title: "필름", desc: "더 느린 템포와 부드러운 그레인의 프레임." },
+        { label: "졸업", title: "졸업", desc: "마일스톤, 가족, 그 주변의 에너지." },
+        { label: "기가 작업", title: "Gig Works", desc: "라이브 무브먼트, 이벤트, 커미션 커버리지." },
+        { label: "쉐너니건스", title: "Shenanigans", desc: "창의적인 사이드 퀘스트와 조금은 이상한 시각 실험." },
       ],
+      setKicker: "사진 세트",
+      back: "사진으로 돌아가기",
+      progress: "세트 진행률",
+      frames: "컷",
       ctaBook: "세션 예약하기",
       ctaInsta: "@howiesflicks",
-      modalAlt: "사진 갤러리",
-      modalCloseAria: "갤러리 닫기",
-      modalPrevAria: "이전 사진",
-      modalNextAria: "다음 사진",
     },
     footer: {
       links: ["LinkedIn", "Email", "맨 위로"],
@@ -503,6 +503,15 @@ const typedAltName = document.getElementById("typed-alt-name");
 const typedBio = document.getElementById("typed-bio");
 const projectsTypedLead = document.getElementById("projects-typed-lead");
 const photographyTypedLead = document.getElementById("photography-typed-lead");
+const photoCategoryPage = document.getElementById("photo-category-page");
+const photoCategoryKicker = document.getElementById("photo-category-kicker");
+const photoCategoryTitle = document.getElementById("photo-category-title");
+const photoCategoryDescription = document.getElementById("photo-category-description");
+const photoCategoryGallery = document.getElementById("photo-category-gallery");
+const photoProgressLabel = document.getElementById("photo-progress-label");
+const photoProgressFill = document.getElementById("photo-progress-fill");
+const photoProgressMeta = document.getElementById("photo-progress-meta");
+const photoBackLink = document.querySelector(".photo-back-link");
 
 const timelineSection = document.getElementById("work");
 const timelineItems = document.querySelectorAll(".timeline-item");
@@ -512,12 +521,6 @@ const projectCards = document.querySelectorAll(".project-card");
 const projectTriggers = document.querySelectorAll(".project-trigger[type='button']");
 
 const photoCards = document.querySelectorAll(".photo-card");
-const photoModal = document.getElementById("photo-modal");
-const photoModalImage = document.getElementById("photo-modal-image");
-const photoModalCounter = document.getElementById("photo-modal-counter");
-const photoPrevButton = document.querySelector("[data-photo-prev]");
-const photoNextButton = document.querySelector("[data-photo-next]");
-const photoCloseButtons = document.querySelectorAll("[data-photo-close]");
 
 let currentLanguage = window.localStorage.getItem(STORAGE_LANG) || "en";
 if (!["en", "zh", "ko"].includes(currentLanguage)) {
@@ -526,6 +529,7 @@ if (!["en", "zh", "ko"].includes(currentLanguage)) {
 let typingTimers = [];
 let projectsLeadTypingTimers = [];
 let photographyLeadTypingTimers = [];
+let activePhotoCategory = null;
 
 const getActiveViewName = () => {
   const activeSpaView = document.querySelector(".spa-view.is-active");
@@ -536,7 +540,7 @@ const getActiveViewName = () => {
     return "projects";
   }
   if (photographyTypedLead && !typedTitle) {
-    return "photography";
+    return "photos";
   }
   return "home";
 };
@@ -719,9 +723,11 @@ const applyLanguage = (lang, animateHero = true) => {
   });
   const navAbout = document.querySelector("[data-nav='about']");
   const navProjects = document.querySelector("[data-nav='projects']");
+  const navPhotos = document.querySelector("[data-nav='photos']");
   const navEmail = document.querySelector("[data-nav='email']");
   if (navAbout) navAbout.textContent = t.nav[0];
   if (navProjects) navProjects.textContent = t.nav[1];
+  if (navPhotos) navPhotos.textContent = t.nav[2];
   if (emailOpenTrigger) {
     emailOpenTrigger.textContent = t.emailLabel;
   }
@@ -797,9 +803,6 @@ const applyLanguage = (lang, animateHero = true) => {
   setText("#about .about-education h3", t.about.school);
   setText("#about .education-date", t.about.date);
 
-  setText("#photography h2", t.photography.heading);
-  const photoIntro = document.querySelector("#photography .section-intro > p");
-  if (photoIntro) photoIntro.textContent = t.photography.intro;
   if (photographyTypedLead) {
     photographyTypedLead.dataset.text = t.photography.intro;
   }
@@ -819,14 +822,7 @@ const applyLanguage = (lang, animateHero = true) => {
   if (bookLink) bookLink.textContent = t.photography.ctaBook;
   const instaLink = document.querySelector(".photo-cta .photo-cta-link.secondary");
   if (instaLink) instaLink.textContent = t.photography.ctaInsta;
-
-  if (photoModalImage) {
-    photoModalImage.alt = t.photography.modalAlt;
-  }
-  const closeBtn = document.querySelector(".photo-modal-close");
-  if (closeBtn) closeBtn.setAttribute("aria-label", t.photography.modalCloseAria);
-  if (photoPrevButton) photoPrevButton.setAttribute("aria-label", t.photography.modalPrevAria);
-  if (photoNextButton) photoNextButton.setAttribute("aria-label", t.photography.modalNextAria);
+  if (photoBackLink) photoBackLink.textContent = t.photography.back;
 
   setActiveLanguageOption();
   window.dispatchEvent(new CustomEvent("portfolio-language-change", { detail: { language: currentLanguage } }));
@@ -857,12 +853,16 @@ const applyLanguage = (lang, animateHero = true) => {
     }
   }
   if (photographyTypedLead) {
-    if (activeView === "photography") {
+    if (activeView === "photos") {
       startPhotographyLeadTyping();
     } else {
       clearPhotographyLeadTyping();
       photographyTypedLead.textContent = photographyTypedLead.dataset.text || "";
     }
+  }
+
+  if (activePhotoCategory) {
+    renderPhotoCategory(activePhotoCategory);
   }
 };
 
@@ -893,11 +893,17 @@ window.addEventListener("spa-view-change", (event) => {
     projectsTypedLead.textContent = projectsTypedLead.dataset.text || "";
   }
 
-  if (view === "photography") {
+  if (view === "photos") {
     startPhotographyLeadTyping();
   } else if (photographyTypedLead) {
     clearPhotographyLeadTyping();
     photographyTypedLead.textContent = photographyTypedLead.dataset.text || "";
+  }
+
+  if (view !== "photo-category") {
+    updatePhotoProgress(0);
+  } else {
+    updatePhotoProgress();
   }
 });
 
@@ -1032,101 +1038,37 @@ const observer = new IntersectionObserver(
 reveals.forEach((element) => observer.observe(element));
 
 const PHOTO_CATEGORIES = {
-  film: { folder: "film" },
-  graduation: { folder: "graduation" },
-  gig: { folder: "gig" },
-  shenanigans: { folder: "shenanigans" },
+  film: { folder: "film", tone: "film" },
+  graduation: { folder: "graduation", tone: "graduation" },
+  gig: { folder: "gig", tone: "gig" },
+  shenanigans: { folder: "shenanigans", tone: "shenanigans" },
 };
 
-let activePhotos = [];
-let activeIndex = 0;
-let slideshowTimer = null;
-let lockedScrollY = 0;
-
+const PHOTO_CATEGORY_STORAGE = "portfolio_photo_category";
 const imageCache = new Map();
 const extensions = ["jpg", "jpeg", "png", "webp"];
+
+const readStoredPhotoCategory = () => {
+  try {
+    const stored = window.localStorage.getItem(PHOTO_CATEGORY_STORAGE);
+    return stored && PHOTO_CATEGORIES[stored] ? stored : null;
+  } catch (error) {
+    return null;
+  }
+};
+
+const writeStoredPhotoCategory = (categoryKey) => {
+  try {
+    window.localStorage.setItem(PHOTO_CATEGORY_STORAGE, categoryKey);
+  } catch (error) {
+    // Ignore storage write failures.
+  }
+};
 
 const setActivePhotoCard = (categoryKey) => {
   photoCards.forEach((card) => {
     card.classList.toggle("is-active", card.dataset.photoCategory === categoryKey);
   });
-};
-
-const lockScroll = () => {
-  lockedScrollY = window.scrollY || document.documentElement.scrollTop || 0;
-  document.body.style.position = "fixed";
-  document.body.style.width = "100%";
-  document.body.style.top = `-${lockedScrollY}px`;
-};
-
-const unlockScroll = () => {
-  document.body.style.position = "";
-  document.body.style.width = "";
-  document.body.style.top = "";
-  window.scrollTo(0, lockedScrollY);
-};
-
-const setModalImage = (index) => {
-  if (!photoModalImage || !activePhotos.length) {
-    return;
-  }
-  activeIndex = (index + activePhotos.length) % activePhotos.length;
-  photoModalImage.classList.remove("is-visible");
-  window.setTimeout(() => {
-    photoModalImage.src = activePhotos[activeIndex];
-    photoModalImage.onload = () => {
-      photoModalImage.classList.add("is-visible");
-    };
-  }, 110);
-  if (photoModalCounter) {
-    photoModalCounter.textContent = `${activeIndex + 1} / ${activePhotos.length}`;
-  }
-};
-
-const stopSlideshow = () => {
-  if (slideshowTimer) {
-    window.clearInterval(slideshowTimer);
-    slideshowTimer = null;
-  }
-};
-
-const startSlideshow = () => {
-  stopSlideshow();
-  if (activePhotos.length < 2) {
-    return;
-  }
-  slideshowTimer = window.setInterval(() => {
-    setModalImage(activeIndex + 1);
-  }, 1250);
-};
-
-const closeGallery = () => {
-  if (!photoModal) {
-    return;
-  }
-  stopSlideshow();
-  photoModal.classList.remove("is-open");
-  photoModal.setAttribute("aria-hidden", "true");
-  setActivePhotoCard(null);
-  unlockScroll();
-};
-
-const openGallery = (categoryKey) => {
-  if (!photoModal || !photoModalImage) {
-    return;
-  }
-  const photos = imageCache.get(categoryKey) || [];
-  if (!photos.length) {
-    return;
-  }
-  activePhotos = photos;
-  activeIndex = 0;
-  setActivePhotoCard(categoryKey);
-  lockScroll();
-  photoModal.classList.add("is-open");
-  photoModal.setAttribute("aria-hidden", "false");
-  setModalImage(0);
-  startSlideshow();
 };
 
 const probeSequentialPhotos = async (folder) => {
@@ -1192,6 +1134,90 @@ const loadCategoryPhotos = async (categoryKey) => {
   return photoList;
 };
 
+const updatePhotoProgress = (forceProgress) => {
+  if (!photoProgressFill || !photoProgressLabel || !photoProgressMeta) {
+    return;
+  }
+
+  if (!activePhotoCategory || window.getSpaView?.() !== "photo-category") {
+    photoProgressFill.style.transform = "scaleX(0)";
+    photoProgressLabel.textContent = "0%";
+    photoProgressMeta.textContent = "0";
+    return;
+  }
+
+  const t = translations[currentLanguage].photography;
+  const galleryItems = Array.from(document.querySelectorAll(".photo-shot"));
+  const total = galleryItems.length;
+  if (!total) {
+    photoProgressFill.style.transform = "scaleX(0)";
+    photoProgressLabel.textContent = `0% ${t.progress}`;
+    photoProgressMeta.textContent = `0 ${t.frames}`;
+    return;
+  }
+
+  const scrollable = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+  const progress =
+    typeof forceProgress === "number"
+      ? Math.max(0, Math.min(1, forceProgress))
+      : Math.max(0, Math.min(1, (window.scrollY || 0) / scrollable));
+  const visibleIndex = Math.max(
+    0,
+    galleryItems.findIndex((item) => {
+      const rect = item.getBoundingClientRect();
+      return rect.top <= window.innerHeight * 0.42 && rect.bottom >= window.innerHeight * 0.24;
+    })
+  );
+
+  photoProgressFill.style.transform = `scaleX(${progress})`;
+  photoProgressLabel.textContent = `${Math.round(progress * 100)}% ${t.progress}`;
+  photoProgressMeta.textContent = `${visibleIndex + 1} / ${total} ${t.frames}`;
+};
+
+const renderPhotoCategory = async (categoryKey) => {
+  const categoryMeta = PHOTO_CATEGORIES[categoryKey];
+  const t = translations[currentLanguage].photography;
+  const photos = await loadCategoryPhotos(categoryKey);
+
+  activePhotoCategory = categoryKey;
+  writeStoredPhotoCategory(categoryKey);
+  setActivePhotoCard(categoryKey);
+
+  const categoryIndex = Object.keys(PHOTO_CATEGORIES).indexOf(categoryKey);
+  const fallbackCard = t.cards[categoryIndex] || t.cards[0];
+
+  if (photoCategoryKicker) photoCategoryKicker.textContent = t.setKicker;
+  if (photoCategoryTitle) photoCategoryTitle.textContent = fallbackCard.title;
+  if (photoCategoryDescription) photoCategoryDescription.textContent = fallbackCard.desc;
+  if (photoBackLink) photoBackLink.textContent = t.back;
+  if (photoCategoryPage) {
+    photoCategoryPage.dataset.photoTone = categoryMeta ? categoryMeta.tone : "";
+  }
+
+  if (photoCategoryGallery) {
+    if (!photos.length) {
+      photoCategoryGallery.innerHTML = '<p class="photo-gallery-empty">Photos are loading or unavailable right now.</p>';
+    } else {
+      photoCategoryGallery.innerHTML = photos
+        .map((path, index) => {
+          const priority = index < 3 ? "eager" : "lazy";
+          const cardClass = index % 5 === 0 ? "photo-shot photo-shot-feature" : "photo-shot";
+          return `
+            <figure class="${cardClass} reveal" data-shot-index="${index + 1}">
+              <span class="photo-shot-index">${String(index + 1).padStart(2, "0")}</span>
+              <img src="${path}" alt="${fallbackCard.title} frame ${index + 1}" loading="${priority}" />
+            </figure>
+          `;
+        })
+        .join("");
+
+      photoCategoryGallery.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
+    }
+  }
+
+  updatePhotoProgress(0);
+};
+
 photoCards.forEach((card) => {
   const category = card.dataset.photoCategory;
   const previewImage = card.querySelector(".photo-card-preview img");
@@ -1206,46 +1232,26 @@ photoCards.forEach((card) => {
   });
 
   card.addEventListener("click", async () => {
-    await loadCategoryPhotos(category);
-    openGallery(category);
+    if (window.setSpaView) {
+      activePhotoCategory = category;
+      writeStoredPhotoCategory(category);
+      window.setSpaView("photo-category");
+    } else {
+      await renderPhotoCategory(category);
+    }
   });
 });
+window.addEventListener("scroll", () => {
+  updatePhotoProgress();
+}, { passive: true });
 
-if (photoPrevButton) {
-  photoPrevButton.addEventListener("click", () => {
-    if (!activePhotos.length) {
-      return;
-    }
-    setModalImage(activeIndex - 1);
-    startSlideshow();
-  });
-}
-
-if (photoNextButton) {
-  photoNextButton.addEventListener("click", () => {
-    if (!activePhotos.length) {
-      return;
-    }
-    setModalImage(activeIndex + 1);
-    startSlideshow();
-  });
-}
-
-photoCloseButtons.forEach((button) => {
-  button.addEventListener("click", closeGallery);
-});
-
-window.addEventListener("keydown", (event) => {
-  if (!photoModal || !photoModal.classList.contains("is-open")) {
-    return;
-  }
-  if (event.key === "Escape") {
-    closeGallery();
-  } else if (event.key === "ArrowLeft") {
-    setModalImage(activeIndex - 1);
-    startSlideshow();
-  } else if (event.key === "ArrowRight") {
-    setModalImage(activeIndex + 1);
-    startSlideshow();
+window.addEventListener("spa-view-change", async (event) => {
+  const view = event.detail && event.detail.view ? event.detail.view : getActiveViewName();
+  if (view === "photo-category") {
+    await renderPhotoCategory(activePhotoCategory || readStoredPhotoCategory() || "film");
   }
 });
+
+if (getActiveViewName() === "photo-category") {
+  renderPhotoCategory(readStoredPhotoCategory() || "film");
+}
