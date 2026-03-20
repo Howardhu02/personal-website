@@ -13,7 +13,7 @@
 
   if (!gl) {
     root.style.background =
-      "radial-gradient(circle at center, rgba(47, 107, 255, 0.12), rgba(255,255,255,0.72) 54%, rgba(255,255,255,0) 78%)";
+      "radial-gradient(circle at center, rgba(47, 107, 255, 0.08), rgba(255,255,255,0.72) 54%, rgba(255,255,255,0) 78%)";
     return;
   }
 
@@ -70,24 +70,24 @@
       vec2 coords = gl_FragCoord.xy / uResolution.xy;
       coords = coords * 2.0 - 1.0;
       coords.x *= uResolution.x / max(uResolution.y, 1.0);
-      coords = rotate2D(coords, -0.56);
+      coords = rotate2D(coords, -0.32);
 
-      float speed = 0.32;
-      float innerLines = 22.0;
-      float outerLines = 30.0;
-      float warpIntensity = 0.92;
-      float edgeFadeWidth = 0.12;
-      float brightness = 0.16;
-      float colorCycleSpeed = 0.4;
+      float speed = 0.18;
+      float innerLines = 19.0;
+      float outerLines = 24.0;
+      float warpIntensity = 0.74;
+      float edgeFadeWidth = 0.22;
+      float brightness = 0.11;
+      float colorCycleSpeed = 0.18;
 
       float halfT = uTime * speed * 0.5;
       float fullT = uTime * speed;
 
       vec2 mouse = uMouse * 2.0 - 1.0;
       mouse.x *= uResolution.x / max(uResolution.y, 1.0);
-      mouse = rotate2D(mouse, -0.56);
+      mouse = rotate2D(mouse, -0.32);
       float mDist = length(coords - mouse);
-      float mouseWarp = 0.55 * exp(-mDist * mDist * 3.5);
+      float mouseWarp = 0.22 * exp(-mDist * mDist * 4.2);
 
       float warpAx = coords.x + displaceA(coords.y, halfT) * warpIntensity + mouseWarp;
       float warpAy = coords.y - displaceA(coords.x * cos(fullT) * 1.235, halfT) * warpIntensity;
@@ -119,16 +119,16 @@
       float pattern = vMask * lines;
       float cycleT = fullT * colorCycleSpeed;
 
-      vec3 color1 = vec3(0.15, 0.42, 1.0);
-      vec3 color2 = vec3(0.76, 0.82, 1.0);
-      vec3 color3 = vec3(1.0, 1.0, 1.0);
+      vec3 color1 = vec3(0.10, 0.13, 0.18);
+      vec3 color2 = vec3(0.23, 0.42, 0.95);
+      vec3 color3 = vec3(0.96, 0.98, 1.0);
 
       float rChannel = (pattern + lines * ridge) * (cos(blended.y + cycleT * 0.234) * 0.5 + 1.0);
       float gChannel = (pattern + vMask * ridge) * (sin(blended.x + cycleT * 1.745) * 0.5 + 1.0);
       float bChannel = (pattern + lines * ridge) * (cos(blended.x + cycleT * 0.534) * 0.5 + 1.0);
 
       vec3 col = (rChannel * color1 + gChannel * color2 + bChannel * color3) * brightness;
-      float alpha = clamp(length(col), 0.0, 1.0) * 0.9;
+      float alpha = clamp(length(col), 0.0, 1.0) * 0.72;
 
       gl_FragColor = vec4(col, alpha);
     }

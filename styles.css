@@ -477,31 +477,31 @@ h1.is-typing::after {
 }
 
 .projects-top {
-  margin-bottom: 1.3rem;
-  display: grid;
-  justify-items: center;
-  gap: 0.65rem;
-  text-align: center;
+  margin-bottom: 1.4rem;
 }
 
-.projects-top-visual {
+.projects-top-banner {
   position: relative;
-  width: min(520px, 100%);
-  min-height: 196px;
+  min-height: 300px;
+  border-radius: 32px;
+  border: 1px solid rgba(215, 221, 238, 0.88);
+  overflow: hidden;
   display: grid;
-  place-items: center;
+  align-items: end;
+  padding: 2rem;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.1) 38%, transparent 60%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(246, 247, 251, 0.92));
+  box-shadow: 0 18px 42px rgba(7, 7, 7, 0.05);
 }
 
 .projects-linewaves {
   position: absolute;
   inset: 0;
-  border-radius: 28px;
   overflow: hidden;
   background:
-    radial-gradient(circle at center, rgba(47, 107, 255, 0.08), rgba(255, 255, 255, 0.18) 48%, rgba(255, 255, 255, 0) 72%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(247, 247, 250, 0.68));
-  border: 1px solid rgba(215, 221, 238, 0.85);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85);
+    radial-gradient(circle at 50% 25%, rgba(47, 107, 255, 0.1), rgba(255, 255, 255, 0.08) 40%, transparent 70%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.48), rgba(245, 247, 252, 0.68));
 }
 
 .projects-linewaves canvas {
@@ -510,23 +510,42 @@ h1.is-typing::after {
   display: block;
 }
 
-.projects-top-avatar {
+.projects-top-copy {
   position: relative;
   z-index: 1;
-  width: 112px;
-  height: 112px;
+  max-width: 48ch;
+}
+
+.projects-top-kicker {
+  margin: 0 0 0.55rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #6f7483;
+}
+
+.projects-top-avatar {
+  position: absolute;
+  right: 2rem;
+  top: 1.6rem;
+  z-index: 1;
+  width: 132px;
+  height: 132px;
   border-radius: 20px;
   border: 1px solid var(--line);
   background: linear-gradient(180deg, #ffffff 0%, #f7f7fa 100%);
   image-rendering: pixelated;
+  box-shadow: 0 18px 36px rgba(7, 7, 7, 0.08);
 }
 
 .projects-typed-lead {
   margin: 0;
-  max-width: 62ch;
-  color: #3f4452;
-  line-height: 1.7;
-  font-size: 1.02rem;
+  max-width: 44ch;
+  color: #383e4b;
+  line-height: 1.75;
+  font-size: 1.04rem;
+  text-align: left;
 }
 
 .projects-typed-lead.is-typing::after {
@@ -1413,8 +1432,20 @@ h1.is-typing::after {
     gap: 1rem;
   }
 
-  .projects-top-visual {
-    min-height: 168px;
+  .projects-top-banner {
+    min-height: 260px;
+    padding: 1.25rem;
+  }
+
+  .projects-top-avatar {
+    width: 104px;
+    height: 104px;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .projects-top-copy {
+    max-width: 100%;
   }
 
   .photo-progress-panel {

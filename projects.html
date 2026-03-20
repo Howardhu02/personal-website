@@ -76,10 +76,16 @@
       <section id="view-projects" class="spa-view">
         <section id="projects" class="container section project-section" data-tone="jarvis">
           <div class="projects-top">
-            <img class="projects-top-avatar" src="/public/avatars/howard_laptop.png" alt="Howard coding pixel avatar" width="112" height="112" />
-            <p id="projects-typed-lead" class="projects-typed-lead is-typing" data-text="Here are some of the fun stuff and side quests I’ve built or am currently building.">
-              Here are some of the fun stuff and side quests I’ve built or am currently building.
-            </p>
+            <div class="projects-top-banner">
+              <div id="projects-linewaves" class="projects-linewaves" aria-hidden="true"></div>
+              <img class="projects-top-avatar" src="/public/avatars/howard_laptop.png" alt="Howard coding pixel avatar" width="112" height="112" />
+              <div class="projects-top-copy">
+                <p class="projects-top-kicker">Systems / Interfaces / Automation</p>
+                <p id="projects-typed-lead" class="projects-typed-lead is-typing" data-text="Here are some of the fun stuff and side quests I’ve built or am currently building.">
+                  Here are some of the fun stuff and side quests I’ve built or am currently building.
+                </p>
+              </div>
+            </div>
           </div>
 
           <div class="project-grid">
@@ -244,6 +250,7 @@
     <script src="/script.js?v=20260320-1"></script>
     <script src="/about.js?v=20260314-4"></script>
     <script src="/spa.js?v=20260320-1"></script>
+    <script src="/linewaves.js?v=20260320-1"></script>
     <script type="module" src="/avatar.js?v=20260310-1"></script>
     <script type="module" src="/avatar-controller.js?v=20260310-1"></script>
     <script type="module" src="/email-panel.js?v=20260314-1"></script>
