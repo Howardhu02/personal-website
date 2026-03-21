@@ -3,6 +3,7 @@
   if (!root) {
     return;
   }
+  const interactionLayer = root.parentElement || root;
 
   const canvas = document.createElement("canvas");
   root.appendChild(canvas);
@@ -87,7 +88,7 @@
       mouse.x *= uResolution.x / max(uResolution.y, 1.0);
       mouse = rotate2D(mouse, -0.32);
       float mDist = length(coords - mouse);
-      float mouseWarp = 0.22 * exp(-mDist * mDist * 4.2);
+      float mouseWarp = 0.48 * exp(-mDist * mDist * 3.4);
 
       float warpAx = coords.x + displaceA(coords.y, halfT) * warpIntensity + mouseWarp;
       float warpAy = coords.y - displaceA(coords.x * cos(fullT) * 1.235, halfT) * warpIntensity;
@@ -188,7 +189,7 @@
   let visible = false;
 
   const resize = () => {
-    const rect = root.getBoundingClientRect();
+    const rect = interactionLayer.getBoundingClientRect();
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
     canvas.width = Math.max(1, Math.floor(rect.width * dpr));
     canvas.height = Math.max(1, Math.floor(rect.height * dpr));
@@ -216,10 +217,22 @@
     gl.drawArrays(gl.TRIANGLES, 0, 6);
   };
 
+  const setPointerTarget = (clientX, clientY) => {
+    const rect = interactionLayer.getBoundingClientRect();
+    targetX = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
+    targetY = Math.max(0, Math.min(1, (clientY - rect.top) / rect.height));
+  };
+
   const handleMove = (event) => {
-    const rect = root.getBoundingClientRect();
-    targetX = Math.max(0, Math.min(1, (event.clientX - rect.left) / rect.width));
-    targetY = Math.max(0, Math.min(1, (event.clientY - rect.top) / rect.height));
+    setPointerTarget(event.clientX, event.clientY);
+  };
+
+  const handleTouchMove = (event) => {
+    const touch = event.touches && event.touches[0];
+    if (!touch) {
+      return;
+    }
+    setPointerTarget(touch.clientX, touch.clientY);
   };
 
   const handleLeave = () => {
@@ -235,15 +248,19 @@
 
   resize();
   observer.observe(root);
-  root.addEventListener("pointermove", handleMove);
-  root.addEventListener("pointerleave", handleLeave);
+  interactionLayer.addEventListener("pointermove", handleMove);
+  interactionLayer.addEventListener("pointerleave", handleLeave);
+  interactionLayer.addEventListener("touchmove", handleTouchMove, { passive: true });
+  interactionLayer.addEventListener("touchend", handleLeave, { passive: true });
   window.addEventListener("resize", resize);
   rafId = window.requestAnimationFrame(render);
 
   window.addEventListener("beforeunload", () => {
     observer.disconnect();
-    root.removeEventListener("pointermove", handleMove);
-    root.removeEventListener("pointerleave", handleLeave);
+    interactionLayer.removeEventListener("pointermove", handleMove);
+    interactionLayer.removeEventListener("pointerleave", handleLeave);
+    interactionLayer.removeEventListener("touchmove", handleTouchMove);
+    interactionLayer.removeEventListener("touchend", handleLeave);
     window.removeEventListener("resize", resize);
     window.cancelAnimationFrame(rafId);
   });

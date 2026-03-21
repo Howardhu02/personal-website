@@ -487,7 +487,7 @@ h1.is-typing::after {
   border: 1px solid rgba(215, 221, 238, 0.88);
   overflow: hidden;
   display: grid;
-  align-items: end;
+  align-items: stretch;
   padding: 2rem;
   background:
     radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.1) 38%, transparent 60%),
@@ -499,6 +499,7 @@ h1.is-typing::after {
   position: absolute;
   inset: 0;
   overflow: hidden;
+  pointer-events: none;
   background:
     radial-gradient(circle at 50% 25%, rgba(47, 107, 255, 0.1), rgba(255, 255, 255, 0.08) 40%, transparent 70%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.48), rgba(245, 247, 252, 0.68));
@@ -514,6 +515,9 @@ h1.is-typing::after {
   position: relative;
   z-index: 1;
   max-width: 48ch;
+  align-self: end;
+  justify-self: end;
+  text-align: right;
 }
 
 .projects-top-kicker {
@@ -527,7 +531,7 @@ h1.is-typing::after {
 
 .projects-top-avatar {
   position: absolute;
-  right: 2rem;
+  left: 2rem;
   top: 1.6rem;
   z-index: 1;
   width: 132px;
@@ -545,7 +549,7 @@ h1.is-typing::after {
   color: #383e4b;
   line-height: 1.75;
   font-size: 1.04rem;
-  text-align: left;
+  text-align: right;
 }
 
 .projects-typed-lead.is-typing::after {
@@ -1441,11 +1445,17 @@ h1.is-typing::after {
     width: 104px;
     height: 104px;
     top: 1rem;
-    right: 1rem;
+    left: 1rem;
   }
 
   .projects-top-copy {
     max-width: 100%;
+    justify-self: stretch;
+    text-align: left;
+  }
+
+  .projects-typed-lead {
+    text-align: left;
   }
 
   .photo-progress-panel {
