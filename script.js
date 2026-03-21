@@ -153,8 +153,6 @@ const translations = {
       ],
       setKicker: "Photo Set",
       back: "Back to photos",
-      progress: "through set",
-      frames: "frames",
       ctaBook: "Book a session with me",
       ctaInsta: "@howiesflicks",
     },
@@ -315,8 +313,6 @@ const translations = {
       ],
       setKicker: "照片系列",
       back: "返回照片",
-      progress: "浏览进度",
-      frames: "张",
       ctaBook: "预约拍摄",
       ctaInsta: "@howiesflicks",
     },
@@ -478,8 +474,6 @@ const translations = {
       ],
       setKicker: "사진 세트",
       back: "사진으로 돌아가기",
-      progress: "세트 진행률",
-      frames: "컷",
       ctaBook: "세션 예약하기",
       ctaInsta: "@howiesflicks",
     },
@@ -511,9 +505,6 @@ const photoCategoryKicker = document.getElementById("photo-category-kicker");
 const photoCategoryTitle = document.getElementById("photo-category-title");
 const photoCategoryDescription = document.getElementById("photo-category-description");
 const photoCategoryGallery = document.getElementById("photo-category-gallery");
-const photoProgressLabel = document.getElementById("photo-progress-label");
-const photoProgressFill = document.getElementById("photo-progress-fill");
-const photoProgressMeta = document.getElementById("photo-progress-meta");
 const photoBackLink = document.querySelector(".photo-back-link");
 
 const timelineSection = document.getElementById("work");
@@ -902,12 +893,6 @@ window.addEventListener("spa-view-change", (event) => {
     clearPhotographyLeadTyping();
     photographyTypedLead.textContent = photographyTypedLead.dataset.text || "";
   }
-
-  if (view !== "photo-category") {
-    updatePhotoProgress(0);
-  } else {
-    updatePhotoProgress();
-  }
 });
 
 const setTimelineOpen = (targetItem) => {
@@ -1137,46 +1122,6 @@ const loadCategoryPhotos = async (categoryKey) => {
   return photoList;
 };
 
-const updatePhotoProgress = (forceProgress) => {
-  if (!photoProgressFill || !photoProgressLabel || !photoProgressMeta) {
-    return;
-  }
-
-  if (!activePhotoCategory || window.getSpaView?.() !== "photo-category") {
-    photoProgressFill.style.transform = "scaleX(0)";
-    photoProgressLabel.textContent = "0%";
-    photoProgressMeta.textContent = "0";
-    return;
-  }
-
-  const t = translations[currentLanguage].photography;
-  const galleryItems = Array.from(document.querySelectorAll(".photo-shot"));
-  const total = galleryItems.length;
-  if (!total) {
-    photoProgressFill.style.transform = "scaleX(0)";
-    photoProgressLabel.textContent = `0% ${t.progress}`;
-    photoProgressMeta.textContent = `0 ${t.frames}`;
-    return;
-  }
-
-  const scrollable = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
-  const progress =
-    typeof forceProgress === "number"
-      ? Math.max(0, Math.min(1, forceProgress))
-      : Math.max(0, Math.min(1, (window.scrollY || 0) / scrollable));
-  const visibleIndex = Math.max(
-    0,
-    galleryItems.findIndex((item) => {
-      const rect = item.getBoundingClientRect();
-      return rect.top <= window.innerHeight * 0.42 && rect.bottom >= window.innerHeight * 0.24;
-    })
-  );
-
-  photoProgressFill.style.transform = `scaleX(${progress})`;
-  photoProgressLabel.textContent = `${Math.round(progress * 100)}% ${t.progress}`;
-  photoProgressMeta.textContent = `${visibleIndex + 1} / ${total} ${t.frames}`;
-};
-
 const renderPhotoCategory = async (categoryKey) => {
   const categoryMeta = PHOTO_CATEGORIES[categoryKey];
   const t = translations[currentLanguage].photography;
@@ -1218,7 +1163,6 @@ const renderPhotoCategory = async (categoryKey) => {
     }
   }
 
-  updatePhotoProgress(0);
 };
 
 photoCards.forEach((card) => {
@@ -1244,10 +1188,6 @@ photoCards.forEach((card) => {
     }
   });
 });
-window.addEventListener("scroll", () => {
-  updatePhotoProgress();
-}, { passive: true });
-
 window.addEventListener("spa-view-change", async (event) => {
   const view = event.detail && event.detail.view ? event.detail.view : getActiveViewName();
   if (view === "photo-category") {

@@ -1128,10 +1128,7 @@ h1.is-typing::after {
 }
 
 .photo-category-shell {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 240px;
-  gap: 2rem;
-  align-items: start;
+  display: block;
   margin-bottom: 2.4rem;
 }
 
@@ -1179,43 +1176,6 @@ h1.is-typing::after {
   color: #444b5c;
   font-size: 1.02rem;
   line-height: 1.7;
-}
-
-.photo-progress-panel {
-  position: sticky;
-  top: 104px;
-  padding: 1rem 1rem 1.15rem;
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(10px);
-}
-
-.photo-progress-label,
-.photo-progress-meta {
-  margin: 0;
-  color: #555c6c;
-  font-weight: 700;
-}
-
-.photo-progress-track {
-  width: 100%;
-  height: 7px;
-  margin: 0.85rem 0 0.75rem;
-  border-radius: 999px;
-  background: #edf0f5;
-  overflow: hidden;
-}
-
-.photo-progress-fill {
-  display: block;
-  width: 100%;
-  height: 100%;
-  transform-origin: left center;
-  transform: scaleX(0);
-  border-radius: inherit;
-  background: linear-gradient(90deg, #111318, color-mix(in srgb, var(--accent) 56%, #ffffff 44%));
-  transition: transform 160ms ease;
 }
 
 .photo-category-gallery {
@@ -1456,10 +1416,6 @@ h1.is-typing::after {
 
   .projects-typed-lead {
     text-align: left;
-  }
-
-  .photo-progress-panel {
-    position: static;
   }
 
   .photo-category-hero {
